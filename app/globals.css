@@ -46,13 +46,13 @@
   --text-subtle: #7c818a;
   --text-inverse: #08090a;
 
-  /* Color: accent. --accent-brand is the Triton blue itself (UNCONFIRMED hex,
-     see STATUS.md); too dark for text on black (2.5:1), so it is only used for
+  /* Color: accent. --accent-brand is the Triton blue itself (confirmed: #004d71 from edmonds.edu,
+     see STATUS.md); too dark for text on black (2.2:1), so it is only used for
      tiny fills like the badge dot glow. --accent is the on-dark tint used for
-     focus rings, link hover and the badge dot (5.0:1 on --bg). */
-  --accent-brand: #1f4e9c;
-  --accent: #4c7fd6;
-  --accent-soft: rgb(76 127 214 / 0.16);
+     focus rings, link hover and the badge dot (5.5:1 on --bg). */
+  --accent-brand: #004d71; /* Edmonds College blue, sampled from edmonds.edu navbar 2026-11-15 */
+  --accent: #3a8fb9; /* same hue, lightened for 5.5:1 on --bg */
+  --accent-soft: rgb(58 143 185 / 0.16);
 
   /* Feedback (form states). Muted, not neon. */
   --danger: #eb7b7b; /* 7.1:1 on --bg */

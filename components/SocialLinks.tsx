@@ -15,7 +15,7 @@ export type SocialLinksProps = {
 export function SocialLinks({ variant = "icons", className }: SocialLinksProps) {
   if (variant === "list") {
     return (
-      <ul className={clsx("grid gap-3 sm:grid-cols-3", className)}>
+      <ul className={clsx("grid gap-3 md:grid-cols-3", className)}>
         {socials.map((s) => (
           <li key={s.label}>
             <SmartLink
@@ -27,7 +27,7 @@ export function SocialLinks({ variant = "icons", className }: SocialLinksProps) 
               </span>
               <span className="flex min-w-0 flex-col">
                 <span className="text-sm font-medium text-fg">{s.label}</span>
-                <span className="truncate text-xs text-fg-muted">{s.handle}</span>
+                <span className="text-xs break-words text-fg-muted">{s.handle}</span>
               </span>
               <Icon
                 name="arrow-up-right"

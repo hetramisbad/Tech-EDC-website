@@ -2,6 +2,17 @@
 
 Source of truth: https://claude.ai/artifact/6hptRnHmYiXmZuraDcdw7e (this file is a copy taken 15 Nov 2026; Lead keeps it in sync).
 
+## Design direction v2 (Mark, 15 Nov, supersedes conflicting lines below)
+
+**Tech@NYU is the MAIN inspiration. Linear is secondary** (only for restraint and polish). When the two disagree, follow Tech@NYU. Live Tech@NYU screenshots: `reference/live/*.jpg` (gitignored).
+
+- **Font:** BDO Grotesk (self-hosted variable woff2 at `public/fonts/BDOGrotesk-VF.woff2`, weights 300–900, SIL OFL, license file beside it) for headings and body. Mono (`@fontsource-variable/geist-mono`) for the navbar, buttons, labels, form labels and small meta, mirroring Tech@NYU's mono UI text. Inter is removed.
+- **Background:** a linear gradient plus an SVG noise filter (feTurbulence), overlaid with a grid of square cells ("cubes") like Tech@NYU: major lines every 40px (~8% white), faint minor lines every 10px (~3% white), centered origin. Fixed behind the page.
+- **Avoid vibe-coded UI** (thefountaininstitute.com/blog/signs-vibe-coded-ui): no meaningless status dots (remove the badge dot, colored tag dots, pulsing dots), no decorative glow or radial bloom, no emoji, no purple/indigo gradients, no cards nested in cards, no multicolored side tabs, no neon. One accent used with intent.
+- **No product demo.** This is a club, not a product: no fake app UI, dashboards, issue IDs, or SaaS framing anywhere.
+- **Tech@NYU look:** centered hero (big headline, one-line subhead, Join Discord), mono navbar with `[P] Programs`-style bracket shortcuts, Contact as a bordered button, square or near-square corners (2–4px), 1px borders, centered section headings for Programs, isometric black-and-white line illustrations of hardware in Community, program cards and Join Us (our own original drawings), Events as photo columns flanking centered text, Join Us as form left / illustration right.
+- Drop Linear-only devices: "Fig 0.x" labels, announcement pill, hover glow.
+
 ## Overview
 
 Tech@EDC is the technology club at Edmonds College. Its site is a feature-for-feature rebuild of [techatnyu.org](https://techatnyu.org/) with partner content removed and a visual language borrowed from [linear.app](https://linear.app/). This plan is the single source of truth for every agent working on it. Read it fully before writing code.
@@ -74,7 +85,7 @@ User accounts, an admin dashboard, an in-site events calendar (Luma handles it),
 
 | Tech@NYU feature | Tech@EDC decision | Change |
 | --- | --- | --- |
-| Navbar: Programs, Events, Team, Blog, Contact, Join Discord | Keep | Our links |
+| Navbar: Programs, Events, Team, Blog, Contact (bordered button), Join Discord; single-key shortcuts P/E/T/B shown as [P] hints | Keep | Our links; Linear-style kbd hints, plus C for Contact |
 | Interactive CRT hero video with keyboard controls | Replace | Linear-style hero |
 | Our Network (14 company logos) | Hide | Modular component, off by default |
 | Community blurb | Keep | Original copy |
@@ -104,7 +115,7 @@ Dark-first, quiet, and precise: Tech@NYU's layout wearing Linear's surface treat
 | `--border` | `rgba(255,255,255,0.08)` | 1px hairlines on every panel |
 | `--text` | `#f7f8f8` | Headings and body |
 | `--text-muted` | `#8a8f98` | Secondary copy, captions |
-| `--accent` | Triton blue (Edmonds College blue) | Sparingly: focus rings, link hover, hero badge dot |
+| `--accent` | `#004d71` Edmonds College blue (sampled from edmonds.edu); on-dark tint `#3a8fb9` | Sparingly: focus rings, link hover, hero badge dot |
 | `--radius` | `8px` controls, `12px` cards | |
 | Font | Inter (variable, `@fontsource-variable/inter`), system fallback | Tight tracking on display sizes |
 
@@ -189,4 +200,4 @@ Capture of techatnyu.org from 10 Nov 2026 at `reference/Tech-at-NYU/` (gitignore
 
 ## Still open (use placeholders)
 
-Real URLs (Discord, Luma, Instagram, LinkedIn, contact email); Luma subscriber list; team roster and photos; event photos; whether Triton blue stays; GoDaddy hosting details.
+Real URLs (Discord, Luma, Instagram, LinkedIn, contact email); Luma subscriber list; team roster and photos; event photos; whether Triton blue stays (compare with `?accent=none`); GoDaddy hosting details.

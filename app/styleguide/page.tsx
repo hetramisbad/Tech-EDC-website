@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { faq } from "@/content/faq";
 import { programs } from "@/content/programs";
-import { site } from "@/content/site";
+import { navItems, site } from "@/content/site";
 import {
   Accordion,
   ArrowLink,
@@ -14,7 +14,9 @@ import {
   Eyebrow,
   Gallery,
   JoinUs,
+  Kbd,
   Logo,
+  NAV_SHORTCUTS,
   LogoMark,
   PageHeader,
   Panel,
@@ -44,8 +46,8 @@ const colors: { token: string; tw: string; value: string; note: string }[] = [
   { token: "--text-secondary", tw: "text-fg-secondary", value: "#d0d6e0", note: "Emphasized secondary · 13.6:1" },
   { token: "--text-muted", tw: "text-fg-muted", value: "#8a8f98", note: "Intros, captions · 6.1:1" },
   { token: "--text-subtle", tw: "text-fg-subtle", value: "#7c818a", note: "Meta, fig labels · 4.9:1" },
-  { token: "--accent", tw: "text-accent", value: "#4c7fd6", note: "Focus, link hover, dot · 5.0:1" },
-  { token: "--accent-brand", tw: "bg-accent-brand", value: "#1f4e9c", note: "Triton blue (unconfirmed), tiny fills only" },
+  { token: "--accent", tw: "text-accent", value: "#3a8fb9", note: "Focus, link hover, dot · 5.5:1" },
+  { token: "--accent-brand", tw: "bg-accent-brand", value: "#004d71", note: "Edmonds College blue, tiny fills only" },
 ];
 
 const swatchBg: Record<string, string> = {
@@ -201,6 +203,28 @@ export default function StyleguidePage() {
             </div>
           </Demo>
 
+          <Demo
+            title="Kbd · navbar shortcuts"
+            note="Single-key shortcuts from anywhere on the site (parity with the reference site). Ignored while typing in a field, with Ctrl/Cmd/Alt/Shift held, or when the mobile menu or a dialog is open. Each nav link carries aria-keyshortcuts; the visual hint is aria-hidden."
+          >
+            <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+              {navItems.map((item) => (
+                <li key={item.label} className="flex items-center gap-3 rounded-control border border-border bg-surface px-3 py-2.5">
+                  <Kbd>{NAV_SHORTCUTS[item.label]}</Kbd>
+                  <span className="text-sm text-fg-secondary">{item.label}</span>
+                  <span className="ml-auto truncate text-xs text-fg-subtle">
+                    {item.href.startsWith("mailto:") ? "mailto" : item.external ? "new tab" : item.href}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-fg-muted">
+              Use <code className="font-mono text-fg-secondary">&lt;Kbd&gt;</code> for any key hint, and{" "}
+              <code className="font-mono text-fg-secondary">kbd</code> on a secondary/ghost <code className="font-mono text-fg-secondary">Button</code>.
+              The map lives in <code className="font-mono text-fg-secondary">NAV_SHORTCUTS</code> (components/Navbar.tsx), keyed by nav label.
+            </p>
+          </Demo>
+
           <Demo title="Logo" note="Power-button mark, currentColor. Also at /brand/logo.svg and app/icon.svg (favicon).">
             <div className="flex flex-wrap items-center gap-8">
               <Logo />
@@ -313,10 +337,11 @@ export default function StyleguidePage() {
               ["Section", "id, eyebrow, title, intro, actions, align, titleAs, size, divider, space, bleed"],
               ["PageHeader", "eyebrow, title (h1), intro, actions, badge"],
               ["Container", 'size: "page" | "narrow" | "prose"'],
-              ["Button", 'variant, size, href, external, icon, iconLeft (button when no href)'],
+              ["Button", 'variant, size, href, external, icon, iconLeft, kbd (button when no href)'],
               ["Card", "href, fig, title, titleAs, media, footer, padding"],
               ["Panel / Placeholder", "large framed surface / caption + aspect stand-in visual"],
               ["Badge", "dot, href"],
+              ["Kbd", "children (key); decorative, pair with aria-keyshortcuts"],
               ["ArrowLink", "href (omit inside linked cards), external, children"],
               ["Accordion", "items {q,a}[], multiple, defaultOpen, headingAs"],
               ["Gallery", "images {src,alt}[], label, placeholderCaptions, duration"],

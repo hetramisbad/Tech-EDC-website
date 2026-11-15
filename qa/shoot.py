@@ -35,8 +35,8 @@ with sync_playwright() as p:
     pg.goto(a.base.rstrip("/") + a.path, wait_until="networkidle")
     # Trigger scroll-reveal animations so full-page shots are not blank.
     pg.evaluate("""async () => {
-      for (let y = 0; y < document.body.scrollHeight; y += 400) { window.scrollTo(0, y); await new Promise(r => setTimeout(r, 40)); }
-      window.scrollTo(0, 0);
+      for (let y = 0; y < document.body.scrollHeight; y += 400) { window.scrollTo({top: y, behavior: 'instant'}); await new Promise(r => setTimeout(r, 40)); }
+      window.scrollTo({top: 0, behavior: 'instant'});
     }""")
     pg.wait_for_timeout(a.wait)
     pg.screenshot(path=out, full_page=a.full)

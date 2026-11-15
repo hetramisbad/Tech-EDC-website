@@ -2,6 +2,7 @@ import clsx from "clsx";
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { SmartLink } from "./SmartLink";
 import { Icon, type IconName } from "./Icon";
+import { Kbd } from "./Kbd";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -13,12 +14,14 @@ type Common = {
   icon?: IconName;
   /** Icon before the label. */
   iconLeft?: IconName;
+  /** Keyboard hint shown after the label (secondary/ghost only). Pair with aria-keyshortcuts. */
+  kbd?: string;
   className?: string;
   children: ReactNode;
 };
 
 export type ButtonProps =
-  | (Common & { href: string; external?: boolean; onClick?: () => void })
+  | (Common & { href: string; external?: boolean; onClick?: () => void; "aria-keyshortcuts"?: string })
   | (Common & { href?: undefined } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "className">);
 
 const base =
@@ -45,13 +48,14 @@ const sizes: Record<ButtonSize, string> = {
  * new tab, mailto plain), otherwise a <button type="button">.
  */
 export function Button(props: ButtonProps) {
-  const { variant = "primary", size = "md", icon, iconLeft, className, children } = props;
+  const { variant = "primary", size = "md", icon, iconLeft, kbd, className, children } = props;
   const cls = clsx(base, variants[variant], sizes[size], className);
   const iconSize = size === "lg" ? 16 : 14;
   const content = (
     <>
       {iconLeft && <Icon name={iconLeft} size={iconSize} />}
       <span>{children}</span>
+      {kbd && <Kbd className="group-hover/button:text-fg-muted">{kbd}</Kbd>}
       {icon && (
         <Icon
           name={icon}
@@ -64,14 +68,20 @@ export function Button(props: ButtonProps) {
 
   if (props.href !== undefined) {
     return (
-      <SmartLink href={props.href} external={props.external} onClick={props.onClick} className={cls}>
+      <SmartLink
+        href={props.href}
+        external={props.external}
+        onClick={props.onClick}
+        aria-keyshortcuts={props["aria-keyshortcuts"]}
+        className={cls}
+      >
         {content}
       </SmartLink>
     );
   }
 
-  const { variant: _v, size: _s, icon: _i, iconLeft: _il, className: _c, children: _ch, href: _h, type, ...rest } = props;
-  void _v; void _s; void _i; void _il; void _c; void _ch; void _h;
+  const { variant: _v, size: _s, icon: _i, iconLeft: _il, kbd: _k, className: _c, children: _ch, href: _h, type, ...rest } = props;
+  void _v; void _s; void _i; void _il; void _k; void _c; void _ch; void _h;
   return (
     <button type={type ?? "button"} className={cls} {...rest}>
       {content}
