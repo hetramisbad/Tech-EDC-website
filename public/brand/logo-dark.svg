@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="96" height="96" role="img" aria-label="Tech@EDC">
+  <title>Tech@EDC</title>
+  <defs>
+    <mask id="tech-edc-glyph" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+      <rect width="24" height="24" fill="#fff"/>
+      <g fill="none" stroke="#000" stroke-width="2" stroke-linecap="round">
+        <path d="M15.375 8.728A5.25 5.25 0 1 1 8.625 8.728"/>
+        <path d="M12 6.5V12.25"/>
+      </g>
+    </mask>
+  </defs>
+  <rect width="24" height="24" rx="6" fill="#08090a" mask="url(#tech-edc-glyph)"/>
+</svg>

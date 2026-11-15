@@ -1,0 +1,165 @@
+"use client";
+
+import { useId, useState, type FormEvent, type ReactNode } from "react";
+import clsx from "clsx";
+import { site } from "@/content/site";
+import { Button } from "./Button";
+import { Icon } from "./Icon";
+
+type Status = "idle" | "submitting" | "error" | "success";
+type Fields = { firstName: string; lastName: string; email: string };
+type FieldErrors = Partial<Record<keyof Fields, string>>;
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function validate(f: Fields): FieldErrors {
+  const e: FieldErrors = {};
+  if (!f.firstName.trim()) e.firstName = "Enter your first name.";
+  if (!f.lastName.trim()) e.lastName = "Enter your last name.";
+  if (!f.email.trim()) e.email = "Enter your email address.";
+  else if (!EMAIL_RE.test(f.email.trim())) e.email = "Enter a valid email address, like name@example.com.";
+  return e;
+}
+
+export type NewsletterFormProps = {
+  /** Override the endpoint (defaults to site.newsletter.endpoint; empty = stub mode). */
+  endpoint?: string;
+  className?: string;
+};
+
+/**
+ * Newsletter signup: first name, last name, email. Client-side validation,
+ * aria-live status. Empty endpoint = stub (console.info + success).
+ */
+export function NewsletterForm({ endpoint = site.newsletter.endpoint, className }: NewsletterFormProps) {
+  const id = useId();
+  const [status, setStatus] = useState<Status>("idle");
+  const [errors, setErrors] = useState<FieldErrors>({});
+  const [message, setMessage] = useState("");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const fields: Fields = {
+      firstName: String(data.get("firstName") ?? ""),
+      lastName: String(data.get("lastName") ?? ""),
+      email: String(data.get("email") ?? ""),
+    };
+    const errs = validate(fields);
+    setErrors(errs);
+    const firstBad = (Object.keys(errs) as (keyof Fields)[])[0];
+    if (firstBad) {
+      setStatus("error");
+      setMessage("Please fix the highlighted fields.");
+      form.querySelector<HTMLInputElement>(`[name="${firstBad}"]`)?.focus();
+      return;
+    }
+
+    setStatus("submitting");
+    setMessage("");
+    try {
+      if (!endpoint) {
+        console.info("[newsletter] stub mode, no endpoint configured. Payload:", fields);
+        await new Promise((r) => setTimeout(r, 700));
+      } else {
+        const res = await fetch(endpoint, { method: "POST", body: data });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      }
+      setStatus("success");
+      setMessage(`Thanks, ${fields.firstName.trim()}. You're on the list.`);
+      form.reset();
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong on our end. Please try again in a moment.");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className={clsx("flex items-start gap-3 rounded-card border border-border bg-surface p-5", className)}
+      >
+        <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full border border-border-strong text-success">
+          <Icon name="check" size={14} />
+        </span>
+        <div className="flex flex-col gap-1">
+          <p className="text-sm font-medium text-fg">{message}</p>
+          <p className="text-sm text-fg-muted">We send a short note when programs open and before big events.</p>
+          <button
+            type="button"
+            onClick={() => setStatus("idle")}
+            className="link mt-1 self-start text-sm"
+          >
+            Add another email
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const inputCls = (err?: string) =>
+    clsx(
+      "h-11 w-full rounded-control border bg-surface px-3.5 text-[0.9375rem] text-fg placeholder:text-fg-subtle",
+      "transition-[border-color,box-shadow] duration-150 hover:border-border-hover",
+      "focus-visible:border-accent focus-visible:shadow-[0_0_0_3px_var(--accent-soft)] focus-visible:outline-none",
+      "disabled:opacity-60",
+      err ? "border-danger" : "border-border-strong",
+    );
+
+  const field = (name: keyof Fields, label: string, type: string, autoComplete: string, trailing?: ReactNode) => {
+    const err = errors[name];
+    const inputId = `${id}-${name}`;
+    const errId = `${inputId}-err`;
+    return (
+      <div className="flex flex-col gap-1.5">
+        <label htmlFor={inputId} className="text-xs font-medium text-fg-muted">
+          {label}
+        </label>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <input
+            id={inputId}
+            name={name}
+            type={type}
+            autoComplete={autoComplete}
+            required
+            aria-invalid={err ? true : undefined}
+            aria-describedby={err ? errId : undefined}
+            disabled={status === "submitting"}
+            onChange={() => err && setErrors((p) => ({ ...p, [name]: undefined }))}
+            className={inputCls(err)}
+          />
+          {trailing}
+        </div>
+        {err && (
+          <p id={errId} className="text-xs text-danger">
+            {err}
+          </p>
+        )}
+      </div>
+    );
+  };
+
+  return (
+    <form noValidate onSubmit={onSubmit} className={clsx("flex flex-col gap-4", className)} aria-describedby={`${id}-status`}>
+      <div className="grid gap-4 sm:grid-cols-2">
+        {field("firstName", "First name", "text", "given-name")}
+        {field("lastName", "Last name", "text", "family-name")}
+      </div>
+      {field(
+        "email",
+        "Email address",
+        "email",
+        "email",
+        <Button type="submit" size="md" className="h-11 shrink-0" disabled={status === "submitting"}>
+          {status === "submitting" ? "Subscribing…" : "Subscribe"}
+        </Button>,
+      )}
+      <p id={`${id}-status`} aria-live="polite" className={clsx("text-sm empty:-mt-4", status === "error" ? "text-danger" : "text-fg-muted")}>
+        {message}
+      </p>
+    </form>
+  );
+}
