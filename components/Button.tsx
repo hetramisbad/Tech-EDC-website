@@ -3,6 +3,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { SmartLink } from "./SmartLink";
 import { Icon, type IconName } from "./Icon";
 import { Kbd } from "./Kbd";
+import { PixelCover } from "./PixelCover";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 export type ButtonSize = "sm" | "md" | "lg";
@@ -16,7 +17,8 @@ type Common = {
   iconLeft?: IconName;
   /** Keyboard hint shown as `[K]` before the label. Pair with aria-keyshortcuts. */
   kbd?: string;
-  /** Primary only: invert to an outline on hover (Tech@NYU hero CTA). Default true.
+  /** Primary only: invert to an outline on hover (Tech@NYU hero CTA), revealed with a
+   *  pixel dissolve sweeping from the bottom-left (PixelCover). Default true.
    *  The navbar's Join Discord passes false, as on Tech@NYU. */
   invertOnHover?: boolean;
   className?: string;
@@ -52,15 +54,17 @@ const sizes: Record<ButtonSize, string> = {
  */
 export function Button(props: ButtonProps) {
   const { variant = "primary", size = "md", icon, iconLeft, kbd, invertOnHover = true, className, children } = props;
+  const pixel = variant === "primary" && invertOnHover;
   const cls = clsx(
     base,
-    variants[variant],
-    variant === "primary" && invertOnHover && "hover:bg-transparent hover:text-fg",
+    // Pixel hover: the element itself wears the hover face (outline, light label);
+    // PixelCover lays the solid resting face over it and dissolves it on hover.
+    pixel ? "border border-fg bg-transparent text-fg" : variants[variant],
     sizes[size],
     className,
   );
   const iconSize = size === "lg" ? 16 : 14;
-  const content = (
+  const inner = (
     <>
       {kbd && <Kbd>{kbd}</Kbd>}
       {iconLeft && <Icon name={iconLeft} size={iconSize} />}
@@ -73,6 +77,14 @@ export function Button(props: ButtonProps) {
         />
       )}
     </>
+  );
+  const content = pixel ? (
+    <>
+      {inner}
+      <PixelCover className="gap-2 bg-fg text-fg-inverse">{inner}</PixelCover>
+    </>
+  ) : (
+    inner
   );
 
   if (props.href !== undefined) {

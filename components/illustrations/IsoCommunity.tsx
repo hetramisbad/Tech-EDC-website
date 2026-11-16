@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { Box, Cylinder, Face, IsoSvg, line, makeFx, path, pts, thin, tone, type IllustrationProps, type V3 } from "./iso";
+import { Box, Cylinder, Face, IsoSvg, line, makeFx, path, pts, thin, tone, type IllustrationProps } from "./iso";
 
 type Fx = ReturnType<typeof makeFx>;
 
@@ -18,30 +18,14 @@ function Stool({ x, y, fx }: { x: number; y: number; fx: Fx }) {
   );
 }
 
-/** Circle in a vertical plane y = const (a speaker cone), as a projected polygon. */
-function circleOnLeftFace(cx: number, y: number, cz: number, r: number) {
-  const out: V3[] = [];
-  for (let i = 0; i < 32; i++) {
-    const a = (i / 32) * Math.PI * 2;
-    out.push([cx + Math.cos(a) * r, y, cz + Math.sin(a) * r]);
-  }
-  return pts(out);
-}
-
 /**
- * A shared workbench with stools around it, a whiteboard on a stand behind,
- * and the club's projects on the table: a small robot kit, an open
- * sketchbook, a speaker. For the Community section.
+ * A shared workbench with stools around it and the club's projects on the
+ * table: a small robot kit, an open sketchbook, sticky notes. For the
+ * Community section.
  */
 export function IsoCommunity({ className, title }: IllustrationProps) {
   const fx = makeFx(useId());
 
-  // Whiteboard: board whose front face is the plane y = wy, on two posts.
-  const wy = -72;
-  const wx0 = 24;
-  const wx1 = 186;
-  const wz0 = 88;
-  const wz1 = 142;
   const ink = { ...thin, stroke: tone.ink };
 
   const legs: [number, number][] = [
@@ -52,29 +36,7 @@ export function IsoCommunity({ className, title }: IllustrationProps) {
   ];
 
   return (
-    <IsoSvg viewBox="-130 -172 392 366" className={className} title={title} fx={fx}>
-      {/* Whiteboard on a stand, behind everything */}
-      {[wx0 + 6, wx1 - 10].map((x) => (
-        <g key={x}>
-          <Box at={[x - 2, wy - 22, 0]} size={[8, 40, 4]} rightFx={fx.hatch} />
-          <Box at={[x, wy - 4, 4]} size={[4, 4, wz1 - 4]} />
-        </g>
-      ))}
-      <Box at={[wx0, wy - 4, wz0]} size={[wx1 - wx0, 4, wz1 - wz0]} left={tone.light} rightFx={fx.hatch} />
-      <Box at={[wx0 + 10, wy, wz0 - 4]} size={[wx1 - wx0 - 20, 6, 4]} />
-      {/* a small plan sketched on the board: three boxes, two arrows, a wave, a cross */}
-      {[wx0 + 14, wx0 + 62, wx0 + 110].map((x) => (
-        <polygon key={x} points={pts([[x, wy, 134], [x + 28, wy, 134], [x + 28, wy, 118], [x, wy, 118]])} {...ink} />
-      ))}
-      {[wx0 + 42, wx0 + 90].map((x) => (
-        <g key={x}>
-          <path d={path([["M", [x, wy, 126]], ["L", [x + 20, wy, 126]]])} {...ink} />
-          <path d={path([["M", [x + 15, wy, 129]], ["L", [x + 20, wy, 126]], ["L", [x + 15, wy, 123]]])} {...ink} />
-        </g>
-      ))}
-      <path d={path([["M", [wx0 + 16, wy, 104]], ["C", [wx0 + 32, wy, 112], [wx0 + 48, wy, 94], [wx0 + 70, wy, 102]], ["C", [wx0 + 86, wy, 108], [wx0 + 98, wy, 96], [wx0 + 112, wy, 100]]])} {...ink} />
-      <path d={path([["M", [wx0 + 124, wy, 108]], ["L", [wx0 + 140, wy, 96]], ["M", [wx0 + 124, wy, 96]], ["L", [wx0 + 140, wy, 108]]])} {...ink} />
-
+    <IsoSvg viewBox="-104 -81 320 263" className={className} title={title} fx={fx}>
       {/* Stools behind and at the left end (before the table) */}
       <Stool x={62} y={-30} fx={fx} />
       <Stool x={176} y={-30} fx={fx} />
@@ -110,12 +72,6 @@ export function IsoCommunity({ className, title }: IllustrationProps) {
       <polygon points={pts([[152, 68, TZ + 3], [158, 68, TZ + 3], [158, 74, TZ + 3], [152, 74, TZ + 3]])} {...ink} />
       <Box at={[112, 94, TZ]} size={[52, 4, 4]} top={tone.light} rightFx={fx.hatch} />
       <polygon points={pts([[164, 94, TZ], [172, 96, TZ + 2], [164, 98, TZ + 4]])} fill="currentColor" />
-
-      {/* Speaker */}
-      <Box at={[200, 22, TZ]} size={[30, 32, 46]} rightFx={fx.hatch} />
-      <polygon points={circleOnLeftFace(215, 54, TZ + 17, 10)} {...thin} fill={tone.right} />
-      <polygon points={circleOnLeftFace(215, 54, TZ + 17, 5)} {...thin} />
-      <polygon points={circleOnLeftFace(215, 54, TZ + 36, 4.5)} {...thin} fill={tone.right} />
 
       {/* Sticky notes */}
       <Box at={[196, 74, TZ]} size={[16, 16, 1]} top={tone.light} />
