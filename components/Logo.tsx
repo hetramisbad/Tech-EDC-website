@@ -18,6 +18,9 @@ export function PowerAt({ className, title }: { className?: string; title?: stri
     <svg
       // viewBox cropped to the ink (ring + stroke) so margins around it are exact.
       viewBox="2.15 1.15 19.7 20.7"
+      // The viewBox hugs the ink exactly; let antialiased stroke edges paint past it
+      // instead of being clipped flat (the ring's bottom was getting cut off).
+      overflow="visible"
       className={clsx("inline-block h-[var(--at-h,0.78em)] w-auto shrink-0", className)}
       role={title ? "img" : undefined}
       aria-label={title}
