@@ -12,8 +12,9 @@ const DURATION = 220;
  * Pixel-dissolve hover for solid buttons (the navbar's dissolve, but directional).
  * Renders the button's "resting" face (solid white, dark label) as a layer over the
  * button, whose own styling is the hover face (outline, light label). On hover or
- * focus the cover is removed block by block in a diagonal sweep from the bottom-left
- * corner to the top-right; on leave it fills back in the same way.
+ * focus the cover is removed block by block, spreading out from the point where the
+ * cursor entered (the center for keyboard focus); on leave it fills back in,
+ * starting from the point where the cursor left.
  *
  * With reduced motion the cover shows / hides at once; without JS the button just
  * stays solid. Place it as the last child of a `relative` element.
@@ -31,24 +32,23 @@ export function PixelCover({ children, className }: { children: ReactNode; class
     let raf = 0;
     let last = 0;
     let cells: { x: number; y: number; t: number }[] = [];
-    let size = "";
 
-    const layout = () => {
+    /** Block grid with thresholds by distance from (ox, oy), in cover px.
+     *  `fromOrigin`: blocks near the origin go first as `level` rises (reveal);
+     *  otherwise they go first as `level` falls (refill starts there). */
+    const layout = (ox: number, oy: number, fromOrigin: boolean) => {
       const w = cover.offsetWidth;
       const h = cover.offsetHeight;
-      const key = `${w}x${h}`;
-      if (key === size) return;
-      size = key;
       const cols = Math.max(1, Math.ceil(w / CELL));
       const rows = Math.max(1, Math.ceil(h / CELL));
+      const far = Math.max(Math.hypot(ox, oy), Math.hypot(w - ox, oy), Math.hypot(ox, h - oy), Math.hypot(w - ox, h - oy)) || 1;
       cells = [];
       for (let y = 0; y < rows; y++) {
         for (let x = 0; x < cols; x++) {
-          // Diagonal from bottom-left (0) to top-right (1), with a little jitter so
-          // the front reads as pixels rather than a straight wipe.
-          const along = (x / Math.max(1, cols - 1) + (rows - 1 - y) / Math.max(1, rows - 1)) / 2;
-          const t = Math.min(0.999, Math.max(0.001, along * 0.82 + Math.random() * 0.18));
-          cells.push({ x: x * CELL, y: y * CELL, t });
+          const d = Math.hypot(x * CELL + CELL / 2 - ox, y * CELL + CELL / 2 - oy) / far;
+          // Mostly by distance, with a little jitter so the front reads as pixels.
+          const near = Math.min(0.999, Math.max(0.001, d * 0.82 + Math.random() * 0.18));
+          cells.push({ x: x * CELL, y: y * CELL, t: fromOrigin ? near : 1 - near });
         }
       }
     };
@@ -83,7 +83,11 @@ export function PixelCover({ children, className }: { children: ReactNode; class
       } else raf = requestAnimationFrame(step);
     };
 
-    const go = (t: number) => {
+    /** Start revealing (t = 1) or refilling (t = 0) from a point in cover px. */
+    const go = (t: number, ox: number, oy: number) => {
+      // Re-seed the pattern from the new point only when settled; reversing
+      // mid-dissolve keeps the current pattern so nothing jumps.
+      if (level === 0 || level === 1) layout(ox, oy, t === 1);
       target = t;
       if (reduce.matches) {
         cancelAnimationFrame(raf);
@@ -92,27 +96,35 @@ export function PixelCover({ children, className }: { children: ReactNode; class
         paint();
         return;
       }
-      layout();
       if (!raf && level !== target) {
         last = 0;
         raf = requestAnimationFrame(step);
       }
     };
 
-    const on = () => go(1);
-    const off = () => {
-      if (!host.matches(":hover") && !host.matches(":focus-visible")) go(0);
+    const at = (e: PointerEvent) => {
+      const r = cover.getBoundingClientRect();
+      return [Math.min(r.width, Math.max(0, e.clientX - r.left)), Math.min(r.height, Math.max(0, e.clientY - r.top))] as const;
     };
-    host.addEventListener("pointerenter", on);
-    host.addEventListener("pointerleave", off);
-    host.addEventListener("focus", on);
-    host.addEventListener("blur", off);
+    const center = () => [cover.offsetWidth / 2, cover.offsetHeight / 2] as const;
+    const onEnter = (e: PointerEvent) => go(1, ...at(e));
+    const onLeave = (e: PointerEvent) => {
+      if (!host.matches(":focus-visible")) go(0, ...at(e));
+    };
+    const onFocus = () => go(1, ...center());
+    const onBlur = () => {
+      if (!host.matches(":hover")) go(0, ...center());
+    };
+    host.addEventListener("pointerenter", onEnter);
+    host.addEventListener("pointerleave", onLeave);
+    host.addEventListener("focus", onFocus);
+    host.addEventListener("blur", onBlur);
     return () => {
       cancelAnimationFrame(raf);
-      host.removeEventListener("pointerenter", on);
-      host.removeEventListener("pointerleave", off);
-      host.removeEventListener("focus", on);
-      host.removeEventListener("blur", off);
+      host.removeEventListener("pointerenter", onEnter);
+      host.removeEventListener("pointerleave", onLeave);
+      host.removeEventListener("focus", onFocus);
+      host.removeEventListener("blur", onBlur);
     };
   }, []);
 

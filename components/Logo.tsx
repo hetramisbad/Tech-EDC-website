@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { site } from "@/content/site";
 
 export type LogoProps = {
-  /** Wordmark font size in px. Default 24. */
+  /** Wordmark font size in px. Default 22. */
   size?: number;
   className?: string;
 };
@@ -48,20 +48,21 @@ export function LogoMark({ size = 24, title, className }: { size?: number; title
 }
 
 /**
- * Tech@EDC wordmark, Tech@NYU style: lowercase "tech@edc" in bold BDO Grotesk,
+ * Tech@EDC wordmark, Tech@NYU style: lowercase "tech@edc" in Satoshi Bold
+ * (--font-wordmark; falls back to bold BDO Grotesk until Satoshi is available),
  * with the "@" drawn as a power-button glyph. The whole mark is one accessible
  * name ("Tech@EDC"); the parts are hidden from assistive tech.
  */
-export function Logo({ size = 24, className }: LogoProps) {
+export function Logo({ size = 22, className }: LogoProps) {
   return (
     <span
       role="img"
       aria-label={site.name}
-      className={clsx("inline-flex items-baseline font-sans font-bold leading-none tracking-[-0.03em] text-fg", className)}
-      style={{ fontSize: size }}
+      className={clsx("inline-flex items-baseline font-bold leading-none tracking-[-0.03em] text-fg", className)}
+      style={{ fontSize: size, fontFamily: "var(--font-wordmark)" }}
     >
       <span aria-hidden="true">tech</span>
-      <PowerAt className="mr-[0.065em] ml-[0.05em]" />
+      <PowerAt className="mr-[0.051em] ml-[0.064em]" />
       <span aria-hidden="true">edc</span>
     </span>
   );

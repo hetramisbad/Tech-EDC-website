@@ -34,6 +34,19 @@
   font-display: swap;
 }
 
+/* Wordmark font: Satoshi Bold (Indian Type Foundry, via fontshare.com; free for
+   personal and commercial use, self-hosting allowed). Until the file is added it is
+   used only where installed locally. To self-host: put Satoshi-Bold.woff2 (from the
+   Fontshare download, Fonts/WEB/fonts/) in public/fonts/ and append
+   `, url("/fonts/Satoshi-Bold.woff2") format("woff2")` to src below. */
+@font-face {
+  font-family: "Satoshi";
+  src: local("Satoshi Bold"), local("Satoshi-Bold");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ---------------------------------------------------------------------------
    1. Raw tokens (CSS variables). Components read these directly when a
       Tailwind utility is awkward (backgrounds, illustration fills).
@@ -207,6 +220,8 @@ html[data-accent="none"],
   --font-sans:
     "BDO Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
+  /* Wordmark (top-left tech@edc): Satoshi Bold, falling back to BDO Grotesk. */
+  --font-wordmark: "Satoshi", var(--font-sans);
   --font-mono:
     "Geist Mono Variable", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
