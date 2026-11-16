@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { site } from "@/content/site";
 import { teams } from "@/content/team";
 import { JoinUs, PageHeader } from "@/components";
-import { teamCopy as copy } from "@/lib/copy";
+import { teamCopy as copy } from "@/content/pages";
 import { TeamRoster } from "./TeamRoster";
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function TeamPage() {
   return (
     <>
-      <PageHeader eyebrow={copy.eyebrow} title={copy.title} intro={copy.intro} />
+      <PageHeader title={copy.title} intro={copy.intro} align="center" />
       <TeamRoster teams={teams} />
       <JoinUs />
     </>

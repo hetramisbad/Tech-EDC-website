@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { site } from "@/content/site";
 import { Button, Container, Eyebrow, JoinUs, Prose, formatDate } from "@/components";
 import { getAllPosts, getPost, postHref } from "@/lib/blog";
-import { blogCopy as copy } from "@/lib/copy";
+import { blogCopy as copy } from "@/content/pages";
 import { BackLink } from "@/lib/page-ui";
 import { PostBody } from "./mdx";
 
@@ -45,17 +45,19 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <Container size="prose">
           <header className="flex flex-col gap-5 border-b border-border pb-10 sm:pb-12">
             <BackLink href="/blog/">{copy.post.back}</BackLink>
-            <Eyebrow as="div" className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-fg-subtle sm:mt-10">
+            <h1 className="mt-6 text-h1 text-fg sm:mt-10">{post.title}</h1>
+            <p className="text-lg text-fg-muted">{post.summary}</p>
+            <Eyebrow as="div" className="flex flex-wrap items-center gap-x-3 gap-y-1 text-fg-subtle">
               <time dateTime={post.date}>{formatDate(post.date)}</time>
               {[post.author, copy.post.readTime(post.readingMinutes)].filter(Boolean).map((item) => (
                 <span key={item} className="inline-flex items-center gap-3">
-                  <span aria-hidden className="size-1 rounded-full bg-border-strong" />
+                  <span aria-hidden className="opacity-60">
+                    /
+                  </span>
                   {item}
                 </span>
               ))}
             </Eyebrow>
-            <h1 className="text-h1 text-fg">{post.title}</h1>
-            <p className="text-lg text-fg-muted">{post.summary}</p>
           </header>
 
           <Prose className="pt-10 sm:pt-12">

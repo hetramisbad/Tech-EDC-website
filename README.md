@@ -21,12 +21,15 @@ Club officers can update the site without touching layout code:
 | What | File |
 | --- | --- |
 | Links (Discord, Luma, socials), email, announcement badge | `content/site.ts` |
+| Home page copy | `content/home.ts` |
+| Sub-page labels and copy | `content/pages.ts` |
 | Programs | `content/programs.ts` |
 | FAQ | `content/faq.ts` |
 | Team roster | `content/team.ts` (+ photos in `public/team/`) |
 | Buildathon page | `content/buildathon.ts` |
 | Blog posts | `content/blog/*.mdx` |
 | Event photos | `public/events/` |
+| Hero photo | `content/home.ts` (`hero.photo`) + file in `public/events/` |
 | Partner logos (off at launch) | `content/network.ts`, then uncomment the PARTNERS block in `app/page.tsx` |
 
 The project plan is in `docs/MASTER_PLAN.md`.

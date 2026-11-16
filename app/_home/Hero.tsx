@@ -1,42 +1,43 @@
-import { Badge, Button, Container } from "@/components";
+import { Button, Container, LogoMark } from "@/components";
 import { site } from "@/content/site";
 import { homeCopy } from "@/content/home";
-import { HeroBoard } from "./HeroBoard";
 
-/** Linear-style hero: pill, display headline, muted subhead, CTAs, framed panel. */
+/**
+ * Centered hero (Tech@NYU layout): display headline, one-line subhead, a framed
+ * event photo, then a single Join Discord button. Sits on the page grid.
+ * No video and no fake UI: the frame shows a real club photo once
+ * `homeCopy.hero.photo` is set, and an empty, captioned frame until then.
+ */
 export function Hero() {
-  const { announcement, tagline, links } = site;
   const copy = homeCopy.hero;
   return (
-    <section aria-labelledby="hero-title" className="relative overflow-hidden pt-16 pb-16 sm:pt-24 sm:pb-20 lg:pt-32 lg:pb-28">
-      {/* Soft top light behind the headline; neutral, no accent fill. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-160 bg-[radial-gradient(60%_50%_at_30%_0%,rgb(255_255_255/0.06),transparent_70%)]"
-      />
+    <section aria-labelledby="hero-title" className="pt-16 pb-20 sm:pt-20 sm:pb-24 lg:pt-20 lg:pb-28">
       <Container>
-        <div className="flex max-w-narrow flex-col items-start gap-6">
-          {announcement.text && (
-            <Badge dot href={announcement.href}>
-              {announcement.text}
-            </Badge>
-          )}
+        <div className="flex flex-col items-center text-center">
           <h1 id="hero-title" className="text-display text-fg">
-            {tagline}
+            {site.tagline}
           </h1>
-          <p className="max-w-prose text-lg text-fg-muted">{copy.subhead}</p>
-          <div className="mt-2 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center">
-            <Button href={links.discord} size="lg" iconLeft="discord" className="w-full sm:w-auto">
+          <p className="mt-5 max-w-[860px] text-lg text-fg-muted sm:text-[1.25rem] sm:leading-[1.5]">{copy.subhead}</p>
+
+          <figure className="mt-12 w-full max-w-[440px] sm:mt-14">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-panel border border-border-strong bg-surface-raised grain">
+              {copy.photo ? (
+                // eslint-disable-next-line @next/next/no-img-element -- static export, images are unoptimized anyway
+                <img src={copy.photo.src} alt={copy.photo.alt} className="size-full object-cover" />
+              ) : (
+                <div className="flex size-full flex-col items-center justify-center gap-4 text-fg-subtle">
+                  <LogoMark size={44} />
+                  <span className="label-mono">{copy.photoPlaceholder}</span>
+                </div>
+              )}
+            </div>
+          </figure>
+
+          <div className="mt-12 w-full sm:mt-14 sm:w-auto">
+            <Button href={site.links.discord} size="lg" iconLeft="discord" className="w-full sm:w-auto">
               {copy.primaryCta}
             </Button>
-            <Button href="#programs" size="lg" variant="secondary" icon="arrow-right" className="w-full sm:w-auto">
-              {copy.secondaryCta}
-            </Button>
           </div>
-        </div>
-
-        <div className="mt-14 sm:mt-16 lg:mt-20">
-          <HeroBoard />
         </div>
       </Container>
     </section>

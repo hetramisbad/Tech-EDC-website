@@ -5,7 +5,6 @@ export type Program = {
   slug: string;
   name: string;
   href: string;
-  fig: string; // editorial label shown on the card, Linear-style
   summary: string; // two sentences, used on the home card
   overview: string[];
   outcomes: { title: string; body: string }[];
@@ -21,7 +20,6 @@ export const programs: Program[] = [
     slug: "build-cohort",
     name: "Build Cohort",
     href: "/programs/build-cohort/",
-    fig: "Fig 0.1",
     summary:
       "A quarter-long cohort where small teams design, build, and ship one real project with a mentor. Open to first-time builders and experienced students alike.",
     overview: [
@@ -70,7 +68,6 @@ export const programs: Program[] = [
     slug: "mentorship",
     name: "Mentorship",
     href: "/programs/mentorship/",
-    fig: "Fig 0.2",
     summary:
       "One-on-one pairing with someone working in tech for guidance on classes, projects, and careers. A low-pressure way to get honest answers about what comes next.",
     overview: [
@@ -108,7 +105,6 @@ export const programs: Program[] = [
     slug: "buildathon",
     name: "Buildathon",
     href: "/buildathon/",
-    fig: "Fig 0.3",
     summary:
       "A 48-hour weekend hackathon where teams turn an idea into a working prototype. Food, workshops, and demos included; no experience required.",
     overview: [],

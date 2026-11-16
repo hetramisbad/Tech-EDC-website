@@ -1,7 +1,7 @@
 import type { Team } from "@/content/team";
 import { site } from "@/content/site";
 import { Badge, Button, Container, EmptyState, Section, TeamCard } from "@/components";
-import { teamCopy as copy } from "@/lib/copy";
+import { teamCopy as copy } from "@/content/pages";
 
 function teamId(name: string) {
   return `team-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
@@ -20,9 +20,8 @@ export function TeamRoster({ teams }: { teams: Team[] }) {
 
   if (ordered.length === 0) {
     return (
-      <Section ariaLabel={copy.empty.title} space="none">
+      <Section ariaLabel={copy.empty.title} space="none" size="narrow">
         <EmptyState
-          eyebrow={copy.empty.eyebrow}
           title={copy.empty.title}
           className="py-20 sm:py-24"
           actions={
@@ -47,7 +46,7 @@ export function TeamRoster({ teams }: { teams: Team[] }) {
       {ordered.length > 1 && (
         <Container>
           <nav aria-label={copy.jumpLabel}>
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap justify-center gap-2">
               {ordered.map((t) => (
                 <li key={t.name}>
                   <Badge href={`#${teamId(t.name)}`}>{t.name}</Badge>

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { site } from "@/content/site";
 import { Button, EmptyState, JoinUs, PageHeader, PostCard, Reveal, Section } from "@/components";
 import { getFeaturedPosts, getPostList, postHref } from "@/lib/blog";
-import { blogCopy as copy } from "@/lib/copy";
+import { blogCopy as copy } from "@/content/pages";
 
 export const metadata: Metadata = {
   title: copy.title,
@@ -24,7 +24,7 @@ export default function BlogIndexPage() {
 
   return (
     <>
-      <PageHeader eyebrow={copy.eyebrow} title={copy.title} intro={copy.intro} />
+      <PageHeader title={copy.title} intro={copy.intro} />
 
       {posts.length === 0 ? (
         <Section ariaLabel={copy.all.title} space="none">
@@ -54,7 +54,6 @@ export default function BlogIndexPage() {
           {showArchive && (
             <Section
               id="all-posts"
-              eyebrow={copy.all.eyebrow}
               title={copy.all.title}
               actions={<p className="label-mono text-fg-subtle">{copy.all.count(posts.length)}</p>}
             >

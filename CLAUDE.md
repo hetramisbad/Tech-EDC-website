@@ -15,9 +15,9 @@ Read `docs/MASTER_PLAN.md` fully before writing code. It is the contract. Also r
 | Owner | Files |
 | --- | --- |
 | Lead | `next.config.ts`, `package.json`, `content/**`, `docs/**`, `CLAUDE.md`, git |
-| Design | `app/globals.css`, `app/layout.tsx`, `app/icon.svg`, `components/**`, `public/brand/**`, `app/styleguide/**` |
+| Design | `app/globals.css`, `app/layout.tsx`, `app/icon.svg`, `components/**`, `public/brand/**`, `public/fonts/**`, `app/styleguide/**` |
 | Home | `app/page.tsx`, `app/_home/**` |
-| Pages | `app/team/**`, `app/blog/**`, `app/programs/**`, `app/buildathon/**`, `app/not-found.tsx`, `lib/**` |
+| Pages | `app/team/**`, `app/blog/**`, `app/programs/**`, `app/buildathon/**`, `app/not-found.tsx`, `lib/**` (copy lives in `content/pages.ts`) |
 | QA | `qa/**` |
 
 Everyone may append to `STATUS.md` (own section only). Need a change in a file you do not own, or a new npm package? Write it under "Requests" in `STATUS.md` and continue with a conservative workaround.
