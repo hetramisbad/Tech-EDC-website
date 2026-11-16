@@ -1,74 +1,130 @@
 import { useId } from "react";
-import { Box, Cable, Cylinder, Face, IsoSvg, IsoText, line, makeFx, path, pts, thin, tone, type IllustrationProps, type V3 } from "./iso";
+import { Box, Cylinder, Face, IsoSvg, line, makeFx, path, pts, thin, tone, type IllustrationProps, type V3 } from "./iso";
 
-/** Open laptop wired to a breadboard and a small router. For the Community section. */
+type Fx = ReturnType<typeof makeFx>;
+
+const TW = 240; // table length (x)
+const TD = 110; // table depth (y)
+const TZ = 66; // table top height
+
+/** Round stool: foot, post, seat. */
+function Stool({ x, y, fx }: { x: number; y: number; fx: Fx }) {
+  return (
+    <g>
+      <Cylinder x={x} y={y} z0={0} z1={3} r={11} />
+      <Cylinder x={x} y={y} z0={3} z1={40} r={2.6} />
+      <Cylinder x={x} y={y} z0={40} z1={47} r={16} sideFx={fx.hatch} />
+    </g>
+  );
+}
+
+/** Circle in a vertical plane y = const (a speaker cone), as a projected polygon. */
+function circleOnLeftFace(cx: number, y: number, cz: number, r: number) {
+  const out: V3[] = [];
+  for (let i = 0; i < 32; i++) {
+    const a = (i / 32) * Math.PI * 2;
+    out.push([cx + Math.cos(a) * r, y, cz + Math.sin(a) * r]);
+  }
+  return pts(out);
+}
+
+/**
+ * A shared workbench with stools around it, a whiteboard on a stand behind,
+ * and the club's projects on the table: a small robot kit, an open
+ * sketchbook, a speaker. For the Community section.
+ */
 export function IsoCommunity({ className, title }: IllustrationProps) {
   const fx = makeFx(useId());
 
-  // Keyboard: 10 x 4 keys on the laptop deck (z = 7).
-  const keys: V3[][] = [];
-  for (let r = 0; r < 4; r++) {
-    for (let c = 0; c < 10; c++) {
-      const x = 14 + c * 12.4;
-      const y = 12 + r * 11;
-      keys.push([[x, y, 7], [x + 10, y, 7], [x + 10, y + 8.6, 7], [x, y + 8.6, 7]]);
-    }
-  }
+  // Whiteboard: board whose front face is the plane y = wy, on two posts.
+  const wy = -72;
+  const wx0 = 24;
+  const wx1 = 186;
+  const wz0 = 88;
+  const wz1 = 142;
+  const ink = { ...thin, stroke: tone.ink };
 
-  // Breadboard hole rows (dashed lines read as rows of holes).
-  const holeRows = [40, 46, 52, 58, 72, 78, 84, 90];
+  const legs: [number, number][] = [
+    [6, 6],
+    [TW - 12, 6],
+    [6, TD - 12],
+    [TW - 12, TD - 12],
+  ];
 
   return (
-    <IsoSvg viewBox="-112 -136 470 368" className={className} title={title} fx={fx}>
-      {/* Router, behind everything */}
-      <Cylinder x={258} y={-52} z0={18} z1={78} r={2.4} />
-      <Cylinder x={318} y={-52} z0={18} z1={70} r={2.4} />
-      <Box at={[250, -60, 0]} size={[80, 44, 18]} rightFx={fx.hatch} />
-      {[0, 1, 2, 3].map((i) => (
-        <polyline key={i} points={pts([[262 + i * 9, -16, 5], [262 + i * 9, -16, 12]])} {...thin} />
+    <IsoSvg viewBox="-130 -172 392 366" className={className} title={title} fx={fx}>
+      {/* Whiteboard on a stand, behind everything */}
+      {[wx0 + 6, wx1 - 10].map((x) => (
+        <g key={x}>
+          <Box at={[x - 2, wy - 22, 0]} size={[8, 40, 4]} rightFx={fx.hatch} />
+          <Box at={[x, wy - 4, 4]} size={[4, 4, wz1 - 4]} />
+        </g>
       ))}
-      <Face p={[[300, -16, 4], [318, -16, 4], [318, -16, 11], [300, -16, 11]]} fill={tone.right} />
-
-      {/* Laptop screen (front face is the y = 0 plane) */}
-      <Box at={[0, -6, 7]} size={[150, 6, 104]} rightFx={fx.hatch} />
-      <Face p={[[9, 0, 16], [141, 0, 16], [141, 0, 103], [9, 0, 103]]} fill={tone.right} />
-      <IsoText at={[18, 0, 92]} plane="left" size={8}>$ git clone club</IsoText>
-      <IsoText at={[18, 0, 80]} plane="left" size={8}>$ npm run dev</IsoText>
-      <IsoText at={[18, 0, 68]} plane="left" size={8} fill="var(--text-subtle)">ready on :3000</IsoText>
-      <IsoText at={[18, 0, 56]} plane="left" size={8}>$</IsoText>
-      <Face p={[[27, 0, 59.5], [32, 0, 59.5], [32, 0, 52.5], [27, 0, 52.5]]} fill="currentColor" stroke={false} />
-
-      {/* Laptop base */}
-      <Box at={[0, 0, 0]} size={[150, 104, 7]} leftFx={fx.dither} rightFx={fx.hatch} />
-      {keys.map((k, i) => (
-        <polygon key={i} points={pts(k)} {...thin} fill={tone.left} />
+      <Box at={[wx0, wy - 4, wz0]} size={[wx1 - wx0, 4, wz1 - wz0]} left={tone.light} rightFx={fx.hatch} />
+      <Box at={[wx0 + 10, wy, wz0 - 4]} size={[wx1 - wx0 - 20, 6, 4]} />
+      {/* a small plan sketched on the board: three boxes, two arrows, a wave, a cross */}
+      {[wx0 + 14, wx0 + 62, wx0 + 110].map((x) => (
+        <polygon key={x} points={pts([[x, wy, 134], [x + 28, wy, 134], [x + 28, wy, 118], [x, wy, 118]])} {...ink} />
       ))}
-      <polygon points={pts([[50, 62, 7], [100, 62, 7], [100, 94, 7], [50, 94, 7]])} {...thin} />
-
-      {/* Breadboard */}
-      <Box at={[215, 30, 0]} size={[120, 70, 8]} leftFx={fx.dither} rightFx={fx.hatch} />
-      {holeRows.map((y) => (
-        <path key={y} d={path([["M", [224, y, 8]], ["L", [326, y, 8]]])} {...thin} strokeDasharray="1.4 3.2" />
+      {[wx0 + 42, wx0 + 90].map((x) => (
+        <g key={x}>
+          <path d={path([["M", [x, wy, 126]], ["L", [x + 20, wy, 126]]])} {...ink} />
+          <path d={path([["M", [x + 15, wy, 129]], ["L", [x + 20, wy, 126]], ["L", [x + 15, wy, 123]]])} {...ink} />
+        </g>
       ))}
-      <path d={path([["M", [215, 65, 8]], ["L", [335, 65, 8]]])} {...thin} />
+      <path d={path([["M", [wx0 + 16, wy, 104]], ["C", [wx0 + 32, wy, 112], [wx0 + 48, wy, 94], [wx0 + 70, wy, 102]], ["C", [wx0 + 86, wy, 108], [wx0 + 98, wy, 96], [wx0 + 112, wy, 100]]])} {...ink} />
+      <path d={path([["M", [wx0 + 124, wy, 108]], ["L", [wx0 + 140, wy, 96]], ["M", [wx0 + 124, wy, 96]], ["L", [wx0 + 140, wy, 108]]])} {...ink} />
 
-      {/* Chip straddling the channel, pins drawn on its faces */}
-      <Box at={[262, 54, 8]} size={[36, 22, 6]} top={tone.light} rightFx={fx.hatch} />
+      {/* Stools behind and at the left end (before the table) */}
+      <Stool x={62} y={-30} fx={fx} />
+      <Stool x={176} y={-30} fx={fx} />
+      <Stool x={-32} y={56} fx={fx} />
+
+      {/* Table: legs, then top */}
+      {legs.map(([x, y]) => (
+        <Box key={`${x}-${y}`} at={[x, y, 0]} size={[6, 6, TZ - 6]} rightFx={fx.hatch} />
+      ))}
+      <Box at={[0, 0, TZ - 6]} size={[TW, TD, 6]} leftFx={fx.dither} rightFx={fx.hatch} />
+
+      {/* Robot kit: treads, chassis, head, antenna */}
+      <Box at={[26, 18, TZ]} size={[52, 8, 10]} rightFx={fx.hatch} />
+      <Box at={[32, 26, TZ + 2]} size={[40, 26, 12]} leftFx={fx.dither} rightFx={fx.hatch} />
+      <Box at={[26, 52, TZ]} size={[52, 8, 10]} rightFx={fx.hatch} />
       {[0, 1, 2, 3, 4].map((i) => (
-        <path key={i} d={path([["M", [266 + i * 7, 76, 12]], ["L", [266 + i * 7, 78, 8]]])} {...line} />
+        <path key={i} d={path([["M", [30 + i * 10, 60, TZ + 2]], ["L", [30 + i * 10, 60, TZ + 8]]])} {...thin} />
       ))}
-      <path d={path([["M", [268, 59, 14]], ["L", [276, 59, 14]]])} {...line} stroke={tone.ink} />
+      <Box at={[42, 30, TZ + 14]} size={[22, 18, 14]} top={tone.light} leftFx={fx.dither} rightFx={fx.hatch} />
+      <Face p={[[46, 48, TZ + 24], [60, 48, TZ + 24], [60, 48, TZ + 19], [46, 48, TZ + 19]]} fill={tone.right} />
+      <Cylinder x={58} y={36} z0={TZ + 28} z1={TZ + 46} r={1.2} />
+      <Box at={[55.5, 33.5, TZ + 46]} size={[5, 5, 5]} top={tone.light} />
 
-      {/* Jumper wires on the board */}
-      <Cable d={path([["M", [236, 40, 8]], ["C", [236, 40, 26], [250, 58, 26], [250, 58, 8]]])} width={3.4} />
-      <Cable d={path([["M", [312, 46, 8]], ["C", [312, 46, 30], [318, 84, 30], [318, 84, 8]]])} width={3.4} />
+      {/* Open sketchbook and a pencil */}
+      <Box at={[98, 30, TZ]} size={[44, 58, 3]} top={tone.light} />
+      <Box at={[142, 30, TZ]} size={[44, 58, 3]} top={tone.light} />
+      <path d={path([["M", [142, 30, TZ + 3]], ["L", [142, 88, TZ + 3]]])} {...line} stroke={tone.ink} />
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <path key={i} d={path([["M", [104, 40 + i * 8, TZ + 3]], ["L", [136, 40 + i * 8, TZ + 3]]])} {...ink} opacity={0.55} />
+      ))}
+      <polygon points={pts([[150, 44, TZ + 3], [176, 44, TZ + 3], [176, 62, TZ + 3], [150, 62, TZ + 3]])} {...ink} />
+      <polyline points={pts([[176, 52, TZ + 3], [182, 70, TZ + 3], [168, 80, TZ + 3]])} {...ink} />
+      <polygon points={pts([[152, 68, TZ + 3], [158, 68, TZ + 3], [158, 74, TZ + 3], [152, 74, TZ + 3]])} {...ink} />
+      <Box at={[112, 94, TZ]} size={[52, 4, 4]} top={tone.light} rightFx={fx.hatch} />
+      <polygon points={pts([[164, 94, TZ], [172, 96, TZ + 2], [164, 98, TZ + 4]])} fill="currentColor" />
 
-      {/* Router -> breadboard */}
-      <Cable d={path([["M", [309, -16, 7]], ["C", [309, 4, 0], [300, 14, 22], [300, 40, 8]]])} />
+      {/* Speaker */}
+      <Box at={[200, 22, TZ]} size={[30, 32, 46]} rightFx={fx.hatch} />
+      <polygon points={circleOnLeftFace(215, 54, TZ + 17, 10)} {...thin} fill={tone.right} />
+      <polygon points={circleOnLeftFace(215, 54, TZ + 17, 5)} {...thin} />
+      <polygon points={circleOnLeftFace(215, 54, TZ + 36, 4.5)} {...thin} fill={tone.right} />
 
-      {/* Laptop -> breadboard, lying on the desk, into a plug on the board's front face */}
-      <Cable d={path([["M", [150, 56, 3]], ["C", [196, 56, 2], [176, 140, 2], [238, 132, 2]], ["L", [238, 108, 3]]])} />
-      <Box at={[231, 100, 0]} size={[14, 8, 6]} rightFx={fx.hatch} />
+      {/* Sticky notes */}
+      <Box at={[196, 74, TZ]} size={[16, 16, 1]} top={tone.light} />
+      <Box at={[214, 82, TZ]} size={[16, 16, 1]} top={tone.light} />
+
+      {/* Stools in front and at the right end */}
+      <Stool x={70} y={146} fx={fx} />
+      <Stool x={178} y={146} fx={fx} />
+      <Stool x={274} y={58} fx={fx} />
     </IsoSvg>
   );
 }

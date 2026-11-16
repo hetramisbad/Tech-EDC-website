@@ -51,8 +51,7 @@ export default function Home() {
             <h2 className="text-h2 text-fg">{community.title}</h2>
             <p className="text-base text-fg-muted sm:text-lg">{community.intro}</p>
           </div>
-          {/* Desktop only: IsoHero (also a laptop + breadboard) sits right above on narrow screens. */}
-          <div aria-hidden className="mx-auto hidden w-full max-w-110 text-fg-secondary lg:block">
+          <div aria-hidden className="mx-auto w-full max-w-80 text-fg-secondary sm:max-w-96 lg:max-w-110">
             <IsoCommunity className="w-full" />
           </div>
         </div>
