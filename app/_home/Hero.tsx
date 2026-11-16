@@ -5,7 +5,7 @@ import { homeCopy } from "@/content/home";
 /**
  * Centered hero (Tech@NYU layout): display headline, one-line subhead, the
  * hero visual, then a single Join Discord button. Sits on the page grid.
- * Visual: the `HeroLaptop` (sized like Tech@NYU's hero TV, screen gleam fades on scroll) by default; a real club photo in a
+ * Visual: the `HeroLaptop` (sized like Tech@NYU's hero TV) by default; a real club photo in a
  * frame once `homeCopy.hero.photo` is set. No video and no fake UI.
  * Sized so headline + art + button fit a 1440 x 900 first view.
  */
