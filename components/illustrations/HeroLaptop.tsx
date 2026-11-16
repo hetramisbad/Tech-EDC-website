@@ -8,16 +8,16 @@ import { DECK, DISPLAY, FRONT, HINGE, KEYS, LETTER_KEYS, LID, SCOOP, TOUCH_ID, T
  * Home hero laptop: a MacBook-style laptop seen front-on, sized like Tech@NYU's hero
  * TV. Blank keys in a real MacBook layout (F row included); the Touch ID key is the
  * Tech@EDC power-button mark. The screen shows a white gleam that fades out as the
- * page scrolls down (scroll-linked, no autoplaying animation). E, D and C are white
- * keys with their letters. Generic on purpose: no notch, no brand marks.
+ * page scrolls down (scroll-linked, no autoplaying animation). E, D and C are the
+ * only labeled keys, their letters lit by the backlight (the keys stay black). Generic on purpose: no notch, no brand marks.
  * Geometry is generated: edit scripts/gen-hero-laptop.py, not HeroLaptopShape.tsx.
  */
 export function HeroLaptop({ className }: { className?: string }) {
   const ref = useRef<SVGSVGElement>(null);
   const uid = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const glow = `laptop-glow-${uid}`;
-  const glare = `laptop-glare-${uid}`;
   const clip = `laptop-screen-${uid}`;
+  const backlight = `laptop-backlight-${uid}`;
 
   useEffect(() => {
     const el = ref.current;
@@ -57,13 +57,14 @@ export function HeroLaptop({ className }: { className?: string }) {
           <stop offset="45%" stopColor="#fff" stopOpacity="0.82" />
           <stop offset="100%" stopColor="#fff" stopOpacity="0.18" />
         </radialGradient>
-        <linearGradient id={glare} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#fff" stopOpacity="0" />
-          <stop offset="48%" stopColor="#fff" stopOpacity="0" />
-          <stop offset="52%" stopColor="#fff" stopOpacity="0.5" />
-          <stop offset="60%" stopColor="#fff" stopOpacity="0" />
-          <stop offset="100%" stopColor="#fff" stopOpacity="0" />
-        </linearGradient>
+        {/* Backlit legend: crisp letter plus a faint halo of light around it */}
+        <filter id={backlight} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.05" result="halo" />
+          <feMerge>
+            <feMergeNode in="halo" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
         <clipPath id={clip}>
           <rect {...DISPLAY} />
         </clipPath>
@@ -83,19 +84,20 @@ export function HeroLaptop({ className }: { className?: string }) {
             <polygon points={top} fill="var(--laptop-key-top)" />
           </g>
         ))}
-        {/* E, D, C called out as white keys with their letters (the club's initials, in place) */}
+        {/* E, D, C: black keys like the rest; the only labeled keys, lit by the keyboard backlight */}
         {LETTER_KEYS.map((k) => (
           <g key={k.label}>
-            <polygon points={k.base} fill="var(--laptop-key-light-edge)" stroke="var(--laptop-key-light-edge)" strokeWidth="1.2" />
-            <polygon points={k.top} fill="var(--laptop-key-light)" />
+            <polygon points={k.base} fill="var(--laptop-key)" stroke="var(--laptop-key)" strokeWidth="1.2" />
+            <polygon points={k.top} fill="var(--laptop-key-top)" />
             <text
               transform={k.transform}
               x="0.5"
-              y="0.74"
-              fontSize="0.62"
-              fontWeight="700"
+              y="0.69"
+              fontSize="0.5"
+              fontWeight="600"
               textAnchor="middle"
-              fill="var(--laptop-key)"
+              fill="var(--laptop-backlight)"
+              filter={`url(#${backlight})`}
               style={{ fontFamily: "var(--font-sans)" }}
             >
               {k.label}
@@ -119,7 +121,6 @@ export function HeroLaptop({ className }: { className?: string }) {
       {/* Screen gleam, fades with scroll via --gleam (set above) */}
       <g clipPath={`url(#${clip})`} style={{ opacity: "var(--gleam, 1)" }}>
         <rect {...DISPLAY} fill={`url(#${glow})`} />
-        <rect {...DISPLAY} fill={`url(#${glare})`} />
       </g>
     </svg>
   );

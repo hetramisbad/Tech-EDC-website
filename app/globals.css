@@ -154,8 +154,7 @@
   --laptop-key-top: #1c1c1d;
   --laptop-screen: #0b0b0c;
   --laptop-mark: #c9c9ca; /* power mark on the Touch ID key */
-  --laptop-key-light: #f2f2f2; /* highlighted E / D / C keys */
-  --laptop-key-light-edge: #b9b9ba;
+  --laptop-backlight: #f4f4f4; /* backlit legends on the E / D / C keys */
 }
 
 @media (min-width: 600px) {
