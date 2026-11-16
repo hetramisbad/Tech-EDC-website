@@ -2,13 +2,14 @@
 
 import { useEffect, useId, useRef } from "react";
 import clsx from "clsx";
-import { DECK, DISPLAY, FRONT, HINGE, KEYS, LID, NOTCH, SCOOP, TOUCH_ID, TRACKPAD, VIEWBOX } from "./HeroLaptopShape";
+import { DECK, DISPLAY, FRONT, HINGE, KEYS, LETTER_KEYS, LID, SCOOP, TOUCH_ID, TRACKPAD, VIEWBOX } from "./HeroLaptopShape";
 
 /**
  * Home hero laptop: a MacBook-style laptop seen front-on, sized like Tech@NYU's hero
  * TV. Blank keys in a real MacBook layout (F row included); the Touch ID key is the
  * Tech@EDC power-button mark. The screen shows a white gleam that fades out as the
- * page scrolls down (scroll-linked, no autoplaying animation).
+ * page scrolls down (scroll-linked, no autoplaying animation). E, D and C are white
+ * keys with their letters. Generic on purpose: no notch, no brand marks.
  * Geometry is generated: edit scripts/gen-hero-laptop.py, not HeroLaptopShape.tsx.
  */
 export function HeroLaptop({ className }: { className?: string }) {
@@ -82,6 +83,25 @@ export function HeroLaptop({ className }: { className?: string }) {
             <polygon points={top} fill="var(--laptop-key-top)" />
           </g>
         ))}
+        {/* E, D, C called out as white keys with their letters (the club's initials, in place) */}
+        {LETTER_KEYS.map((k) => (
+          <g key={k.label}>
+            <polygon points={k.base} fill="var(--laptop-key-light-edge)" stroke="var(--laptop-key-light-edge)" strokeWidth="1.2" />
+            <polygon points={k.top} fill="var(--laptop-key-light)" />
+            <text
+              transform={k.transform}
+              x="0.5"
+              y="0.74"
+              fontSize="0.62"
+              fontWeight="700"
+              textAnchor="middle"
+              fill="var(--laptop-key)"
+              style={{ fontFamily: "var(--font-sans)" }}
+            >
+              {k.label}
+            </text>
+          </g>
+        ))}
         {/* Touch ID key = the Tech@EDC power button */}
         <polygon points={TOUCH_ID.base} fill="var(--laptop-key)" stroke="var(--laptop-key)" strokeWidth="1.2" />
         <polygon points={TOUCH_ID.top} fill="var(--laptop-key-top)" />
@@ -92,7 +112,7 @@ export function HeroLaptop({ className }: { className?: string }) {
       </g>
 
       {/* Hinge + lid */}
-      <rect {...HINGE} rx="3" fill="var(--laptop-metal-shade)" stroke="var(--laptop-edge)" strokeWidth="2" />
+      <rect {...HINGE} rx="3" fill="var(--laptop-key)" stroke="var(--laptop-key)" strokeWidth="2" />
       <rect {...LID} fill="var(--laptop-metal)" stroke="var(--laptop-edge)" strokeWidth="2" />
       <rect {...DISPLAY} fill="var(--laptop-screen)" stroke="var(--laptop-edge)" strokeWidth="1.5" />
 
@@ -101,7 +121,6 @@ export function HeroLaptop({ className }: { className?: string }) {
         <rect {...DISPLAY} fill={`url(#${glow})`} />
         <rect {...DISPLAY} fill={`url(#${glare})`} />
       </g>
-      <path d={NOTCH} fill="var(--laptop-screen)" />
     </svg>
   );
 }

@@ -77,9 +77,16 @@ LIFT = 0.06  # keycap top inset (key units), gives the caps a little depth
 
 keys: list[tuple[float, float, float, float]] = []  # (x, y, w, h) in key units
 touch: tuple[float, float, float, float] | None = None
+# Letter keys called out in white, at their real positions (row, index in row):
+# E = 4th key of the tab row, D = 4th of the caps row, C = 4th of the shift row.
+LETTERS = {(2, 3): "E", (3, 3): "D", (4, 3): "C"}
+letters: list[tuple[str, tuple[float, float, float, float]]] = []
 for r, row in enumerate(ROWS):
     x = 0.0
-    for k in row:
+    for idx, k in enumerate(row):
+        if (r, idx) in LETTERS:
+            letters.append((LETTERS[(r, idx)], (x, r, float(k), 1.0))); x += float(k)
+            continue
         if k == "touchid":
             touch = (x, r, 1.0, 1.0); x += 1.0
         elif k == "arrows":
@@ -105,6 +112,19 @@ def key_polys(x, y, w, hgt):
 
 key_shapes = [key_polys(*k) for k in keys]
 touch_base, touch_top = key_polys(*touch)
+
+def letter_key(label, k):
+    x, y, w, hgt = k
+    base, top = key_polys(x, y, w, hgt)
+    g, t = GAP / 2, LIFT
+    # Affine frame of the key's top face (unit square -> projected face), for the label.
+    p0 = proj(*key_uv(x + g + t, y + g + t * 0.4))
+    p1 = proj(*key_uv(x + w - g - t, y + g + t * 0.4))
+    p3 = proj(*key_uv(x + g + t, y + hgt - g - t * 1.4))
+    m = (p1[0] - p0[0], p1[1] - p0[1], p3[0] - p0[0], p3[1] - p0[1], p0[0], p0[1])
+    return label, base, top, "matrix(" + " ".join(f"{v:.3f}" for v in m) + ")"
+
+letter_shapes = [letter_key(l, k) for l, k in letters]
 
 # Power-button mark on the Touch ID key (same geometry as components/Logo.tsx PowerAt):
 # ring of radius 8.4 around (12,12) opening at the top, plus a vertical stem; in a
@@ -153,6 +173,7 @@ notch = (
     f"Q{nx0},{DISPLAY['y0'] + NOTCH['h']} {nx0},{DISPLAY['y0'] + NOTCH['h'] - NOTCH['r']} Z"
 )
 
+letters_ts = ",\n".join(f'  {{ label: "{l}", base: "{b}", top: "{t}", transform: "{m}" }}' for l, b, t, m in letter_shapes)
 keys_ts = ",\n".join(f'  ["{b}", "{t}"]' for b, t in key_shapes)
 
 def obj(d):
@@ -171,7 +192,6 @@ export const VIEWBOX = "0 0 {VB_W} {VB_H}";
 export const LID = {obj(lid)};
 export const DISPLAY = {obj(disp)};
 export const HINGE = {obj(hinge)};
-export const NOTCH = "{notch}";
 export const DECK = "{deck}";
 export const FRONT = "{front}";
 export const SCOOP = "{scoop}";
@@ -180,6 +200,12 @@ export const TRACKPAD = "{TP}";
 /** Blank keycaps: [base polygon, top-face polygon]. */
 export const KEYS: [string, string][] = [
 {keys_ts},
+];
+
+/** Highlighted letter keys (E, D, C): label, base, top face, and an affine transform
+ *  that maps a 0..1 unit square onto the key's top face (for drawing the letter). */
+export const LETTER_KEYS: {{ label: string; base: string; top: string; transform: string }}[] = [
+{letters_ts},
 ];
 
 export const TOUCH_ID = {{ base: "{touch_base}", top: "{touch_top}", ring: "{ring_d}", stem: "{stem_d}" }};
