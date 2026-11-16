@@ -142,8 +142,12 @@ export function Navbar() {
         aria-label="Main"
         onBlur={onBlur}
         className={clsx(
-          "relative transition-[background-color,border-color] duration-200",
-          scrolled || open ? "border-b border-border bg-overlay backdrop-blur-xl" : "bg-transparent",
+          // Transparent over the hero; once scrolled it drops into a solid bar with a
+          // visible bottom rule (Tech@NYU style). The rule is a pseudo-element so the
+          // bar stays exactly var(--nav-height) tall in both states.
+          "relative transition-colors duration-300 ease-out",
+          "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border-strong after:transition-opacity after:duration-300",
+          scrolled || open ? "bg-bg after:opacity-100" : "bg-transparent after:opacity-0",
         )}
       >
         {/* Full-bleed bar with Tech@NYU's side margins: 16px on phones, 24px from md up. */}

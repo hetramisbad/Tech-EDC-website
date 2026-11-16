@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { site } from "@/content/site";
 
 export type LogoProps = {
-  /** Wordmark font size in px. Default 26 (Tech@NYU's navbar wordmark size). */
+  /** Wordmark font size in px. Default 24. */
   size?: number;
   className?: string;
 };
@@ -16,8 +16,9 @@ export type LogoProps = {
 export function PowerAt({ className, title }: { className?: string; title?: string }) {
   return (
     <svg
-      viewBox="0 0 24 24"
-      className={clsx("inline-block h-[0.86em] w-[0.86em] shrink-0 align-[-0.1em]", className)}
+      // viewBox cropped to the ink (ring + stroke) so margins around it are exact.
+      viewBox="2.15 1.15 19.7 20.7"
+      className={clsx("inline-block h-[var(--at-h,0.78em)] w-auto shrink-0", className)}
       role={title ? "img" : undefined}
       aria-label={title}
       aria-hidden={title ? undefined : true}
@@ -48,7 +49,7 @@ export function LogoMark({ size = 24, title, className }: { size?: number; title
  * with the "@" drawn as a power-button glyph. The whole mark is one accessible
  * name ("Tech@EDC"); the parts are hidden from assistive tech.
  */
-export function Logo({ size = 26, className }: LogoProps) {
+export function Logo({ size = 24, className }: LogoProps) {
   return (
     <span
       role="img"
@@ -57,7 +58,7 @@ export function Logo({ size = 26, className }: LogoProps) {
       style={{ fontSize: size }}
     >
       <span aria-hidden="true">tech</span>
-      <PowerAt className="mx-[0.04em]" />
+      <PowerAt className="mr-[0.065em] ml-[0.05em]" />
       <span aria-hidden="true">edc</span>
     </span>
   );
