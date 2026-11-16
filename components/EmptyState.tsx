@@ -25,7 +25,7 @@ export function EmptyState({
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       <h2 className="text-h3 text-fg">{title}</h2>
-      {children && <div className="max-w-[460px] text-sm text-fg-muted sm:text-[0.9375rem]">{children}</div>}
+      {children && <div className="max-w-[460px] text-sm text-fg-muted sm:text-body-sm">{children}</div>}
       {actions && <div className="mt-4 flex flex-wrap justify-center gap-3">{actions}</div>}
     </div>
   );

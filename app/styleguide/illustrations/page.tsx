@@ -5,6 +5,7 @@ import {
   IsoBuildCohort,
   IsoBuildathon,
   IsoCommunity,
+  IsoHero,
   IsoJoin,
   IsoMentorship,
   IsoNotFound,
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 const items: { name: string; C: ComponentType<IllustrationProps> }[] = [
+  { name: "IsoHero", C: IsoHero },
   { name: "IsoCommunity", C: IsoCommunity },
   { name: "IsoBuildCohort", C: IsoBuildCohort },
   { name: "IsoMentorship", C: IsoMentorship },
@@ -34,12 +36,12 @@ export default function IllustrationsPage() {
       <PageHeader
         eyebrow="Styleguide"
         title="Illustrations"
-        intro="Six original isometric drawings at 480px. Same projection, stroke weight and face tones throughout. Import from @/components."
+        intro="Seven original isometric drawings at 480px (the hero at 720px). Same projection, stroke weight and face tones throughout. Import from @/components."
       />
       <Container className="grid gap-x-12 gap-y-20 pb-24 lg:grid-cols-2">
         {items.map(({ name, C }) => (
-          <figure key={name} id={name} className="flex flex-col gap-4 border-t border-border pt-8">
-            <C className="w-[480px] max-w-full text-fg-secondary" />
+          <figure key={name} id={name} className={name === "IsoHero" ? "flex flex-col gap-4 border-t border-border pt-8 lg:col-span-2" : "flex flex-col gap-4 border-t border-border pt-8"}>
+            <C className={name === "IsoHero" ? "w-[720px] max-w-full text-fg-secondary" : "w-[480px] max-w-full text-fg-secondary"} />
             <figcaption className="font-mono text-sm text-fg-muted">&lt;{name} /&gt;</figcaption>
           </figure>
         ))}

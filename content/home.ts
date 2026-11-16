@@ -10,10 +10,9 @@ export const homeCopy = {
     primaryCta: "Join Discord",
     /**
      * Event photo shown in the hero frame, e.g. { src: "/events/kickoff.jpg", alt: "Members at the fall kickoff" }
-     * (put the file in public/events/). null = an empty frame with the caption below.
+     * (put the file in public/events/). null = the IsoHero workbench illustration.
      */
     photo: null as HomePhoto | null,
-    photoPlaceholder: "Event photos coming soon",
   },
   community: {
     title: "Community",

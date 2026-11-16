@@ -1,0 +1,2906 @@
+[
+ {
+  "group": "pages",
+  "check": "/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 2, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/build-cohort/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/build-cohort/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 6, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/build-cohort/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/build-cohort/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/build-cohort/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/build-cohort/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/mentorship/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/mentorship/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 6, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/mentorship/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/mentorship/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/mentorship/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/programs/mentorship/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/buildathon/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/buildathon/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 4, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/buildathon/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/buildathon/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/buildathon/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/buildathon/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/team/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/team/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 2, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/team/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/team/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/team/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/team/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 2, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/welcome-to-tech-at-edc/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/welcome-to-tech-at-edc/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 2, 'nav': 2, 'main': 1, 'footer': 2}"
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/welcome-to-tech-at-edc/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/welcome-to-tech-at-edc/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/welcome-to-tech-at-edc/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/blog/welcome-to-tech-at-edc/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/404.html exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/404.html landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 1, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/404.html every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/404.html decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/404.html links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/404.html no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @1440 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @1440 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @1440 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @1440 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/styleguide/ exactly one h1",
+  "ok": true,
+  "evidence": "h1 count=1"
+ },
+ {
+  "group": "a11y",
+  "check": "/styleguide/ landmarks header/nav/main/footer",
+  "ok": true,
+  "evidence": "{'header': 14, 'nav': 2, 'main': 1, 'footer': 1}"
+ },
+ {
+  "group": "a11y",
+  "check": "/styleguide/ every <img> has alt or is aria-hidden",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/styleguide/ decorative SVGs aria-hidden or labelled",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/styleguide/ links/buttons have accessible names",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "a11y",
+  "check": "/styleguide/ no positive tabindex",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "pages",
+  "check": "/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @768 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[768, 768, 768]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @390 HTTP 200",
+  "ok": true,
+  "evidence": "200"
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @390 0 console errors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @390 0 failed requests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @390 no broken images",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @390 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[390, 390, 390]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/build-cohort/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/programs/mentorship/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/buildathon/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/team/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/blog/welcome-to-tech-at-edc/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/404.html @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "pages",
+  "check": "/styleguide/ @360 no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=[360, 360, 360]; offenders=[]"
+ },
+ {
+  "group": "nav",
+  "check": "/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/build-cohort/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/build-cohort/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/build-cohort/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/build-cohort/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/build-cohort/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/build-cohort/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/build-cohort/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/mentorship/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/mentorship/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/mentorship/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/mentorship/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/mentorship/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/mentorship/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/programs/mentorship/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/buildathon/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/buildathon/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/buildathon/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/buildathon/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/buildathon/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/buildathon/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/buildathon/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/team/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/team/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/team/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/team/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/team/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/team/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/team/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/welcome-to-tech-at-edc/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/welcome-to-tech-at-edc/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/welcome-to-tech-at-edc/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/welcome-to-tech-at-edc/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/welcome-to-tech-at-edc/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/welcome-to-tech-at-edc/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/blog/welcome-to-tech-at-edc/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/404.html navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/404.html navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/404.html navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/404.html navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/404.html navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/404.html navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/404.html navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/styleguide/ navbar 'home' -> /",
+  "ok": true,
+  "evidence": "href=/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/styleguide/ navbar 'Programs' -> /#programs",
+  "ok": true,
+  "evidence": "href=/#programs status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/styleguide/ navbar 'Events' -> https://example.com/luma",
+  "ok": true,
+  "evidence": "href=https://example.com/luma target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "nav",
+  "check": "/styleguide/ navbar 'Team' -> /team/",
+  "ok": true,
+  "evidence": "href=/team/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/styleguide/ navbar 'Blog' -> /blog/",
+  "ok": true,
+  "evidence": "href=/blog/ status=200"
+ },
+ {
+  "group": "nav",
+  "check": "/styleguide/ navbar 'Contact' -> mailto:hello@techatedc.org",
+  "ok": true,
+  "evidence": "href=mailto:hello@techatedc.org"
+ },
+ {
+  "group": "nav",
+  "check": "/styleguide/ navbar 'Join Discord' -> https://example.com/discord",
+  "ok": true,
+  "evidence": "href=https://example.com/discord target=_blank rel=noopener noreferrer"
+ },
+ {
+  "group": "cohesion",
+  "check": "navbar text identical on every page",
+  "ok": true,
+  "evidence": "differs on []"
+ },
+ {
+  "group": "cohesion",
+  "check": "site footer (text + links) identical on every page",
+  "ok": true,
+  "evidence": "differs on []"
+ },
+ {
+  "group": "nav",
+  "check": "click navbar Team from /buildathon/ -> /team/",
+  "ok": true,
+  "evidence": "http://localhost:4173/team/"
+ },
+ {
+  "group": "nav",
+  "check": "click navbar Blog from /buildathon/ -> /blog/",
+  "ok": true,
+  "evidence": "http://localhost:4173/blog/"
+ },
+ {
+  "group": "nav",
+  "check": "click logo from /team/ -> /",
+  "ok": true,
+  "evidence": "http://localhost:4173/"
+ },
+ {
+  "group": "nav",
+  "check": "click Join Discord opens a new tab at the Discord placeholder",
+  "ok": true,
+  "evidence": "https://example.com/discord"
+ },
+ {
+  "group": "nav",
+  "check": "click Events opens a new tab at the Luma placeholder",
+  "ok": true,
+  "evidence": "https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/ key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/ key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/build-cohort/ key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/build-cohort/ key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/build-cohort/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/build-cohort/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/programs/build-cohort/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/build-cohort/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/mentorship/ key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/mentorship/ key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/mentorship/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/mentorship/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/programs/mentorship/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/programs/mentorship/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/buildathon/ key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/buildathon/ key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/buildathon/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/buildathon/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/buildathon/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/buildathon/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/team/ key T",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/team/ key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/team/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/team/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/team/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/ key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/ key B",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/welcome-to-tech-at-edc/ key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/welcome-to-tech-at-edc/ key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/welcome-to-tech-at-edc/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/welcome-to-tech-at-edc/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/blog/welcome-to-tech-at-edc/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/blog/welcome-to-tech-at-edc/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/404.html key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/404.html key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/404.html key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/404.html key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/404.html"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/404.html key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/styleguide/ key T",
+  "ok": true,
+  "evidence": "url http://localhost:4173/team/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/styleguide/ key B",
+  "ok": true,
+  "evidence": "url http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/styleguide/ key E",
+  "ok": true,
+  "evidence": "popup https://example.com/luma"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/styleguide/ key C",
+  "ok": true,
+  "evidence": "prevented http://localhost:4173/styleguide/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "/styleguide/ key P",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "shortcuts",
+  "check": "key T ignored while typing in a form field",
+  "ok": true,
+  "evidence": "none http://localhost:4173/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "key B ignored while typing in a form field",
+  "ok": true,
+  "evidence": "none http://localhost:4173/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "key E ignored while typing in a form field",
+  "ok": true,
+  "evidence": "none http://localhost:4173/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "key C ignored while typing in a form field",
+  "ok": true,
+  "evidence": "none http://localhost:4173/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "key P ignored while typing in a form field",
+  "ok": true,
+  "evidence": "none http://localhost:4173/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "typed letters reach the input",
+  "ok": true,
+  "evidence": "'tbecp'"
+ },
+ {
+  "group": "shortcuts",
+  "check": "Shift+T ignored (modifier)",
+  "ok": true,
+  "evidence": "none http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "Alt+t ignored (modifier)",
+  "ok": true,
+  "evidence": "none http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "Control+b ignored (modifier)",
+  "ok": true,
+  "evidence": "none http://localhost:4173/blog/"
+ },
+ {
+  "group": "shortcuts",
+  "check": "Meta+t ignored (modifier)",
+  "ok": true,
+  "evidence": "none http://localhost:4173/blog/"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from / @1440 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from /team/ @1440 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from /programs/mentorship/ @1440 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from /blog/welcome-to-tech-at-edc/ @1440 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "direct load /#programs @1440 lands below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from / @390 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from /team/ @390 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from /programs/mentorship/ @390 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "Programs link from /blog/welcome-to-tech-at-edc/ @390 lands on #programs below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+ },
+ {
+  "group": "anchor",
+  "check": "direct load /#programs @390 lands below navbar",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+ },
+ {
+  "group": "menu",
+  "check": "menu button visible at 390",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "menu",
+  "check": "Join Discord stays visible at 390",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "menu",
+  "check": "click opens menu (aria-expanded, visible, focus moves in)",
+  "ok": true,
+  "evidence": "expanded=true visible=True focusIn=True"
+ },
+ {
+  "group": "menu",
+  "check": "menu lists Programs/Events/Team/Blog/Contact",
+  "ok": true,
+  "evidence": "['Programs', 'Events\\n(opens in a new tab)', 'Team', 'Blog', 'Contact']"
+ },
+ {
+  "group": "menu",
+  "check": "Esc closes and returns focus to the menu button",
+  "ok": true,
+  "evidence": "expanded=false focus=Open menu"
+ },
+ {
+  "group": "menu",
+  "check": "close button closes menu and restores scrolling",
+  "ok": true,
+  "evidence": "expanded=false body.overflow=''"
+ },
+ {
+  "group": "menu",
+  "check": "Tabbing past the last menu item closes the menu (no focus lost behind sheet)",
+  "ok": true,
+  "evidence": "Events\n(opens in a new tab) [hdr] > Team [hdr] > Blog [hdr] > Contact [hdr] > Nov 15, 2026\n/\nTech@EDC Office [page] > hello@techatedc.org [page] > Subscribe [page] > Join Discord\n(opens in a new t [page]"
+ },
+ {
+  "group": "menu",
+  "check": "menu link navigates to /team/ and menu closes",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/team/ expanded=false overflow=''"
+ },
+ {
+  "group": "menu",
+  "check": "page scrolls after navigating from the menu",
+  "ok": true,
+  "evidence": "scrollY=600"
+ },
+ {
+  "group": "menu",
+  "check": "menu Events opens Luma placeholder in a new tab",
+  "ok": true,
+  "evidence": "https://example.com/luma"
+ },
+ {
+  "group": "menu",
+  "check": "menu closes after an external link click",
+  "ok": true,
+  "evidence": "expanded=false"
+ },
+ {
+  "group": "menu",
+  "check": "menu Contact is mailto club address",
+  "ok": true,
+  "evidence": "mailto:hello@techatedc.org"
+ },
+ {
+  "group": "menu",
+  "check": "shortcut keys are ignored while the menu is open",
+  "ok": true,
+  "evidence": "none http://localhost:4173/blog/"
+ },
+ {
+  "group": "cards",
+  "check": "program card 'Build Cohort' -> /programs/build-cohort/",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/programs/build-cohort/ h1='Build Cohort'"
+ },
+ {
+  "group": "cards",
+  "check": "program card 'Mentorship' -> /programs/mentorship/",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/programs/mentorship/ h1='Mentorship'"
+ },
+ {
+  "group": "cards",
+  "check": "program card 'Buildathon' -> /buildathon/",
+  "ok": true,
+  "evidence": "url=http://localhost:4173/buildathon/ h1='48 hours. One idea. Build it.'"
+ },
+ {
+  "group": "cards",
+  "check": "program cards have no nested interactive elements",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: has accordion triggers",
+  "ok": true,
+  "evidence": "count=5"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: click opens item 1 (panel visible)",
+  "ok": true,
+  "evidence": "exp=True h=102"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: opening item 2 closes item 1",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: click again closes item 2",
+  "ok": true,
+  "evidence": "h=0"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: Enter opens",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: ArrowDown moves focus to next",
+  "ok": true,
+  "evidence": "_R_rdautb_-t1"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: Space opens focused item",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: End -> last",
+  "ok": true,
+  "evidence": "_R_rdautb_-t4"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: Home -> first",
+  "ok": true,
+  "evidence": "_R_rdautb_-t0"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: ArrowUp from first wraps to last",
+  "ok": true,
+  "evidence": "_R_rdautb_-t4"
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: Enter toggles open item closed",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ: closed panels are inert",
+  "ok": true,
+  "evidence": "5"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: has accordion triggers",
+  "ok": true,
+  "evidence": "count=3"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: click opens item 1 (panel visible)",
+  "ok": true,
+  "evidence": "exp=True h=50"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: opening item 2 closes item 1",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: click again closes item 2",
+  "ok": true,
+  "evidence": "h=0"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: Enter opens",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: ArrowDown moves focus to next",
+  "ok": true,
+  "evidence": "_R_3m5fiutb_-t1"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: Space opens focused item",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: End -> last",
+  "ok": true,
+  "evidence": "_R_3m5fiutb_-t2"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: Home -> first",
+  "ok": true,
+  "evidence": "_R_3m5fiutb_-t0"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: ArrowUp from first wraps to last",
+  "ok": true,
+  "evidence": "_R_3m5fiutb_-t2"
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: Enter toggles open item closed",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "buildathon FAQ: closed panels are inert",
+  "ok": true,
+  "evidence": "3"
+ },
+ {
+  "group": "faq",
+  "check": "no console errors during FAQ tests",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "faq",
+  "check": "home FAQ opens at 390",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/build-cohort/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/build-cohort/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/build-cohort/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/build-cohort/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/mentorship/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/mentorship/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/mentorship/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/programs/mentorship/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/buildathon/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/buildathon/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/buildathon/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/buildathon/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/team/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/team/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/team/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/team/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/welcome-to-tech-at-edc/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/welcome-to-tech-at-edc/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/welcome-to-tech-at-edc/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/blog/welcome-to-tech-at-edc/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "newsletter",
+  "check": "/styleguide/ empty submit -> 3 field errors, focus first",
+  "ok": true,
+  "evidence": "invalid=3 focus=firstName msgs=['Enter your first name.', 'Enter your last name.', 'Enter your email address.']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/styleguide/ bad email -> email error only",
+  "ok": true,
+  "evidence": "invalid=1"
+ },
+ {
+  "group": "newsletter",
+  "check": "/styleguide/ valid -> success state + console.info stub",
+  "ok": true,
+  "evidence": "success=True info=['[newsletter] stub mode, no endpoint configured. Payload: {firstName: Ada, lastName: Lovelace, email: ada@example.com}']"
+ },
+ {
+  "group": "newsletter",
+  "check": "/styleguide/ no console.error during form use",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "fonts",
+  "check": "/ BDO Grotesk loaded",
+  "ok": true,
+  "evidence": "['BDO Grotesk', 'Geist Mono Variable']"
+ },
+ {
+  "group": "fonts",
+  "check": "/ Geist Mono loaded",
+  "ok": true,
+  "evidence": "['BDO Grotesk', 'Geist Mono Variable']"
+ },
+ {
+  "group": "fonts",
+  "check": "/ body uses BDO Grotesk",
+  "ok": true,
+  "evidence": "\"BDO Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+ },
+ {
+  "group": "fonts",
+  "check": "/ h1 uses BDO Grotesk",
+  "ok": true,
+  "evidence": "\"BDO Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+ },
+ {
+  "group": "fonts",
+  "check": "/ p uses BDO Grotesk",
+  "ok": true,
+  "evidence": "\"BDO Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+ },
+ {
+  "group": "fonts",
+  "check": "/ navlink uses Geist Mono",
+  "ok": true,
+  "evidence": "\"Geist Mono Variable\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+ },
+ {
+  "group": "fonts",
+  "check": "/ button uses Geist Mono",
+  "ok": true,
+  "evidence": "\"Geist Mono Variable\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+ },
+ {
+  "group": "fonts",
+  "check": "/ label uses Geist Mono",
+  "ok": true,
+  "evidence": "\"Geist Mono Variable\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+ },
+ {
+  "group": "fonts",
+  "check": "/ Inter not loaded",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ BDO Grotesk loaded",
+  "ok": true,
+  "evidence": "['BDO Grotesk', 'Geist Mono Variable']"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ Geist Mono loaded",
+  "ok": true,
+  "evidence": "['BDO Grotesk', 'Geist Mono Variable']"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ body uses BDO Grotesk",
+  "ok": true,
+  "evidence": "\"BDO Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ h1 uses BDO Grotesk",
+  "ok": true,
+  "evidence": "\"BDO Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ p uses BDO Grotesk",
+  "ok": true,
+  "evidence": "\"BDO Grotesk\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ navlink uses Geist Mono",
+  "ok": true,
+  "evidence": "\"Geist Mono Variable\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ button uses Geist Mono",
+  "ok": true,
+  "evidence": "\"Geist Mono Variable\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ label uses Geist Mono",
+  "ok": true,
+  "evidence": "\"Geist Mono Variable\", ui-monospace, SFMono-Regular, \"SF Mono\", Menlo, Consolas, \"Liberation Mono\", monospace"
+ },
+ {
+  "group": "fonts",
+  "check": "/blog/welcome-to-tech-at-edc/ Inter not loaded",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "content",
+  "check": "blog index lists posts newest first",
+  "ok": true,
+  "evidence": "['2026-11-15']"
+ },
+ {
+  "group": "content",
+  "check": "every blog post link renders a post (h1 + body)",
+  "ok": true,
+  "evidence": "['/blog/welcome-to-tech-at-edc/']"
+ },
+ {
+  "group": "content",
+  "check": "post page has back link to /blog/",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "content",
+  "check": "team page shows 'Roster coming soon'",
+  "ok": true,
+  "evidence": "Team\nThe students who plan the programs, run the events, and keep the Discord lively.\nRoster coming soon\nOfficer profiles will appear here once this year's team is set. Want to help run workshops, eve"
+ },
+ {
+  "group": "content",
+  "check": "404 page renders 'Page not found' h1",
+  "ok": true,
+  "evidence": "Page not found"
+ },
+ {
+  "group": "content",
+  "check": "404 page links back home",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "content",
+  "check": "home sections in Tech@NYU order",
+  "ok": true,
+  "evidence": "[\"Build what you're curious about.\", 'community', 'programs', 'events', 'faq', 'connect', 'newsletter']"
+ },
+ {
+  "group": "content",
+  "check": "home order Community > Programs > Events > FAQ > Connect > Join Us",
+  "ok": true,
+  "evidence": "['community', 'programs', 'events', 'faq', 'connect', 'newsletter']"
+ },
+ {
+  "group": "content",
+  "check": "Network grid not rendered on home",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/ focus indicator visible on every stop (8 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/programs/build-cohort/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/programs/build-cohort/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/programs/build-cohort/ focus indicator visible on every stop (9 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/programs/build-cohort/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/programs/build-cohort/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/programs/mentorship/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/programs/mentorship/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/programs/mentorship/ focus indicator visible on every stop (9 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/programs/mentorship/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/programs/mentorship/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/buildathon/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/buildathon/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/buildathon/ focus indicator visible on every stop (9 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/buildathon/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/buildathon/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/team/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/team/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/team/ focus indicator visible on every stop (8 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/team/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/team/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/blog/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/blog/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/blog/ focus indicator visible on every stop (11 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/blog/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/blog/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/blog/welcome-to-tech-at-edc/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/blog/welcome-to-tech-at-edc/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/blog/welcome-to-tech-at-edc/ focus indicator visible on every stop (9 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/blog/welcome-to-tech-at-edc/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/blog/welcome-to-tech-at-edc/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/404.html first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/404.html skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/404.html focus indicator visible on every stop (9 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/404.html focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/404.html tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/styleguide/ first Tab = visible skip link",
+  "ok": true,
+  "evidence": "{'cls': 'skip-link', 'text': 'Skip to content', 'top': 12, 'h': 42.390625}"
+ },
+ {
+  "group": "tab",
+  "check": "/styleguide/ skip link moves focus to main",
+  "ok": true,
+  "evidence": "content"
+ },
+ {
+  "group": "tab",
+  "check": "/styleguide/ focus indicator visible on every stop (10 stops)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/styleguide/ focused element scrolled into view",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "tab",
+  "check": "/styleguide/ tab order follows page order (no big backward jumps)",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "motion",
+  "check": "normal motion: PhotoColumns animate",
+  "ok": true,
+  "evidence": "tracks=[{'name': 'photo-col-up', 'state': 'running', 'running': 1}, {'name': 'photo-col-down', 'state': 'running', 'running': 1}]"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: PhotoColumns and all animations stopped",
+  "ok": true,
+  "evidence": "tracks=[{'name': 'none', 'state': 'running', 'running': 0}, {'name': 'none', 'state': 'running', 'running': 0}] running=[]"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /programs/build-cohort/",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /programs/mentorship/",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /buildathon/",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /team/",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /blog/",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /blog/welcome-to-tech-at-edc/",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /404.html",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "reduced motion: no pending reveal on /styleguide/",
+  "ok": true,
+  "evidence": "0"
+ },
+ {
+  "group": "motion",
+  "check": "hovering the photo columns pauses them",
+  "ok": true,
+  "evidence": "['paused', 'paused']"
+ },
+ {
+  "group": "v2",
+  "check": "/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "background = gradient + noise (body::before) + square grid (body::after)",
+  "ok": true,
+  "evidence": "{'gradient': True, 'noise': True, 'gridLayers': 4, 'gridSizes': '40px 40px, 40px 40px, 10px 10px, 10px 10px', 'fixed': 'fixed/fixed'}"
+ },
+ {
+  "group": "v2",
+  "check": "/programs/build-cohort/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/programs/build-cohort/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/programs/build-cohort/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/programs/build-cohort/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/programs/mentorship/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/programs/mentorship/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/programs/mentorship/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/programs/mentorship/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/buildathon/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/buildathon/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/buildathon/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/buildathon/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/team/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/team/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/team/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/team/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/welcome-to-tech-at-edc/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/welcome-to-tech-at-edc/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/welcome-to-tech-at-edc/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/blog/welcome-to-tech-at-edc/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/404.html no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/404.html no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/404.html no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/404.html no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/styleguide/ no small round dots",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/styleguide/ no glow shadows",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/styleguide/ no purple/indigo colors",
+  "ok": true,
+  "evidence": ""
+ },
+ {
+  "group": "v2",
+  "check": "/styleguide/ no cards nested in cards",
+  "ok": true,
+  "evidence": ""
+ }
+]

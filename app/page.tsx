@@ -44,14 +44,15 @@ export default function Home() {
       {/* PARTNERS: uncomment when Tech@EDC has partners (add entries to content/network.ts) */}
       {/* <NetworkGrid /> */}
 
-      {/* Community: text left, illustration right. */}
+      {/* Community: text left, illustration right (from 1080px). */}
       <Section id="community" surface="plain" ariaLabel={community.title}>
-        <div className="grid items-center gap-12 py-4 lg:min-h-[480px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
-          <div className="flex max-w-[520px] flex-col gap-5">
+        <div className="grid items-center gap-12 py-4 lg:min-h-120 lg:grid-cols-2 lg:gap-20">
+          <div className="flex max-w-130 flex-col gap-5">
             <h2 className="text-h2 text-fg">{community.title}</h2>
             <p className="text-base text-fg-muted sm:text-lg">{community.intro}</p>
           </div>
-          <div aria-hidden className="mx-auto w-full max-w-[400px] text-fg-secondary sm:max-w-[500px]">
+          {/* Desktop only: IsoHero (also a laptop + breadboard) sits right above on narrow screens. */}
+          <div aria-hidden className="mx-auto hidden w-full max-w-110 text-fg-secondary lg:block">
             <IsoCommunity className="w-full" />
           </div>
         </div>
@@ -75,7 +76,7 @@ export default function Home() {
                   href={p.href}
                   title={p.name}
                   footer={<ArrowLink>{programsCopy.cta}</ArrowLink>}
-                  media={Art ? <Art className="w-full max-w-[300px] text-fg-secondary" /> : undefined}
+                  media={Art ? <Art className="w-full max-w-75 text-fg-secondary" /> : undefined}
                   className="w-full"
                 >
                   {p.summary}
@@ -91,7 +92,7 @@ export default function Home() {
         <PhotoColumns label={events.galleryLabel} placeholderCaptions={[...events.captions]}>
           <h2 className="text-h2 text-fg">{events.title}</h2>
           {events.intro.map((line) => (
-            <p key={line} className="max-w-[440px] text-base text-fg-muted sm:text-lg">
+            <p key={line} className="max-w-110 text-base text-fg-muted sm:text-lg">
               {line}
             </p>
           ))}
@@ -105,12 +106,12 @@ export default function Home() {
 
       {/* FAQ: title and contact left, accordion right. */}
       <Section id="faq" surface="plain" ariaLabel={faqCopy.title}>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-16">
-          <div className="flex flex-col items-start gap-6">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="flex flex-col items-start gap-6 lg:col-span-4">
             <h2 className="text-h2 text-fg">{faqCopy.title}</h2>
             <StillHaveQuestions className="hidden lg:flex" />
           </div>
-          <div>
+          <div className="lg:col-span-8">
             <Accordion items={faq} />
             <StillHaveQuestions className="mt-10 lg:hidden" />
           </div>
@@ -119,7 +120,7 @@ export default function Home() {
 
       {/* Connect: one bordered box, heading and icon links centered. */}
       <Section id="connect" ariaLabel={connect.title}>
-        <div className="relative flex flex-col items-center gap-4 rounded-card border border-border bg-surface px-6 py-14 text-center grain sm:py-20 lg:max-w-[50%]">
+        <div className="relative flex flex-col items-center gap-4 rounded-card border border-border bg-surface px-6 py-14 text-center grain sm:py-20 lg:w-1/2">
           <h2 className="text-h2 text-fg">{connect.title}</h2>
           <p className="text-base text-fg-muted">{connect.intro}</p>
           <SocialLinks className="mt-4" />

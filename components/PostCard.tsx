@@ -36,7 +36,7 @@ export function PostCard({ title, date, summary, href, author, featured = false,
           )}
         </Eyebrow>
         <h3 className={clsx("text-fg", featured ? "text-h2" : "text-h3")}>{title}</h3>
-        <p className={clsx("text-fg-muted", featured ? "text-base sm:text-lg" : "text-sm sm:text-[0.9375rem]")}>{summary}</p>
+        <p className={clsx("text-fg-muted", featured ? "text-base sm:text-lg" : "text-sm sm:text-body-sm")}>{summary}</p>
       </div>
     </Card>
   );

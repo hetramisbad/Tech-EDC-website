@@ -22,7 +22,7 @@ export { Prose } from "./Prose";
 export { Reveal, type RevealProps } from "./Reveal";
 export { PageHeader, Section, type SectionProps } from "./Section";
 export { PhotoColumns, type PhotoColumnsProps } from "./PhotoColumns";
-export { SmartLink, isHttp, type SmartLinkProps } from "./SmartLink";
+export { SmartLink, isHttp, isProtocolLink, opensNewTab, type SmartLinkProps } from "./SmartLink";
 export { SocialLinks, type SocialLinksProps } from "./SocialLinks";
 export { TeamCard, type TeamCardProps } from "./TeamCard";
 export { Timeline, type TimelineItem } from "./Timeline";
@@ -30,6 +30,7 @@ export {
   IsoBuildCohort,
   IsoBuildathon,
   IsoCommunity,
+  IsoHero,
   IsoJoin,
   IsoMentorship,
   IsoNotFound,

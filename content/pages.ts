@@ -65,13 +65,8 @@ export const blogCopy = {
   featured: { title: "Featured" },
   all: { title: "All posts", count: (n: number) => `${n} ${n === 1 ? "post" : "posts"}` },
   empty: { title: "No posts yet", body: "The first posts are on their way. Join the newsletter below to hear when they land." },
-  loop: {
-    title: "Stay in the loop",
-    body: "New posts land a few times a quarter. Get them by email, or follow along on Discord.",
-    subscribe: "Subscribe",
-    discord: "Join Discord",
-    pitch: "Have a story or project to share?",
-  },
+  /** Contact line in Join Us at the end of /blog. */
+  pitch: "Have a story or project to share?",
   post: {
     back: "All posts",
     readTime: (m: number) => `${m} min read`,

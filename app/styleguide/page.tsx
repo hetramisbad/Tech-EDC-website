@@ -50,7 +50,7 @@ const colors: { token: string; tw: string; value: string; note: string; swatch: 
   { token: "--text", tw: "text-fg", value: "#f5f5f5", note: "Headings, body · 18.3:1", swatch: "bg-fg" },
   { token: "--text-secondary", tw: "text-fg-secondary", value: "#d4d4d4", note: "Nav links, art strokes · 13.4:1", swatch: "bg-fg-secondary" },
   { token: "--text-muted", tw: "text-fg-muted", value: "#a3a3a3", note: "Intros, card copy · 7.9:1", swatch: "bg-fg-muted" },
-  { token: "--text-subtle", tw: "text-fg-subtle", value: "#868686", note: "Meta, key hints · 5.4:1", swatch: "bg-fg-subtle" },
+  { token: "--text-subtle", tw: "text-fg-subtle", value: "#868686", note: "Dates, key hints · 5.4:1", swatch: "bg-fg-subtle" },
   { token: "--accent", tw: "text-accent", value: "#3a8fb9", note: "Focus ring, link hover only · 5.5:1", swatch: "bg-accent" },
   { token: "--accent-brand", tw: "bg-accent-brand", value: "#004d71", note: "Edmonds College blue (reference)", swatch: "bg-accent-brand" },
 ];
@@ -60,9 +60,12 @@ const typeScale: { cls: string; name: string; spec: string; sample: string }[] =
   { cls: "text-h1", name: "text-h1", spec: "38→56px · 700 · -0.03em · 1.04", sample: "Build Cohort" },
   { cls: "text-h2", name: "text-h2", spec: "32→48px · 700 · -0.028em · 1.06", sample: "Programs" },
   { cls: "text-h3", name: "text-h3", spec: "20px · 650 · -0.012em · 1.25", sample: "Mentorship" },
-  { cls: "text-lg text-fg-muted", name: "text-lg", spec: "18px · 1.55 · intros", sample: site.description },
+  { cls: "text-lead text-fg-muted", name: "text-lead", spec: "20px · 1.5 · -0.01em · hero subhead, page-header intro", sample: "Workshops, build nights, and a weekend Buildathon." },
+  { cls: "text-lg text-fg-muted", name: "text-lg", spec: "18px · 1.55 · section intros", sample: site.description },
   { cls: "text-base text-fg-secondary", name: "text-base", spec: "16px · 1.6 · body", sample: "Teams take one project from idea to working demo with a mentor." },
+  { cls: "text-body-sm text-fg-muted", name: "text-body-sm", spec: "15px · 1.6 · card copy, links in cards", sample: "A quarter-long cohort where small teams ship one real project." },
   { cls: "text-sm text-fg-muted", name: "text-sm", spec: "14px · 1.5 · secondary copy", sample: "Open to all Edmonds College students." },
+  { cls: "text-meta text-fg-muted", name: "text-meta", spec: "13px · 1.45 · dates, bylines, small buttons (with font-mono for UI)", sample: "Nov 15, 2026 · 3 min read" },
   { cls: "label-mono text-fg-muted", name: "label-mono", spec: "Geist Mono · 13px · mixed case", sample: "First Name · Nov 15, 2026 · Program" },
   { cls: "font-mono text-sm text-fg-secondary", name: "font-mono", spec: "Geist Mono · nav, buttons, inputs", sample: "[P] Programs  [E] Events  [T] Team  [B] Blog" },
 ];
@@ -107,7 +110,7 @@ function AccentSample({ label }: { label: string }) {
         <Button size="sm" href={site.links.discord}>
           Join Discord
         </Button>
-        <span className="inline-flex h-9 items-center rounded-control border border-border-control px-3.5 font-mono text-[0.8125rem] text-fg shadow-[var(--focus-ring)]">
+        <span className="inline-flex h-9 items-center rounded-control border border-border-control px-3.5 font-mono text-meta text-fg shadow-[var(--focus-ring)]">
           Focus ring
         </span>
       </div>
@@ -125,7 +128,7 @@ export default function StyleguidePage() {
         badge={<Badge>Internal · not indexed</Badge>}
         eyebrow="Tech@EDC design system · v2"
         title="Styleguide"
-        intro="Tech@NYU is the main reference: near-black grid background, bold BDO Grotesk headings, mono UI text, square 1px-bordered cards, and our own isometric line drawings. One accent, used only for focus and link hover."
+        intro="Near-black grid background, bold BDO Grotesk headings, mono UI text, square 1px-bordered cards, and our own isometric line drawings. One accent, used only for focus and link hover."
         actions={<AccentToggle />}
         media={<IsoCommunity />}
       />
@@ -145,7 +148,7 @@ export default function StyleguidePage() {
         <div className="grid gap-4 md:grid-cols-3">
           {[
             { k: "Default", d: "Section surface=\"grid\" (transparent). The hero and most sections.", cls: "" },
-            { k: "surface-plain", d: "Section surface=\"plain\": opaque #050506 + grain, no grid. For dense bands, like Tech@NYU below its hero.", cls: "surface-plain" },
+            { k: "surface-plain", d: "Section surface=\"plain\": opaque #050506 + grain, no grid. For dense bands below the hero.", cls: "surface-plain" },
             { k: "surface-grid", d: "The grid on a single element that scrolls with it (e.g. a band inside a plain area).", cls: "surface-grid" },
           ].map((b) => (
             <div key={b.k} className={`flex min-h-[200px] flex-col justify-end gap-2 rounded-card border border-border p-5 ${b.cls}`}>
@@ -208,7 +211,7 @@ export default function StyleguidePage() {
         intro={
           <>
             BDO Grotesk (variable 300–900, self-hosted, SIL OFL) for headings and body. Geist Mono for UI text: navbar, buttons,
-            labels, form labels, key hints and meta. Default Tailwind text sizes are disabled; use the scale below.
+            labels, form labels, key hints and small print. Default Tailwind text sizes are disabled; use the scale below.
           </>
         }
       >
@@ -255,7 +258,7 @@ export default function StyleguidePage() {
 
           <Demo
             title="Navbar shortcuts · Kbd"
-            note="Mono links with bracket hints, like the reference. Single keys work from anywhere: ignored while typing in a field, with Ctrl/Cmd/Alt/Shift held, or when the mobile menu or a dialog is open. Each link carries aria-keyshortcuts; the bracket hint is aria-hidden. Contact (C) shows no hint, matching the reference."
+            note="Mono links with bracket hints. Single keys work from anywhere: ignored while typing in a field, with Ctrl/Cmd/Alt/Shift held, or when the mobile menu or a dialog is open. Each link carries aria-keyshortcuts; the bracket hint is aria-hidden. Contact (C) works but shows no hint."
           >
             <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-3 font-mono text-sm text-fg-secondary">
               {navItems.map((item) => (
@@ -424,7 +427,7 @@ export default function StyleguidePage() {
       </Section>
 
       <Section id="usage" eyebrow="Usage" title="How to build a page" size="narrow">
-        <div className="flex flex-col gap-6 text-[0.9375rem] leading-relaxed text-fg-muted">
+        <div className="flex flex-col gap-6 text-body-sm text-fg-muted">
           <p>
             The root layout renders the skip link, <Code>&lt;Navbar/&gt;</Code>, <Code>&lt;main id=&quot;content&quot;&gt;</Code> and{" "}
             <Code>&lt;Footer/&gt;</Code>. A page returns a fragment of sections and never renders its own <Code>&lt;main&gt;</Code>.

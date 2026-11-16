@@ -56,6 +56,7 @@
   --border: rgb(255 255 255 / 0.1);
   --border-strong: rgb(255 255 255 / 0.16);
   --border-hover: rgb(255 255 255 / 0.3);
+  --border-emphasis: rgb(255 255 255 / 0.42); /* linked card hover */
   --border-control: rgb(255 255 255 / 0.5); /* secondary button outline, like a drawn box */
 
   /* Color: text. Contrast (WCAG) on --bg / --surface / --surface-raised:
@@ -226,15 +227,25 @@ html[data-accent="none"],
   --text-lg--line-height: 1.55;
   --text-lg--letter-spacing: -0.005em;
 
+  --text-lead: 1.25rem; /* 20: page-header intros, hero subhead */
+  --text-lead--line-height: 1.5;
+  --text-lead--letter-spacing: -0.01em;
+
   --text-base: 1rem; /* 16: body */
   --text-base--line-height: 1.6;
   --text-base--letter-spacing: 0em;
 
+  --text-body-sm: 0.9375rem; /* 15: card copy, links in cards, large buttons */
+  --text-body-sm--line-height: 1.6;
+
   --text-sm: 0.875rem; /* 14: secondary copy, nav, buttons */
   --text-sm--line-height: 1.5;
 
-  --text-xs: 0.8125rem; /* 13: captions, meta */
+  --text-xs: 0.8125rem; /* 13: captions */
   --text-xs--line-height: 1.45;
+
+  --text-meta: 0.8125rem; /* 13: meta lines, small buttons, dates (pair with font-mono where it is UI text) */
+  --text-meta--line-height: 1.45;
 
   --text-label: 0.8125rem; /* 13: mono labels (label-mono), mixed case */
   --text-label--line-height: 1.35;
@@ -244,6 +255,9 @@ html[data-accent="none"],
   --radius-control: 2px;
   --radius-card: 4px;
   --radius-panel: 6px;
+
+  /* Letter-spacing for Geist Mono UI text (nav links, buttons): tracking-mono */
+  --tracking-mono: -0.01em;
 
   --container-page: 1200px;
   --container-narrow: 880px;
@@ -262,6 +276,7 @@ html[data-accent="none"],
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-border-hover: var(--border-hover);
+  --color-border-emphasis: var(--border-emphasis);
   --color-border-control: var(--border-control);
   --color-fg: var(--text);
   --color-fg-secondary: var(--text-secondary);

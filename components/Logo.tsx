@@ -49,7 +49,7 @@ export function Logo({ wordmark = true, size = 24, className, title }: LogoProps
     <span className={clsx("inline-flex items-center gap-2.5 text-fg", className)}>
       <LogoMark size={size} title={wordmark ? undefined : (title ?? site.name)} />
       {wordmark && (
-        <span className="text-base font-bold leading-none tracking-[-0.025em]">{site.name}</span>
+        <span className="text-base font-bold leading-none tracking-tight">{site.name}</span>
       )}
     </span>
   );

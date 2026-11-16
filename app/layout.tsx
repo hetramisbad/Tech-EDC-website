@@ -31,6 +31,15 @@ export const viewport: Viewport = {
   `?accent=none` sets <html data-accent="none"> and remembers it;
   `?accent=blue` clears it. Runs before paint, so there is no flash.
 */
+/*
+  Keyboard focus scrolls instantly: CSS smooth scrolling also animates the
+  scroll that brings a newly focused element into view, which lags behind
+  Tab on long jumps. Tab switches it off; the next pointer press restores it
+  (anchor clicks stay smooth). Explicit scrollIntoView({behavior}) calls are
+  unaffected.
+*/
+const focusScrollScript = `(function(){var d=document.documentElement;document.addEventListener("keydown",function(e){if(e.key==="Tab")d.style.scrollBehavior="auto"},true);document.addEventListener("pointerdown",function(){d.style.scrollBehavior=""},true)})()`;
+
 const accentScript = `(function(){try{var d=document.documentElement,q=new URLSearchParams(location.search).get("accent"),k="tech-edc-accent";if(q==="none"||q==="blue"){localStorage.setItem(k,q)}var v=q||localStorage.getItem(k);if(v==="none"){d.setAttribute("data-accent","none")}}catch(e){}})()`;
 
 /*
@@ -42,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: accentScript }} />
+        <script dangerouslySetInnerHTML={{ __html: focusScrollScript }} />
         {/* BDO Grotesk (variable, SIL OFL) is self-hosted; @font-face lives in globals.css. */}
         <link rel="preload" href="/fonts/BDOGrotesk-VF.woff2" as="font" type="font/woff2" crossOrigin="" />
       </head>

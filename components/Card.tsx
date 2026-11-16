@@ -29,7 +29,8 @@ const pad = { sm: "p-5", md: "p-6 sm:p-8", lg: "p-7 sm:p-10" };
 
 /**
  * Square-cornered, hairline-bordered surface with grain (Tech@NYU program
- * card). Linked cards brighten their border on hover; no glow, no lift.
+ * card). Linked cards brighten their border (white 42%) and lift their
+ * surface one step on hover; no glow, no shadow, no movement.
  */
 export function Card({
   href,
@@ -47,14 +48,14 @@ export function Card({
   const cls = clsx(
     "group relative flex h-full flex-col overflow-hidden rounded-card border border-border bg-surface grain",
     href &&
-      "transition-[border-color,background-color] duration-200 ease-out hover:border-border-hover hover:bg-surface-raised focus-visible:outline-offset-4",
+      "transition-[border-color,background-color] duration-200 ease-out hover:border-border-emphasis hover:bg-surface-hover focus-visible:outline-offset-4",
     className,
   );
   const body = (
     <>
       <div className={clsx("flex flex-col gap-3", !media && "flex-1", pad[padding])}>
         {title && <Title className="text-h3 text-fg">{title}</Title>}
-        {children && <div className="text-[0.9375rem] leading-relaxed text-fg-muted sm:text-base">{children}</div>}
+        {children && <div className="text-body-sm text-fg-muted sm:text-base">{children}</div>}
         {footer && <div className={clsx("pt-3", !media && "mt-auto")}>{footer}</div>}
       </div>
       {media && <div className="card-media mt-auto flex justify-center px-6 pb-6 sm:px-8 sm:pb-8">{media}</div>}

@@ -130,7 +130,7 @@ export function PageHeader({
       {badge}
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       <h1 className="text-h1 text-fg">{title}</h1>
-      {intro && <div className="text-lg text-fg-muted sm:text-[1.25rem] sm:leading-[1.5]">{intro}</div>}
+      {intro && <div className="text-lg text-fg-muted sm:text-lead">{intro}</div>}
       {actions && <div className={clsx("mt-3 flex flex-wrap items-center gap-3", centered && "justify-center")}>{actions}</div>}
     </div>
   );

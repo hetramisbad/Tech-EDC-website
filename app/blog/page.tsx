@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import clsx from "clsx";
 import { site } from "@/content/site";
-import { Button, EmptyState, JoinUs, PageHeader, PostCard, Reveal, Section } from "@/components";
+import { Container, EmptyState, JoinUs, PageHeader, PostCard, Reveal, Section } from "@/components";
 import { getFeaturedPosts, getPostList, postHref } from "@/lib/blog";
 import { blogCopy as copy } from "@/content/pages";
 
@@ -22,33 +22,45 @@ export default function BlogIndexPage() {
   // post outside the featured row.
   const showArchive = posts.length > featured.length;
 
+  // Outline: h1 (page) -> h2 (Featured, visually hidden; All posts, visible)
+  // -> h3 (each PostCard title). The page ends directly in Join Us, whose
+  // contact line carries the story pitch.
   return (
     <>
       <PageHeader title={copy.title} intro={copy.intro} />
 
       {posts.length === 0 ? (
-        <Section ariaLabel={copy.all.title} space="none">
+        <Section ariaLabel={copy.all.title} space="none" className="pb-[var(--section-space)]">
           <EmptyState title={copy.empty.title}>{copy.empty.body}</EmptyState>
         </Section>
       ) : (
         <>
           {featured.length > 0 && (
-            <Section id="featured" ariaLabel={copy.featured.title} space="none">
-              <ul className={clsx("grid gap-4", featuredCols[featured.length])}>
-                {featured.map((p) => (
-                  <li key={p.slug}>
-                    <PostCard
-                      featured={featured.length === 1}
-                      title={p.title}
-                      date={p.date}
-                      author={p.author}
-                      summary={p.summary}
-                      href={postHref(p.slug)}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </Section>
+            <section
+              id="featured"
+              aria-labelledby="featured-title"
+              className={showArchive ? undefined : "pb-[var(--section-space)]"}
+            >
+              <Container>
+                <h2 id="featured-title" className="visually-hidden">
+                  {copy.featured.title}
+                </h2>
+                <ul className={clsx("grid gap-4", featuredCols[featured.length])}>
+                  {featured.map((p) => (
+                    <li key={p.slug}>
+                      <PostCard
+                        featured={featured.length === 1}
+                        title={p.title}
+                        date={p.date}
+                        author={p.author}
+                        summary={p.summary}
+                        href={postHref(p.slug)}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </Container>
+            </section>
           )}
 
           {showArchive && (
@@ -75,30 +87,7 @@ export default function BlogIndexPage() {
         </>
       )}
 
-      <Section ariaLabel={copy.loop.title} space="none" className={showArchive ? undefined : "pt-[var(--section-space)]"}>
-        <div className="flex flex-col gap-6 border-t border-border pt-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex max-w-[560px] flex-col gap-2">
-            <h2 className="text-h3 text-fg">{copy.loop.title}</h2>
-            <p className="text-sm text-fg-muted sm:text-base">
-              {copy.loop.body}{" "}
-              {copy.loop.pitch}{" "}
-              <a href={`mailto:${site.email}`} className="link whitespace-nowrap">
-                {site.email}
-              </a>
-            </p>
-          </div>
-          <div className="flex shrink-0 flex-wrap gap-3">
-            <Button href="#newsletter" size="md" icon="arrow-right">
-              {copy.loop.subscribe}
-            </Button>
-            <Button href={site.links.discord} variant="secondary" size="md">
-              {copy.loop.discord}
-            </Button>
-          </div>
-        </div>
-      </Section>
-
-      <JoinUs />
+      <JoinUs contactPrompt={copy.pitch} />
     </>
   );
 }

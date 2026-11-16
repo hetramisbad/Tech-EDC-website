@@ -1,0 +1,426 @@
+{
+ "removal": [],
+ "ambiguous": [
+  [
+   "out/styleguide/index.html",
+   "meta",
+   "llege students.     text-meta  13px \u00b7 1.45 \u00b7 dates, by"
+  ]
+ ],
+ "v2": [],
+ "tokens": [
+  [
+   "app/blog/[slug]/page.tsx",
+   44,
+   "arbitrary spacing/size",
+   "pb-[var(--section-space)]",
+   "<article className=\"pt-12 pb-[var(--section-space)] sm:pt-16 lg:pt-20\">"
+  ],
+  [
+   "app/blog/page.tsx",
+   33,
+   "arbitrary spacing/size",
+   "pb-[var(--section-space)]",
+   "<Section ariaLabel={copy.all.title} space=\"none\" className=\"pb-[var(--section-space)]\">"
+  ],
+  [
+   "app/blog/page.tsx",
+   42,
+   "arbitrary spacing/size",
+   "pb-[var(--section-space)]",
+   "className={showArchive ? undefined : \"pb-[var(--section-space)]\"}"
+  ],
+  [
+   "app/buildathon/page.tsx",
+   51,
+   "arbitrary spacing/size",
+   "pt-[var(--section-space)]",
+   "<section aria-label={copy.factsLabel} className=\"pt-[var(--section-space)]\">"
+  ],
+  [
+   "app/layout.tsx",
+   25,
+   "hex color",
+   "#09090a",
+   "themeColor: \"#09090a\","
+  ],
+  [
+   "app/not-found.tsx",
+   20,
+   "arbitrary spacing/size",
+   "max-w-[220px]",
+   "<div aria-hidden className=\"mb-4 w-full max-w-[220px] text-fg-secondary sm:max-w-[260px]\">"
+  ],
+  [
+   "app/not-found.tsx",
+   20,
+   "arbitrary spacing/size",
+   "sm:max-w-[260px]",
+   "<div aria-hidden className=\"mb-4 w-full max-w-[220px] text-fg-secondary sm:max-w-[260px]\">"
+  ],
+  [
+   "app/not-found.tsx",
+   27,
+   "arbitrary spacing/size",
+   "max-w-[420px]",
+   "<p className=\"max-w-[420px] text-lg text-fg-muted\">{copy.body}</p>"
+  ],
+  [
+   "app/programs/[slug]/page.tsx",
+   104,
+   "arbitrary spacing/size",
+   "max-w-[880px]",
+   "<div className=\"mx-auto grid max-w-[880px] gap-4 md:grid-cols-2\">"
+  ],
+  [
+   "app/programs/[slug]/page.tsx",
+   119,
+   "arbitrary spacing/size",
+   "max-w-[680px]",
+   "<div className=\"mx-auto max-w-[680px]\">"
+  ],
+  [
+   "app/styleguide/illustrations/page.tsx",
+   44,
+   "arbitrary spacing/size",
+   "w-[720px]",
+   "<C className={name === \"IsoHero\" ? \"w-[720px] max-w-full text-fg-secondary\" : \"w-[480px] max-w-full text-fg-secondary\"} />"
+  ],
+  [
+   "app/styleguide/illustrations/page.tsx",
+   44,
+   "arbitrary spacing/size",
+   "w-[480px]",
+   "<C className={name === \"IsoHero\" ? \"w-[720px] max-w-full text-fg-secondary\" : \"w-[480px] max-w-full text-fg-secondary\"} />"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   44,
+   "hex color",
+   "#09090a",
+   "{ token: \"--bg\", tw: \"bg-bg\", value: \"#09090a\", note: \"Page base (under the gradient)\", swatch: \"bg-bg\" },"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   45,
+   "hex color",
+   "#050506",
+   "{ token: \"--bg-plain\", tw: \"bg-bg-plain\", value: \"#050506\", note: \"Plain bands (surface-plain)\", swatch: \"bg-bg-plain\" },"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   46,
+   "hex color",
+   "#121213",
+   "{ token: \"--surface\", tw: \"bg-surface\", value: \"#121213\", note: \"Cards, panels\", swatch: \"bg-surface\" },"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   47,
+   "hex color",
+   "#18181a",
+   "{ token: \"--surface-raised\", tw: \"bg-surface-raised\", value: \"#18181a\", note: \"Card hover, tiles\", swatch: \"bg-surface-raised\" },"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   53,
+   "hex color",
+   "#868686",
+   "{ token: \"--text-subtle\", tw: \"text-fg-subtle\", value: \"#868686\", note: \"Dates, key hints \u00b7 5.4:1\", swatch: \"bg-fg-subtle\" },"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   54,
+   "hex color",
+   "#3a8fb9",
+   "{ token: \"--accent\", tw: \"text-accent\", value: \"#3a8fb9\", note: \"Focus ring, link hover only \u00b7 5.5:1\", swatch: \"bg-accent\" },"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   55,
+   "hex color",
+   "#004d71",
+   "{ token: \"--accent-brand\", tw: \"bg-accent-brand\", value: \"#004d71\", note: \"Edmonds College blue (reference)\", swatch: \"bg-accent-brand\" },"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   93,
+   "arbitrary spacing/size",
+   "max-w-[720px]",
+   "{note && <p className=\"max-w-[720px] text-sm text-fg-muted\">{note}</p>}"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   101,
+   "arbitrary color/size value",
+   "text-[0.9em]",
+   "return <code className=\"font-mono text-[0.9em] text-fg-secondary\">{children}</code>;"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   113,
+   "arbitrary color/size value",
+   "shadow-[var(--focus-ring)]",
+   "<span className=\"inline-flex h-9 items-center rounded-control border border-border-control px-3.5 font-mono text-meta text-fg shadow-[var(--"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   151,
+   "hex color",
+   "#050506",
+   "{ k: \"surface-plain\", d: \"Section surface=\\\"plain\\\": opaque #050506 + grain, no grid. For dense bands below the hero.\", cls: \"surface-plain\""
+  ],
+  [
+   "app/styleguide/page.tsx",
+   154,
+   "arbitrary spacing/size",
+   "min-h-[200px]",
+   "<div key={b.k} className={`flex min-h-[200px] flex-col justify-end gap-2 rounded-card border border-border p-5 ${b.cls}`}>"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   321,
+   "arbitrary spacing/size",
+   "max-w-[300px]",
+   "<Card key={p.slug} href={p.href} title={p.name} footer={<ArrowLink />} media={<Art className=\"w-full max-w-[300px] text-fg-secondary\" />}>"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   352,
+   "arbitrary spacing/size",
+   "max-w-[320px]",
+   "<C className=\"max-h-full w-full max-w-[320px] text-fg-secondary\" />"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   365,
+   "arbitrary spacing/size",
+   "max-w-[420px]",
+   "<p className=\"max-w-[420px] text-lg text-fg-secondary\">"
+  ],
+  [
+   "app/styleguide/page.tsx",
+   368,
+   "arbitrary spacing/size",
+   "max-w-[420px]",
+   "<p className=\"max-w-[420px] text-base text-fg-muted\">Children render centered between the columns.</p>"
+  ],
+  [
+   "components/Accordion.tsx",
+   78,
+   "arbitrary spacing/size",
+   "max-w-[640px]",
+   "<div className=\"max-w-[640px] pb-6 pr-12 text-base leading-relaxed text-fg-muted\">{item.a}</div>"
+  ],
+  [
+   "components/EmptyState.tsx",
+   28,
+   "arbitrary spacing/size",
+   "max-w-[460px]",
+   "{children && <div className=\"max-w-[460px] text-sm text-fg-muted sm:text-body-sm\">{children}</div>}"
+  ],
+  [
+   "components/Footer.tsx",
+   19,
+   "arbitrary spacing/size",
+   "max-w-[300px]",
+   "<p className=\"max-w-[300px] text-sm text-fg-muted\">The technology club at {site.college}.</p>"
+  ],
+  [
+   "components/Gallery.tsx",
+   48,
+   "arbitrary spacing/size",
+   "h-[200px]",
+   "const tileCls = \"h-[200px] w-[267px] shrink-0 sm:h-[240px] sm:w-[320px] lg:h-[280px] lg:w-[373px]\";"
+  ],
+  [
+   "components/Gallery.tsx",
+   48,
+   "arbitrary spacing/size",
+   "w-[267px]",
+   "const tileCls = \"h-[200px] w-[267px] shrink-0 sm:h-[240px] sm:w-[320px] lg:h-[280px] lg:w-[373px]\";"
+  ],
+  [
+   "components/Gallery.tsx",
+   48,
+   "arbitrary spacing/size",
+   "sm:h-[240px]",
+   "const tileCls = \"h-[200px] w-[267px] shrink-0 sm:h-[240px] sm:w-[320px] lg:h-[280px] lg:w-[373px]\";"
+  ],
+  [
+   "components/Gallery.tsx",
+   48,
+   "arbitrary spacing/size",
+   "sm:w-[320px]",
+   "const tileCls = \"h-[200px] w-[267px] shrink-0 sm:h-[240px] sm:w-[320px] lg:h-[280px] lg:w-[373px]\";"
+  ],
+  [
+   "components/Gallery.tsx",
+   48,
+   "arbitrary spacing/size",
+   "lg:h-[280px]",
+   "const tileCls = \"h-[200px] w-[267px] shrink-0 sm:h-[240px] sm:w-[320px] lg:h-[280px] lg:w-[373px]\";"
+  ],
+  [
+   "components/Gallery.tsx",
+   48,
+   "arbitrary spacing/size",
+   "lg:w-[373px]",
+   "const tileCls = \"h-[200px] w-[267px] shrink-0 sm:h-[240px] sm:w-[320px] lg:h-[280px] lg:w-[373px]\";"
+  ],
+  [
+   "components/JoinUs.tsx",
+   32,
+   "arbitrary spacing/size",
+   "max-w-[520px]",
+   "<div className=\"flex max-w-[520px] flex-col gap-8\">"
+  ],
+  [
+   "components/JoinUs.tsx",
+   54,
+   "arbitrary spacing/size",
+   "max-w-[460px]",
+   "<div aria-hidden className=\"mx-auto hidden w-full max-w-[460px] text-fg-secondary lg:block\">"
+  ],
+  [
+   "components/Kbd.tsx",
+   14,
+   "arbitrary color/size value",
+   "text-[0.92em]",
+   "\"inline-flex items-baseline font-mono text-[0.92em] leading-none font-normal text-fg-muted uppercase\","
+  ],
+  [
+   "components/Kbd.tsx",
+   20,
+   "arbitrary spacing/size",
+   "px-[0.1em]",
+   "<span className=\"px-[0.1em]\">{children}</span>"
+  ],
+  [
+   "components/Logo.tsx",
+   35,
+   "hex color",
+   "#fff",
+   "<rect width=\"24\" height=\"24\" fill=\"#fff\" />"
+  ],
+  [
+   "components/Logo.tsx",
+   36,
+   "hex color",
+   "#000",
+   "<g fill=\"none\" stroke=\"#000\" strokeWidth=\"2\" strokeLinecap=\"round\">"
+  ],
+  [
+   "components/Navbar.tsx",
+   149,
+   "arbitrary spacing/size",
+   "h-[var(--nav-height)]",
+   "<div className=\"container-page grid h-[var(--nav-height)] grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]\">"
+  ],
+  [
+   "components/Navbar.tsx",
+   210,
+   "arbitrary spacing/size",
+   "h-[calc(100dvh-var(--nav-height))]",
+   "className=\"nav-sheet absolute inset-x-0 top-full h-[calc(100dvh-var(--nav-height))] overflow-y-auto border-t border-border bg-bg md:hidden\""
+  ],
+  [
+   "components/NewsletterForm.tsx",
+   116,
+   "arbitrary color/size value",
+   "focus-visible:shadow-[0_0_0_1px_var(--accent)]",
+   "\"focus-visible:border-accent focus-visible:shadow-[0_0_0_1px_var(--accent)] focus-visible:outline-none\","
+  ],
+  [
+   "components/PhotoColumns.tsx",
+   106,
+   "arbitrary spacing/size",
+   "md:h-[680px]",
+   "\"md:h-[680px] md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_minmax(0,1fr)] md:gap-8 lg:h-[760px] lg:gap-16\","
+  ],
+  [
+   "components/PhotoColumns.tsx",
+   106,
+   "arbitrary spacing/size",
+   "lg:h-[760px]",
+   "\"md:h-[680px] md:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_minmax(0,1fr)] md:gap-8 lg:h-[760px] lg:gap-16\","
+  ],
+  [
+   "components/Section.tsx",
+   67,
+   "arbitrary spacing/size",
+   "py-[calc(var(--section-space)/2)]",
+   "space === \"tight\" && \"py-[calc(var(--section-space)/2)]\","
+  ],
+  [
+   "components/Section.tsx",
+   73,
+   "arbitrary spacing/size",
+   "mb-[var(--section-space)]",
+   "{divider && <hr className=\"mb-[var(--section-space)]\" />}"
+  ],
+  [
+   "components/Section.tsx",
+   81,
+   "arbitrary spacing/size",
+   "max-w-[720px]",
+   "<div className={clsx(\"flex flex-col gap-4\", centered ? \"max-w-[720px] items-center\" : \"max-w-[640px]\")}>"
+  ],
+  [
+   "components/Section.tsx",
+   81,
+   "arbitrary spacing/size",
+   "max-w-[640px]",
+   "<div className={clsx(\"flex flex-col gap-4\", centered ? \"max-w-[720px] items-center\" : \"max-w-[640px]\")}>"
+  ],
+  [
+   "components/Section.tsx",
+   88,
+   "arbitrary spacing/size",
+   "max-w-[560px]",
+   "{intro && <div className={clsx(\"text-lg text-fg-muted\", centered && \"max-w-[560px]\")}>{intro}</div>}"
+  ],
+  [
+   "components/Section.tsx",
+   129,
+   "arbitrary spacing/size",
+   "max-w-[820px]",
+   "<div className={clsx(\"flex flex-col gap-5\", centered ? \"mx-auto max-w-[820px] items-center text-center\" : \"max-w-[760px] items-start\")}>"
+  ],
+  [
+   "components/Section.tsx",
+   129,
+   "arbitrary spacing/size",
+   "max-w-[760px]",
+   "<div className={clsx(\"flex flex-col gap-5\", centered ? \"mx-auto max-w-[820px] items-center text-center\" : \"max-w-[760px] items-start\")}>"
+  ],
+  [
+   "components/Section.tsx",
+   143,
+   "arbitrary spacing/size",
+   "max-w-[460px]",
+   "<div aria-hidden className=\"mx-auto hidden w-full max-w-[460px] text-fg-secondary sm:block\">"
+  ],
+  [
+   "lib/page-ui.tsx",
+   34,
+   "arbitrary spacing/size",
+   "md:top-[calc(var(--nav-height)+32px)]",
+   "<div className=\"flex flex-col gap-4 md:sticky md:top-[calc(var(--nav-height)+32px)] md:self-start\">"
+  ],
+  [
+   "lib/page-ui.tsx",
+   39,
+   "arbitrary spacing/size",
+   "max-w-[440px]",
+   "{intro && <p className=\"max-w-[440px] text-lg text-fg-muted\">{intro}</p>}"
+  ],
+  [
+   "lib/page-ui.tsx",
+   54,
+   "arbitrary spacing/size",
+   "mt-[3px]",
+   "<span aria-hidden className=\"mt-[3px] shrink-0 text-fg-subtle sm:mt-1\">"
+  ]
+ ]
+}

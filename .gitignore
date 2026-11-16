@@ -44,3 +44,5 @@ next-env.d.ts
 /reference/
 # QA artifacts
 /qa/screenshots/
+/qa/lighthouse/
+/qa/__pycache__/

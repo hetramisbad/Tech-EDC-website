@@ -44,8 +44,8 @@ export function JoinUs({
                 className="group/mail inline-flex items-center gap-1 self-start font-mono text-sm text-fg underline decoration-border-hover underline-offset-4 transition-colors hover:text-accent hover:decoration-current"
               >
                 {site.email}
-                <span aria-hidden className="transition-transform duration-200 group-hover/mail:-translate-y-px group-hover/mail:translate-x-px">
-                  ↗
+                <span aria-hidden className="transition-transform duration-200 group-hover/mail:translate-x-0.5">
+                  →
                 </span>
               </a>
             </div>

@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import type { ReactNode } from "react";
-import { SmartLink, isHttp } from "./SmartLink";
+import { SmartLink, opensNewTab } from "./SmartLink";
 
 export type ArrowLinkProps = {
   /** Omit inside a linked <Card/> to render a non-interactive span (avoids nested links). */
   href?: string;
-  /** Shows ↗ instead of → (also automatic for http links). */
+  /** Opens in a new tab and shows ↗ (automatic for http links; ignored for mailto/tel, which show →). */
   external?: boolean;
   children?: ReactNode;
   className?: string;
@@ -13,9 +13,9 @@ export type ArrowLinkProps = {
 
 /** "Learn more ↗" / "Learn more →". Arrow nudges on hover (also when its parent .group card is hovered). */
 export function ArrowLink({ href, external, children = "Learn more", className }: ArrowLinkProps) {
-  const out = external || (href ? isHttp(href) : false);
+  const out = href ? opensNewTab(href, external) : Boolean(external);
   const cls = clsx(
-    "group/arrow inline-flex items-center gap-1 text-[0.9375rem] text-fg-muted transition-colors duration-150",
+    "group/arrow inline-flex items-center gap-1 text-body-sm text-fg-muted transition-colors duration-150",
     "hover:text-accent group-hover:text-fg",
     className,
   );

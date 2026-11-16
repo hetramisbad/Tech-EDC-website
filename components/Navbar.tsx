@@ -9,7 +9,7 @@ import { Logo } from "./Logo";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
 import { Kbd } from "./Kbd";
-import { SmartLink, isHttp } from "./SmartLink";
+import { SmartLink, isHttp, opensNewTab } from "./SmartLink";
 import { NAV_SHORTCUTS } from "./navShortcuts";
 
 /** Label rendered as a secondary button at the right on desktop instead of a text link. */
@@ -161,9 +161,9 @@ export function Navbar() {
                     external={item.external}
                     aria-keyshortcuts={k}
                     aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                    className="group/nav inline-flex items-baseline gap-1.5 rounded-control px-2 py-2 font-mono text-sm tracking-[-0.01em] text-fg-secondary transition-colors duration-150 hover:text-fg aria-[current=page]:text-fg lg:px-2.5"
+                    className="group/nav inline-flex items-baseline gap-1.5 rounded-control px-2 py-2 font-mono text-sm tracking-mono text-fg-secondary transition-colors duration-150 hover:text-fg aria-[current=page]:text-fg lg:px-2.5"
                   >
-                    {k && <Kbd className="text-fg-subtle transition-colors group-hover/nav:text-fg-muted">{k}</Kbd>}
+                    {k && <Kbd className="text-fg-muted transition-colors group-hover/nav:text-fg-secondary">{k}</Kbd>}
                     <span>{item.label}</span>
                   </SmartLink>
                 </li>
@@ -222,7 +222,7 @@ export function Navbar() {
                   className="flex items-center justify-between py-4 font-mono text-base text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg"
                 >
                   <span>{item.label}</span>
-                  <Icon name={item.external ? "arrow-up-right" : "arrow-right"} className="text-fg-subtle" />
+                  <Icon name={opensNewTab(item.href, item.external) ? "arrow-up-right" : "arrow-right"} className="text-fg-subtle" />
                 </SmartLink>
               </li>
             ))}

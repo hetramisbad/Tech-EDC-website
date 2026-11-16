@@ -16,9 +16,9 @@ export function Kbd({ children, className, decorative = true }: { children: Reac
         className,
       )}
     >
-      <span className="opacity-60">[</span>
+      <span className="opacity-70">[</span>
       <span className="px-[0.1em]">{children}</span>
-      <span className="opacity-60">]</span>
+      <span className="opacity-70">]</span>
     </kbd>
   );
 }

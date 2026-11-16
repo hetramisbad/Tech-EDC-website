@@ -25,7 +25,7 @@ export type ButtonProps =
   | (Common & { href?: undefined } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "className">);
 
 const base =
-  "group/button relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap font-mono font-normal tracking-[-0.01em] " +
+  "group/button relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap font-mono font-normal tracking-mono " +
   "transition-[background-color,border-color,color] duration-150 ease-out " +
   "active:translate-y-px disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45";
 
@@ -38,9 +38,9 @@ const variants: Record<ButtonVariant, string> = {
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "h-9 rounded-control px-3.5 text-[0.8125rem]",
+  sm: "h-9 rounded-control px-3.5 text-meta",
   md: "h-10 rounded-control px-4 text-sm",
-  lg: "h-12 rounded-control px-5 text-[0.9375rem]",
+  lg: "h-12 rounded-control px-5 text-body-sm",
 };
 
 /**

@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import clsx from "clsx";
 import { site } from "@/content/site";
 import { Button } from "./Button";
@@ -36,6 +36,13 @@ export function NewsletterForm({ endpoint = site.newsletter.endpoint, className 
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<FieldErrors>({});
   const [message, setMessage] = useState("");
+  const successRef = useRef<HTMLDivElement>(null);
+
+  // After a successful submit the form unmounts; move focus to the confirmation
+  // so keyboard and screen-reader users are not dropped at the top of the page.
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -78,6 +85,8 @@ export function NewsletterForm({ endpoint = site.newsletter.endpoint, className 
   if (status === "success") {
     return (
       <div
+        ref={successRef}
+        tabIndex={-1}
         role="status"
         aria-live="polite"
         className={clsx("flex items-start gap-3 border-l border-border-hover py-1 pl-4", className)}
