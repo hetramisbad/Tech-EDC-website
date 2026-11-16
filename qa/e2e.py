@@ -665,10 +665,20 @@ def t_motion(browser):
     page, w = new_page(ctx)
     goto(page, "/")
     page.locator("#events .photo-col").first.scroll_into_view_if_needed()
-    page.locator("#events .photo-col").first.hover()
+    # Each column pauses on its own, only while one of its photos is hovered.
+    states_js = "[...document.querySelectorAll('.photo-col-track')].map(e => getComputedStyle(e).animationPlayState)"
+    def hover_col(i):
+        bb = page.locator("#events .photo-col").nth(i).bounding_box()
+        page.mouse.move(bb["x"] + bb["width"] / 2, bb["y"] + bb["height"] / 2)
+        page.wait_for_timeout(300)
+        return page.evaluate(states_js)
+    left = hover_col(0)
+    right = hover_col(1)
+    page.mouse.move(5, 5)
     page.wait_for_timeout(300)
-    states = page.evaluate("[...document.querySelectorAll('.photo-col-track')].map(e => getComputedStyle(e).animationPlayState)")
-    record("motion", "hovering the photo columns pauses them", all(s == "paused" for s in states), str(states))
+    none = page.evaluate(states_js)
+    ok = left == ["paused", "running"] and right == ["running", "paused"] and none == ["running", "running"]
+    record("motion", "hovering a photo pauses only its own column", ok, f"left={left} right={right} none={none}")
     ctx.close()
 
 

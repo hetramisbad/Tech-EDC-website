@@ -34,7 +34,7 @@ export function Hero() {
             </figure>
           ) : (
             <div aria-hidden className="mt-8 flex min-h-0 w-full flex-1 items-center justify-center sm:mt-10">
-              <HeroLaptop className="h-full max-h-125 w-auto max-w-full" />
+              <HeroLaptop className="h-full max-h-125 w-full" />
             </div>
           )}
 

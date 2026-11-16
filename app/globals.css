@@ -458,6 +458,21 @@ html[data-accent="none"],
   background-size: var(--noise-size);
 }
 
+/* Navbar "grid" surface: the same grain + grid as the fixed page background, at the
+   same positions, so over the hero the bar is indistinguishable from the page. */
+.nav-surface-grid {
+  background-color: var(--bg);
+  background-image: var(--grid-layers), var(--noise);
+  background-size: var(--grid-sizes), var(--noise-size);
+  background-position: var(--grid-position), 0 0;
+  background-repeat: repeat;
+}
+/* Navbar dissolve canvas: one canvas pixel per 8px block, scaled up crisply. */
+.nav-dissolve {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
 /* The grid on an element (e.g. a band inside a plain area). Scrolls with it. */
 @utility surface-grid {
   background-color: var(--bg);

@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import { navItems, site, type NavItem } from "@/content/site";
 import { Logo } from "./Logo";
+import { NavBackdrop, type NavSurface } from "./NavBackdrop";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
 import { Kbd } from "./Kbd";
@@ -36,6 +37,7 @@ function dialogOpen() {
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [surface, setSurface] = useState<NavSurface>("grid");
   const pathname = usePathname();
   const router = useRouter();
   const menuId = useId();
@@ -57,13 +59,31 @@ export function Navbar() {
     }
   }, [pathname]);
 
-  // Hairline appears once the page scrolls.
+  // Hairline appears once the page scrolls; the bar's background follows the
+  // surface of whatever section is directly under its bottom edge.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
-    onScroll();
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      setScrolled(window.scrollY > 4);
+      const nav = navRef.current;
+      if (!nav) return;
+      const y = nav.getBoundingClientRect().bottom + 1;
+      const el = document.elementFromPoint(window.innerWidth / 2, y);
+      setSurface(el?.closest(".surface-plain") && !nav.contains(el) ? "plain" : "grid");
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [pathname]);
 
   // Esc closes; focus moves into the menu on open; close if viewport grows past the breakpoint.
   useEffect(() => {
@@ -142,14 +162,14 @@ export function Navbar() {
         aria-label="Main"
         onBlur={onBlur}
         className={clsx(
-          // Transparent over the hero; once scrolled it drops into a solid bar with a
-          // visible bottom rule (Tech@NYU style). The rule is a pseudo-element so the
-          // bar stays exactly var(--nav-height) tall in both states.
-          "relative transition-colors duration-300 ease-out",
-          "after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-border-strong after:transition-opacity after:duration-300",
-          scrolled || open ? "bg-bg after:opacity-100" : "bg-transparent after:opacity-0",
+          // Background = the surface under the bar (NavBackdrop), so content is cut
+          // off cleanly at its edge. A faint rule fades in once scrolled (Tech@NYU:
+          // 0 1px 0 white/10%, 0.2s). Box-shadow keeps the bar exactly --nav-height.
+          "relative isolate transition-shadow duration-200 ease-in",
+          scrolled && "shadow-[0_1px_0_0_rgb(255_255_255/0.1)]",
         )}
       >
+        <NavBackdrop surface={open ? "plain" : surface} />
         {/* Full-bleed bar with Tech@NYU's side margins: 16px on phones, 24px from md up. */}
         <div className="grid h-[var(--nav-height)] grid-cols-[1fr_auto] items-center gap-4 px-4 md:grid-cols-[1fr_auto_1fr] md:px-6">
           <Link href="/" className="-m-1 flex justify-self-start rounded-control p-1" aria-label={`${site.name} home`}>
@@ -192,7 +212,7 @@ export function Navbar() {
                 </Button>
               </div>
             )}
-            <Button href={site.links.discord} size="md" variant="primary" className="max-md:h-9 max-md:text-meta! md:text-base!">
+            <Button href={site.links.discord} size="md" variant="primary" invertOnHover={false} className="max-md:h-9 max-md:text-meta! md:text-base!">
               Join Discord
             </Button>
             <button

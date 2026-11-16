@@ -16,6 +16,9 @@ type Common = {
   iconLeft?: IconName;
   /** Keyboard hint shown as `[K]` before the label. Pair with aria-keyshortcuts. */
   kbd?: string;
+  /** Primary only: invert to an outline on hover (Tech@NYU hero CTA). Default true.
+   *  The navbar's Join Discord passes false, as on Tech@NYU. */
+  invertOnHover?: boolean;
   className?: string;
   children: ReactNode;
 };
@@ -30,10 +33,10 @@ const base =
   "active:translate-y-px disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45";
 
 const variants: Record<ButtonVariant, string> = {
-  /** White, square, mono label (Tech@NYU "Join Discord"). */
-  primary: "border border-fg bg-fg text-fg-inverse hover:border-fg-secondary hover:bg-fg-secondary",
-  /** Drawn outline, transparent fill (Tech@NYU "Contact"). */
-  secondary: "border border-border-control bg-transparent text-fg hover:border-fg hover:bg-white/[0.04]",
+  /** White, square, mono label (Tech@NYU "Join Discord"). Hover inversion: see invertOnHover. */
+  primary: "border border-fg bg-fg text-fg-inverse",
+  /** Drawn outline, transparent fill (Tech@NYU "Contact"); fills white on hover. */
+  secondary: "border border-fg bg-transparent text-fg hover:bg-fg hover:text-fg-inverse",
   ghost: "border border-transparent text-fg-muted hover:bg-white/[0.05] hover:text-fg",
 };
 
@@ -48,12 +51,18 @@ const sizes: Record<ButtonSize, string> = {
  * new tab, mailto plain), otherwise a <button type="button">.
  */
 export function Button(props: ButtonProps) {
-  const { variant = "primary", size = "md", icon, iconLeft, kbd, className, children } = props;
-  const cls = clsx(base, variants[variant], sizes[size], className);
+  const { variant = "primary", size = "md", icon, iconLeft, kbd, invertOnHover = true, className, children } = props;
+  const cls = clsx(
+    base,
+    variants[variant],
+    variant === "primary" && invertOnHover && "hover:bg-transparent hover:text-fg",
+    sizes[size],
+    className,
+  );
   const iconSize = size === "lg" ? 16 : 14;
   const content = (
     <>
-      {kbd && <Kbd className={variant === "primary" ? "text-fg-inverse/70" : undefined}>{kbd}</Kbd>}
+      {kbd && <Kbd>{kbd}</Kbd>}
       {iconLeft && <Icon name={iconLeft} size={iconSize} />}
       <span>{children}</span>
       {icon && (
@@ -80,8 +89,8 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const { variant: _v, size: _s, icon: _i, iconLeft: _il, kbd: _k, className: _c, children: _ch, href: _h, type, ...rest } = props;
-  void _v; void _s; void _i; void _il; void _k; void _c; void _ch; void _h;
+  const { variant: _v, size: _s, icon: _i, iconLeft: _il, kbd: _k, invertOnHover: _inv, className: _c, children: _ch, href: _h, type, ...rest } = props;
+  void _v; void _s; void _i; void _il; void _k; void _inv; void _c; void _ch; void _h;
   return (
     <button type={type ?? "button"} className={cls} {...rest}>
       {content}
