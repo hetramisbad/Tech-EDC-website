@@ -65,17 +65,17 @@ export function Accordion({ items, multiple = false, defaultOpen, headingAs: H =
                 aria-controls={pid}
                 onClick={() => toggle(i)}
                 onKeyDown={(e) => onKeyDown(e, i)}
-                className="group flex w-full items-center justify-between gap-6 py-5 text-left text-base font-medium text-fg-secondary transition-colors duration-150 hover:text-fg aria-expanded:text-fg sm:text-[1.0625rem]"
+                className="group flex w-full items-center justify-between gap-6 py-5 text-left text-base font-medium text-fg-secondary transition-colors duration-150 hover:text-fg aria-expanded:text-fg sm:text-lg"
               >
                 <span>{item.q}</span>
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full border border-border text-fg-muted transition-colors group-hover:border-border-hover group-hover:text-fg">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-control border border-border-strong text-fg-muted transition-colors group-hover:border-border-hover group-hover:text-fg">
                   <Icon name="plus" size={14} className="accordion-icon" />
                 </span>
               </button>
             </H>
             <div id={pid} role="region" aria-labelledby={tid} className="accordion-panel" data-open={isOpen} inert={!isOpen}>
               <div>
-                <div className="max-w-[640px] pb-6 pr-12 text-[0.9375rem] leading-relaxed text-fg-muted">{item.a}</div>
+                <div className="max-w-[640px] pb-6 pr-12 text-base leading-relaxed text-fg-muted">{item.a}</div>
               </div>
             </div>
           </div>

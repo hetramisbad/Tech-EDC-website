@@ -19,7 +19,7 @@ export function EmptyState({
   return (
     <div
       className={clsx(
-        "relative flex flex-col items-center gap-3 overflow-hidden rounded-card border border-dashed border-border-strong bg-surface/50 px-6 py-16 text-center grain",
+        "relative flex flex-col items-center gap-3 overflow-hidden rounded-card border border-dashed border-border-strong bg-surface px-6 py-16 text-center grain",
         className,
       )}
     >

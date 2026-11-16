@@ -13,7 +13,7 @@ export type LogoProps = {
 };
 
 /**
- * Tech@EDC mark: a power-button glyph knocked out of a rounded square.
+ * Tech@EDC mark: a power-button glyph knocked out of a near-square tile.
  * Single color (currentColor). Decorative when the wordmark is shown.
  */
 export function LogoMark({ size = 24, title, className }: { size?: number; title?: string; className?: string }) {
@@ -39,7 +39,7 @@ export function LogoMark({ size = 24, title, className }: { size?: number; title
           </g>
         </mask>
       </defs>
-      <rect width="24" height="24" rx="6" fill="currentColor" mask={`url(#${maskId})`} />
+      <rect width="24" height="24" rx="4" fill="currentColor" mask={`url(#${maskId})`} />
     </svg>
   );
 }
@@ -49,7 +49,7 @@ export function Logo({ wordmark = true, size = 24, className, title }: LogoProps
     <span className={clsx("inline-flex items-center gap-2.5 text-fg", className)}>
       <LogoMark size={size} title={wordmark ? undefined : (title ?? site.name)} />
       {wordmark && (
-        <span className="text-[0.9375rem] font-semibold leading-none tracking-[-0.02em]">{site.name}</span>
+        <span className="text-base font-bold leading-none tracking-[-0.025em]">{site.name}</span>
       )}
     </span>
   );

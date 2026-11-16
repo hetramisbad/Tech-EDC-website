@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource-variable/inter";
+import "@fontsource-variable/geist-mono";
 import "./globals.css";
 import { site } from "@/content/site";
 import { Footer } from "@/components/Footer";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08090a",
+  themeColor: "#09090a",
   colorScheme: "dark",
 };
 
@@ -42,6 +42,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: accentScript }} />
+        {/* BDO Grotesk (variable, SIL OFL) is self-hosted; @font-face lives in globals.css. */}
+        <link rel="preload" href="/fonts/BDOGrotesk-VF.woff2" as="font" type="font/woff2" crossOrigin="" />
       </head>
       <body>
         <a href="#content" className="skip-link">

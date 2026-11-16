@@ -22,14 +22,14 @@ export function TeamCard({ name, role, photo, links, className }: TeamCardProps)
           // eslint-disable-next-line @next/next/no-img-element -- static export
           <img src={photo} alt={`Portrait of ${name}`} loading="lazy" className="h-full w-full object-cover grayscale-[15%]" />
         ) : (
-          <div aria-hidden className="flex h-full w-full items-center justify-center bg-[radial-gradient(100%_100%_at_50%_0%,var(--surface-hover),var(--surface))]">
-            <span className="text-h2 text-fg-subtle">{initials(name)}</span>
+          <div aria-hidden className="flex h-full w-full items-center justify-center">
+            <span className="font-mono text-h3 text-fg-subtle">{initials(name)}</span>
           </div>
         )}
       </div>
       <div className="flex flex-col gap-0.5">
         <h3 className="text-base font-medium text-fg">{name}</h3>
-        <p className="text-sm text-fg-muted">{role}</p>
+        <p className="font-mono text-xs text-fg-muted">{role}</p>
         {links && links.length > 0 && (
           <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
             {links.map((l) => (

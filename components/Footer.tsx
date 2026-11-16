@@ -25,7 +25,7 @@ export function Footer() {
                   <SmartLink
                     href={item.href}
                     external={item.external}
-                    className="text-sm text-fg-muted transition-colors duration-150 hover:text-fg"
+                    className="font-mono text-sm text-fg-muted transition-colors duration-150 hover:text-fg"
                   >
                     {item.label}
                   </SmartLink>
@@ -35,7 +35,7 @@ export function Footer() {
           </nav>
         </div>
         <div className="flex flex-col-reverse gap-6 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-fg-subtle">
+          <p className="font-mono text-xs text-fg-subtle">
             © {year} {site.name}. All rights reserved.
           </p>
           <SocialLinks />

@@ -1,68 +1,88 @@
 @import "tailwindcss";
 
 /* =============================================================================
-   Tech@EDC design system
-   Dark, quiet, near-monochrome. Layout rhythm from Tech@NYU (measurements
-   only), surface treatment from Linear. Owner: Design agent.
+   Tech@EDC design system, v2 (15 Nov 2026)
+   Tech@NYU is the main reference (layout, mono UI text, square corners, grid
+   background, isometric line art); measurements only, nothing copied.
+   Owner: Design agent.
 
    Rules for everyone:
    - Use the Tailwind utilities generated from the @theme blocks below
      (bg-bg, bg-surface, text-fg, text-fg-muted, border-border, rounded-card,
-     text-h2, max-w-page, ...). Tailwind's default color palette and default
-     font-size scale are switched OFF on purpose, so a one-off color like
-     `text-zinc-400` or size like `text-3xl` will not compile to anything.
-   - Accent (Triton blue) is for focus rings, link hover and the badge dot
-     only. Never fill large areas with it. Primary buttons are white on black.
-   - Compare with / without blue: add `data-accent="none"` to <html>, or open
-     any page with `?accent=none` (persists in localStorage; `?accent=blue`
-     restores it).
+     text-h2, max-w-page, font-mono, ...). Tailwind's default color palette and
+     font-size scale are switched OFF on purpose: `text-zinc-400` or `text-3xl`
+     compile to nothing.
+   - Type: BDO Grotesk for headings and body (font-sans, the default).
+     Geist Mono (font-mono) for UI text: navbar, buttons, labels, form labels,
+     key hints, meta.
+   - No vibe-coded devices: no status dots, glows, radial blooms, gradient
+     borders, purple, emoji, or cards nested in cards.
+   - Accent (Triton blue) is for focus rings and link hover only.
+     Compare with / without blue: `?accent=none` on any page (persists;
+     `?accent=blue` restores), or `data-accent="none"` on any element.
    ========================================================================== */
 
 /* ---------------------------------------------------------------------------
+   0. Fonts
+   ------------------------------------------------------------------------- */
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-VF.woff2") format("woff2-variations"),
+    url("/fonts/BDOGrotesk-VF.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------------------
    1. Raw tokens (CSS variables). Components read these directly when a
-      Tailwind utility is awkward (e.g. gradients, shadows).
+      Tailwind utility is awkward (backgrounds, illustration fills).
    ------------------------------------------------------------------------- */
 :root {
   color-scheme: dark;
 
-  /* Color: surfaces */
-  --bg: #08090a;
-  --surface: #0f1011;
-  --surface-raised: #141516;
-  --surface-hover: #191a1c;
-  --overlay: rgb(8 9 10 / 0.72); /* translucent navbar fill */
+  /* Color: surfaces. Neutral near-black, no blue cast except the faint
+     tint at the top of the page gradient. */
+  --bg: #09090a;
+  --bg-top: #0c0f11; /* page gradient start: #0c0d0e + ~3% Edmonds blue */
+  --bg-bottom: #060707; /* page gradient end */
+  --bg-plain: #050506; /* opaque band for dense sections (Section surface="plain") */
+  --surface: #121213;
+  --surface-raised: #18181a;
+  --surface-hover: #1e1e20;
+  --overlay: rgb(9 9 10 / 0.8); /* translucent navbar fill */
 
   /* Color: lines */
-  --border: rgb(255 255 255 / 0.08);
-  --border-strong: rgb(255 255 255 / 0.14);
-  --border-hover: rgb(255 255 255 / 0.2);
+  --border: rgb(255 255 255 / 0.1);
+  --border-strong: rgb(255 255 255 / 0.16);
+  --border-hover: rgb(255 255 255 / 0.3);
+  --border-control: rgb(255 255 255 / 0.5); /* secondary button outline, like a drawn box */
 
-  /* Color: text. Contrast on --bg / --surface (WCAG):
-     text 18.7 / 17.9, text-secondary 13.6 / 13.0, text-muted 6.1 / 5.9,
-     text-subtle 4.9 / 4.7 (AA for body text on bg and surface). */
-  --text: #f7f8f8;
-  --text-secondary: #d0d6e0;
-  --text-muted: #8a8f98;
-  --text-subtle: #7c818a;
-  --text-inverse: #08090a;
+  /* Color: text. Contrast (WCAG) on --bg / --surface / --surface-raised:
+     text 18.3 / 17.2 / 16.3, secondary 13.4 / 12.6 / 12.0,
+     muted 7.9 / 7.4 / 7.0, subtle 5.4 / 5.0 / 4.75 (all AA for body text). */
+  --text: #f5f5f5;
+  --text-secondary: #d4d4d4;
+  --text-muted: #a3a3a3;
+  --text-subtle: #868686;
+  --text-inverse: #09090a;
 
-  /* Color: accent. --accent-brand is the Triton blue itself (confirmed: #004d71 from edmonds.edu,
-     see STATUS.md); too dark for text on black (2.2:1), so it is only used for
-     tiny fills like the badge dot glow. --accent is the on-dark tint used for
-     focus rings, link hover and the badge dot (5.5:1 on --bg). */
-  --accent-brand: #004d71; /* Edmonds College blue, sampled from edmonds.edu navbar 2026-11-15 */
-  --accent: #3a8fb9; /* same hue, lightened for 5.5:1 on --bg */
+  /* Color: accent. --accent-brand is Triton blue itself (#004d71, from
+     edmonds.edu); too dark for text on black (2.2:1). --accent is the on-dark
+     tint (5.5:1 on --bg) used for focus rings and link hover. Nothing else. */
+  --accent-brand: #004d71;
+  --accent: #3a8fb9;
   --accent-soft: rgb(58 143 185 / 0.16);
 
   /* Feedback (form states). Muted, not neon. */
-  --danger: #eb7b7b; /* 7.1:1 on --bg */
-  --success: #6fcf97; /* 10.6:1 on --bg */
+  --danger: #eb7b7b; /* 7.2:1 on --bg */
+  --success: #6fcf97; /* 10.5:1 on --bg */
 
-  /* Radii */
-  --radius-sm: 6px;
-  --radius-control: 8px;
-  --radius-card: 12px;
-  --radius-panel: 16px;
+  /* Radii: near-square, Tech@NYU style. */
+  --radius-sm: 2px;
+  --radius-control: 2px;
+  --radius-card: 4px;
+  --radius-panel: 6px;
   --radius-pill: 9999px;
 
   /* Layout. Page inset follows Tech@NYU's breakpoints:
@@ -72,7 +92,7 @@
   --container-prose: 680px;
   --page-inset: 16px;
   --nav-height: 64px;
-  --section-space: 64px; /* vertical padding of a Section; grows by breakpoint */
+  --section-space: 72px; /* vertical padding of a Section; grows by breakpoint */
 
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -82,32 +102,63 @@
   --duration-slow: 360ms;
   --duration-reveal: 700ms;
   --marquee-duration: 60s;
+  --columns-duration: 70s; /* PhotoColumns: one full vertical loop */
 
   /* Focus */
   --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
 
-  /* Elevation: Linear-style hairline + faint inner top highlight */
-  --shadow-card: inset 0 1px 0 0 rgb(255 255 255 / 0.04);
-  --shadow-card-hover:
-    inset 0 1px 0 0 rgb(255 255 255 / 0.08), 0 0 0 1px var(--border-hover),
-    0 0 48px -12px rgb(255 255 255 / 0.14);
+  /* Elevation: none. Kept as variables so older class strings still compile. */
+  --shadow-card: none;
+  --shadow-card-hover: none;
   --shadow-popover: 0 16px 48px -8px rgb(0 0 0 / 0.6);
 
-  /* Grain: our own feTurbulence noise, alpha baked in. Very low opacity. */
-  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --grain-opacity: 0.035;
+  /* Page background ("cubes"): 40px major cells, 10px minor cells,
+     centered horizontally, origin at the top of the viewport. */
+  --grid-major: rgb(255 255 255 / 0.07);
+  --grid-minor: rgb(255 255 255 / 0.025);
+  --grid-major-size: 40px;
+  --grid-minor-size: 10px;
+  --grid-layers:
+    linear-gradient(to right, var(--grid-major) 0 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-major) 0 1px, transparent 1px),
+    linear-gradient(to right, var(--grid-minor) 0 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-minor) 0 1px, transparent 1px);
+  --grid-sizes:
+    var(--grid-major-size) var(--grid-major-size), var(--grid-major-size) var(--grid-major-size),
+    var(--grid-minor-size) var(--grid-minor-size), var(--grid-minor-size) var(--grid-minor-size);
+  --grid-position: 50% 0, 50% 0, 50% 0, 50% 0;
+
+  /* Noise: our own feTurbulence grain, white with alpha taken from the
+     noise's red channel. 256px tile, stitched so it has no seams.
+     --noise (page, cards): alpha ~0-7%, mean ~3.5%.
+     --noise-faint (plain bands): half that, so plain bands read darker
+     than the gridded hero, as on Tech@NYU. */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.16 0 0 0 -0.045'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+  --noise-faint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.08 0 0 0 -0.022'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+  --noise-size: 256px 256px;
+  /* Legacy names (v1). Same texture. */
+  --grain: var(--noise);
+  --grain-opacity: 1;
+
+  /* Isometric illustrations (components/illustrations). Opaque face fills
+     so hidden lines are occluded; strokes use currentColor. */
+  --iso-top: #1a1a1c;
+  --iso-left: #101011;
+  --iso-right: #0a0a0b;
+  --iso-light: #e6e6e6; /* focal faces (key tops, paper) */
+  --iso-ink: #0a0a0b; /* lines drawn on light faces */
 }
 
 @media (min-width: 600px) {
   :root {
     --page-inset: 32px;
-    --section-space: 88px;
+    --section-space: 96px;
   }
 }
 @media (min-width: 1080px) {
   :root {
     --page-inset: 48px;
-    --section-space: 112px;
+    --section-space: 128px;
   }
 }
 @media (min-width: 1280px) {
@@ -120,7 +171,7 @@
 html[data-accent="none"],
 [data-accent="none"] {
   --accent-brand: #3a3d42;
-  --accent: #a1a6ae;
+  --accent: #b5b5b5;
   --accent-soft: rgb(255 255 255 / 0.08);
   --focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
 }
@@ -143,55 +194,56 @@ html[data-accent="none"],
   --breakpoint-2xl: 1440px;
 
   --font-sans:
-    "Inter Variable", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "BDO Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
   --font-mono:
-    ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    "Geist Mono Variable", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
 
-  /* Type scale. Display sizes are tightly tracked (Linear). */
-  --text-display: clamp(2.5rem, 1.6rem + 4.4vw, 4.5rem); /* 40 -> 72 */
-  --text-display--line-height: 1.04;
+  /* Type scale, tuned for BDO Grotesk: bold, tight display sizes like
+     Tech@NYU's ("Build what's next." ~72px, section titles ~48px). */
+  --text-display: clamp(2.75rem, 1.95rem + 3.6vw, 4.5rem); /* 44 -> 72 */
+  --text-display--line-height: 1.02;
   --text-display--letter-spacing: -0.035em;
-  --text-display--font-weight: 600;
+  --text-display--font-weight: 700;
 
-  --text-h1: clamp(2.25rem, 1.75rem + 2.4vw, 3.5rem); /* 36 -> 56 */
-  --text-h1--line-height: 1.08;
+  --text-h1: clamp(2.375rem, 1.85rem + 2.3vw, 3.5rem); /* 38 -> 56 */
+  --text-h1--line-height: 1.04;
   --text-h1--letter-spacing: -0.03em;
-  --text-h1--font-weight: 600;
+  --text-h1--font-weight: 700;
 
-  --text-h2: clamp(1.75rem, 1.45rem + 1.4vw, 2.5rem); /* 28 -> 40 */
-  --text-h2--line-height: 1.12;
-  --text-h2--letter-spacing: -0.025em;
-  --text-h2--font-weight: 600;
+  --text-h2: clamp(2rem, 1.6rem + 1.7vw, 3rem); /* 32 -> 48 */
+  --text-h2--line-height: 1.06;
+  --text-h2--letter-spacing: -0.028em;
+  --text-h2--font-weight: 700;
 
   --text-h3: 1.25rem; /* 20 */
-  --text-h3--line-height: 1.3;
-  --text-h3--letter-spacing: -0.015em;
-  --text-h3--font-weight: 560;
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.012em;
+  --text-h3--font-weight: 650;
 
   --text-lg: 1.125rem; /* 18: intros, subheads */
-  --text-lg--line-height: 1.6;
-  --text-lg--letter-spacing: -0.01em;
+  --text-lg--line-height: 1.55;
+  --text-lg--letter-spacing: -0.005em;
 
   --text-base: 1rem; /* 16: body */
   --text-base--line-height: 1.6;
-  --text-base--letter-spacing: -0.006em;
+  --text-base--letter-spacing: 0em;
 
-  --text-sm: 0.875rem; /* 14: secondary copy, buttons, nav */
+  --text-sm: 0.875rem; /* 14: secondary copy, nav, buttons */
   --text-sm--line-height: 1.5;
-  --text-sm--letter-spacing: -0.003em;
 
   --text-xs: 0.8125rem; /* 13: captions, meta */
   --text-xs--line-height: 1.45;
 
-  --text-label: 0.75rem; /* 12: mono eyebrow / fig labels, use with font-mono uppercase */
-  --text-label--line-height: 1.3;
-  --text-label--letter-spacing: 0.08em;
+  --text-label: 0.8125rem; /* 13: mono labels (label-mono), mixed case */
+  --text-label--line-height: 1.35;
+  --text-label--letter-spacing: -0.01em;
 
-  --radius-sm: 6px;
-  --radius-control: 8px;
-  --radius-card: 12px;
-  --radius-panel: 16px;
+  --radius-sm: 2px;
+  --radius-control: 2px;
+  --radius-card: 4px;
+  --radius-panel: 6px;
 
   --container-page: 1200px;
   --container-narrow: 880px;
@@ -202,6 +254,7 @@ html[data-accent="none"],
 
 @theme inline {
   --color-bg: var(--bg);
+  --color-bg-plain: var(--bg-plain);
   --color-surface: var(--surface);
   --color-surface-raised: var(--surface-raised);
   --color-surface-hover: var(--surface-hover);
@@ -209,6 +262,7 @@ html[data-accent="none"],
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-border-hover: var(--border-hover);
+  --color-border-control: var(--border-control);
   --color-fg: var(--text);
   --color-fg-secondary: var(--text-secondary);
   --color-fg-muted: var(--text-muted);
@@ -228,10 +282,10 @@ html[data-accent="none"],
    ------------------------------------------------------------------------- */
 @layer base {
   html {
-    background: var(--bg);
+    background: var(--bg-bottom);
     color: var(--text);
     font-family: var(--font-sans);
-    font-feature-settings: "cv01", "ss03"; /* Inter: open digits, rounded quotes */
+    font-optical-sizing: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -243,21 +297,36 @@ html[data-accent="none"],
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    background-color: var(--bg);
+    background-color: transparent;
     font-size: var(--text-base);
     line-height: var(--text-base--line-height);
     letter-spacing: var(--text-base--letter-spacing);
   }
 
-  /* Page-wide grain, fixed so it does not scroll or tile visibly. */
-  body::before {
+  /* Page background, fixed to the viewport (two cheap compositor layers,
+     no animation, no background-attachment: fixed):
+     ::before = linear gradient + feTurbulence grain
+     ::after  = the square grid, fading slightly toward the bottom of the
+                viewport so dense content lower on screen stays calm. */
+  body::before,
+  body::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    background-image: var(--grain);
-    opacity: var(--grain-opacity);
+  }
+  body::before {
+    background-color: var(--bg);
+    background-image: var(--noise), linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 45%, var(--bg-bottom) 100%);
+    background-size: var(--noise-size), 100% 100%;
+    background-repeat: repeat, no-repeat;
+  }
+  body::after {
+    background-image: var(--grid-layers);
+    background-size: var(--grid-sizes);
+    background-position: var(--grid-position);
+    mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgb(0 0 0 / 0.5) 100%);
   }
   body > * {
     position: relative;
@@ -265,7 +334,7 @@ html[data-accent="none"],
   }
 
   ::selection {
-    background: rgb(255 255 255 / 0.18);
+    background: rgb(255 255 255 / 0.2);
     color: var(--text);
   }
 
@@ -288,7 +357,7 @@ html[data-accent="none"],
   :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
   }
   :focus:not(:focus-visible) {
     outline: none;
@@ -304,6 +373,13 @@ html[data-accent="none"],
   video {
     display: block;
     max-width: 100%;
+  }
+
+  kbd,
+  code,
+  pre,
+  samp {
+    font-family: var(--font-mono);
   }
 }
 
@@ -330,17 +406,16 @@ html[data-accent="none"],
   padding-block: var(--section-space);
 }
 
-/* Mono uppercase label (eyebrows, "Fig 0.1", dates). */
+/* Mono label (eyebrows, dates, form labels, meta). Mixed case, like Tech@NYU. */
 @utility label-mono {
   font-family: var(--font-mono);
   font-size: var(--text-label);
   line-height: var(--text-label--line-height);
   letter-spacing: var(--text-label--letter-spacing);
-  text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
 }
 
-/* Grain on a surface. Element must be position: relative (or use .panel). */
+/* Grain on a surface (cards, panels). Element must be position: relative. */
 @utility grain {
   isolation: isolate;
   &::after {
@@ -350,9 +425,25 @@ html[data-accent="none"],
     z-index: -1;
     border-radius: inherit;
     pointer-events: none;
-    background-image: var(--grain);
-    opacity: 0.05;
+    background-image: var(--noise);
+    background-size: var(--noise-size);
   }
+}
+
+/* Opaque, grid-free band (Tech@NYU switches to plain black below the hero).
+   Use via <Section surface="plain">. */
+@utility surface-plain {
+  background-color: var(--bg-plain);
+  background-image: var(--noise-faint);
+  background-size: var(--noise-size);
+}
+
+/* The grid on an element (e.g. a band inside a plain area). Scrolls with it. */
+@utility surface-grid {
+  background-color: var(--bg);
+  background-image: var(--grid-layers), var(--noise);
+  background-size: var(--grid-sizes), var(--noise-size);
+  background-position: var(--grid-position), 0 0;
 }
 
 /* Accessible hidden text. */
@@ -368,11 +459,11 @@ html[data-accent="none"],
   border: 0 !important;
 }
 
-/* Hairline-separated text link with accent hover (inline links in copy). */
+/* Underlined text link with accent hover (inline links in copy). */
 @utility link {
   color: var(--text);
   text-decoration: underline;
-  text-decoration-color: var(--border-strong);
+  text-decoration-color: var(--border-hover);
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
   transition:
@@ -399,13 +490,21 @@ html[data-accent="none"],
   border-radius: var(--radius-control);
   background: var(--text);
   color: var(--text-inverse);
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
-  font-weight: 560;
   transition: transform var(--duration-base) var(--ease-out);
 }
 .skip-link:focus-visible,
 .skip-link:focus {
   transform: translateY(0);
+}
+
+/* Card media slot renders flush: no second frame inside a card. */
+.card-media > * {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent;
 }
 
 /* Accordion height animation via grid rows. */
@@ -428,7 +527,7 @@ html[data-accent="none"],
   transform: rotate(45deg);
 }
 
-/* Marquee */
+/* Marquee (Gallery) */
 .marquee {
   --marquee-gap: 16px;
   mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
@@ -447,6 +546,44 @@ html[data-accent="none"],
 @keyframes marquee {
   to {
     transform: translateX(calc(-50% - var(--marquee-gap) / 2));
+  }
+}
+
+/* PhotoColumns: two vertical columns scrolling in opposite directions. */
+.photo-columns {
+  --columns-gap: 12px;
+}
+.photo-col {
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+}
+.photo-col-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--columns-gap);
+  animation: photo-col-up var(--columns-duration) linear infinite;
+}
+.photo-col[data-direction="down"] .photo-col-track {
+  animation-name: photo-col-down;
+}
+.photo-columns:hover .photo-col-track,
+.photo-columns:focus-within .photo-col-track {
+  animation-play-state: paused;
+}
+@keyframes photo-col-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(-50% - var(--columns-gap) / 2));
+  }
+}
+@keyframes photo-col-down {
+  from {
+    transform: translateY(calc(-50% - var(--columns-gap) / 2));
+  }
+  to {
+    transform: translateY(0);
   }
 }
 
@@ -489,7 +626,6 @@ html[data-accent="none"],
   color: var(--text-secondary);
   font-size: var(--text-lg);
   line-height: 1.7;
-  letter-spacing: -0.008em;
 }
 .prose > * + * {
   margin-top: 1.25em;
@@ -497,17 +633,17 @@ html[data-accent="none"],
 .prose h2,
 .prose h3 {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 .prose h2 {
-  font-size: 1.6rem;
-  line-height: 1.25;
+  font-size: 1.75rem;
+  line-height: 1.2;
   margin-top: 2.2em;
 }
 .prose h3 {
-  font-size: 1.25rem;
-  line-height: 1.35;
+  font-size: 1.3rem;
+  line-height: 1.3;
   margin-top: 1.8em;
 }
 .prose h2 + *,
@@ -516,12 +652,12 @@ html[data-accent="none"],
 }
 .prose strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 650;
 }
 .prose a {
   color: var(--text);
   text-decoration: underline;
-  text-decoration-color: var(--border-strong);
+  text-decoration-color: var(--border-hover);
   text-underline-offset: 0.2em;
 }
 .prose a:hover {
@@ -533,7 +669,7 @@ html[data-accent="none"],
   padding-left: 1.25em;
 }
 .prose ul {
-  list-style: disc;
+  list-style: square;
 }
 .prose ol {
   list-style: decimal;
@@ -551,7 +687,7 @@ html[data-accent="none"],
 }
 .prose code {
   font-family: var(--font-mono);
-  font-size: 0.875em;
+  font-size: 0.85em;
   background: var(--surface-raised);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -591,23 +727,36 @@ html[data-accent="none"],
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  .marquee-track {
-    animation: none;
+  .marquee-track,
+  .photo-col-track {
+    animation: none !important;
+    transform: none !important;
   }
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;
   }
-}
-
-/* Marquee under reduced motion: a static, swipeable strip. */
-@media (prefers-reduced-motion: reduce) {
+  /* Marquee: a static, swipeable strip. */
   .marquee {
     overflow-x: auto;
     mask-image: none;
     scrollbar-width: thin;
   }
-  .marquee-dup {
+  .marquee-dup,
+  .photo-col-dup {
+    display: none;
+  }
+}
+
+/* PhotoColumns below 840px: static, two tiles per column, no fade. */
+@media (max-width: 839.98px) {
+  .photo-col {
+    mask-image: none;
+  }
+  .photo-col-track {
+    animation: none;
+  }
+  .photo-col-track > li:nth-child(n + 3) {
     display: none;
   }
 }

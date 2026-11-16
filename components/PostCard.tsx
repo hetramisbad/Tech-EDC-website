@@ -30,7 +30,7 @@ export function PostCard({ title, date, summary, href, author, featured = false,
           <time dateTime={date}>{formatDate(date)}</time>
           {author && (
             <>
-              <span aria-hidden className="size-1 rounded-full bg-border-strong" />
+              <span aria-hidden className="opacity-60">/</span>
               <span>{author}</span>
             </>
           )}

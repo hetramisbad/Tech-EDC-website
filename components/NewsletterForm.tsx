@@ -80,9 +80,9 @@ export function NewsletterForm({ endpoint = site.newsletter.endpoint, className 
       <div
         role="status"
         aria-live="polite"
-        className={clsx("flex items-start gap-3 rounded-card border border-border bg-surface p-5", className)}
+        className={clsx("flex items-start gap-3 border-l border-border-hover py-1 pl-4", className)}
       >
-        <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full border border-border-strong text-success">
+        <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-control border border-border-strong text-success">
           <Icon name="check" size={14} />
         </span>
         <div className="flex flex-col gap-1">
@@ -102,11 +102,11 @@ export function NewsletterForm({ endpoint = site.newsletter.endpoint, className 
 
   const inputCls = (err?: string) =>
     clsx(
-      "h-11 w-full rounded-control border bg-surface px-3.5 text-[0.9375rem] text-fg placeholder:text-fg-subtle",
+      "h-11 w-full rounded-control border bg-bg-plain/60 px-3 font-mono text-sm text-fg placeholder:text-fg-subtle",
       "transition-[border-color,box-shadow] duration-150 hover:border-border-hover",
-      "focus-visible:border-accent focus-visible:shadow-[0_0_0_3px_var(--accent-soft)] focus-visible:outline-none",
+      "focus-visible:border-accent focus-visible:shadow-[0_0_0_1px_var(--accent)] focus-visible:outline-none",
       "disabled:opacity-60",
-      err ? "border-danger" : "border-border-strong",
+      err ? "border-danger" : "border-border-hover",
     );
 
   const field = (name: keyof Fields, label: string, type: string, autoComplete: string, trailing?: ReactNode) => {
@@ -114,8 +114,8 @@ export function NewsletterForm({ endpoint = site.newsletter.endpoint, className 
     const inputId = `${id}-${name}`;
     const errId = `${inputId}-err`;
     return (
-      <div className="flex flex-col gap-1.5">
-        <label htmlFor={inputId} className="text-xs font-medium text-fg-muted">
+      <div className="flex flex-col gap-2">
+        <label htmlFor={inputId} className="label-mono text-fg-secondary">
           {label}
         </label>
         <div className="flex flex-col gap-3 sm:flex-row">
@@ -134,7 +134,7 @@ export function NewsletterForm({ endpoint = site.newsletter.endpoint, className 
           {trailing}
         </div>
         {err && (
-          <p id={errId} className="text-xs text-danger">
+          <p id={errId} className="font-mono text-xs text-danger">
             {err}
           </p>
         )}
@@ -143,21 +143,21 @@ export function NewsletterForm({ endpoint = site.newsletter.endpoint, className 
   };
 
   return (
-    <form noValidate onSubmit={onSubmit} className={clsx("flex flex-col gap-4", className)} aria-describedby={`${id}-status`}>
-      <div className="grid gap-4 sm:grid-cols-2">
-        {field("firstName", "First name", "text", "given-name")}
-        {field("lastName", "Last name", "text", "family-name")}
+    <form noValidate onSubmit={onSubmit} className={clsx("flex flex-col gap-5", className)} aria-describedby={`${id}-status`}>
+      <div className="grid gap-5 sm:grid-cols-2">
+        {field("firstName", "First Name", "text", "given-name")}
+        {field("lastName", "Last Name", "text", "family-name")}
       </div>
       {field(
         "email",
-        "Email address",
+        "Email Address",
         "email",
         "email",
         <Button type="submit" size="md" className="h-11 shrink-0" disabled={status === "submitting"}>
           {status === "submitting" ? "Subscribing…" : "Subscribe"}
         </Button>,
       )}
-      <p id={`${id}-status`} aria-live="polite" className={clsx("text-sm empty:-mt-4", status === "error" ? "text-danger" : "text-fg-muted")}>
+      <p id={`${id}-status`} aria-live="polite" className={clsx("font-mono text-xs empty:-mt-5", status === "error" ? "text-danger" : "text-fg-muted")}>
         {message}
       </p>
     </form>

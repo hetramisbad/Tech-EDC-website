@@ -38,7 +38,7 @@ export function Gallery({
             alt={img.alt}
             loading="lazy"
             decoding="async"
-            className="h-full w-full rounded-[10px] border border-border object-cover"
+            className="h-full w-full rounded-sm border border-border object-cover"
           />
         ))
       : placeholderCaptions.map((c, i) => (

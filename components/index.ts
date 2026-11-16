@@ -13,14 +13,25 @@ export { Icon, type IconName } from "./Icon";
 export { Kbd } from "./Kbd";
 export { JoinUs, type JoinUsProps } from "./JoinUs";
 export { Logo, LogoMark, type LogoProps } from "./Logo";
-export { Navbar, NAV_SHORTCUTS } from "./Navbar";
+export { Navbar } from "./Navbar";
+export { NAV_SHORTCUTS } from "./navShortcuts";
 export { NetworkGrid } from "./NetworkGrid";
 export { NewsletterForm, type NewsletterFormProps } from "./NewsletterForm";
 export { PostCard, formatDate, type PostCardProps } from "./PostCard";
 export { Prose } from "./Prose";
 export { Reveal, type RevealProps } from "./Reveal";
 export { PageHeader, Section, type SectionProps } from "./Section";
+export { PhotoColumns, type PhotoColumnsProps } from "./PhotoColumns";
 export { SmartLink, isHttp, type SmartLinkProps } from "./SmartLink";
 export { SocialLinks, type SocialLinksProps } from "./SocialLinks";
 export { TeamCard, type TeamCardProps } from "./TeamCard";
 export { Timeline, type TimelineItem } from "./Timeline";
+export {
+  IsoBuildCohort,
+  IsoBuildathon,
+  IsoCommunity,
+  IsoJoin,
+  IsoMentorship,
+  IsoNotFound,
+  type IllustrationProps,
+} from "./illustrations";

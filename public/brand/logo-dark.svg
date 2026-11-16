@@ -9,5 +9,5 @@
       </g>
     </mask>
   </defs>
-  <rect width="24" height="24" rx="6" fill="#08090a" mask="url(#tech-edc-glyph)"/>
+  <rect width="24" height="24" rx="4" fill="#09090a" mask="url(#tech-edc-glyph)"/>
 </svg>

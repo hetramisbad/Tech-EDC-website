@@ -10,18 +10,7 @@ import { Button } from "./Button";
 import { Icon } from "./Icon";
 import { Kbd } from "./Kbd";
 import { SmartLink, isHttp } from "./SmartLink";
-
-/**
- * Single-key navbar shortcuts (parity with techatnyu.org), keyed by nav label.
- * Lowercase key, no modifiers. Shown as <Kbd> hints on desktop.
- */
-export const NAV_SHORTCUTS: Record<string, string> = {
-  Programs: "p",
-  Events: "e",
-  Team: "t",
-  Blog: "b",
-  Contact: "c",
-};
+import { NAV_SHORTCUTS } from "./navShortcuts";
 
 /** Label rendered as a secondary button at the right on desktop instead of a text link. */
 const BUTTON_ITEM = "Contact";
@@ -39,7 +28,8 @@ function dialogOpen() {
 
 /**
  * Sticky translucent navbar. Links from `navItems` (content/site.ts).
- * Desktop: text links with key hints, then Contact (secondary) + Join Discord (primary).
+ * Desktop (Tech@NYU layout): logo left, mono links with `[P]` hints centered,
+ * Contact (outlined) + Join Discord (white) at the right.
  * Below 840px the links collapse into a disclosure menu; Join Discord stays visible.
  * Shortcuts: P Programs, E Events, T Team, B Blog, C Contact.
  */
@@ -152,8 +142,8 @@ export function Navbar() {
         aria-label="Main"
         onBlur={onBlur}
         className={clsx(
-          "relative border-b bg-overlay backdrop-blur-xl backdrop-saturate-150 transition-colors duration-200",
-          scrolled || open ? "border-border" : "border-transparent",
+          "relative border-b transition-[background-color,border-color] duration-200",
+          scrolled || open ? "border-border bg-overlay backdrop-blur-xl" : "border-transparent bg-transparent",
         )}
       >
         <div className="container-page grid h-[var(--nav-height)] grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
@@ -161,7 +151,7 @@ export function Navbar() {
             <Logo />
           </Link>
 
-          <ul className="hidden items-center gap-0.5 md:flex">
+          <ul className="hidden items-center gap-1 md:flex lg:gap-2">
             {linkItems.map((item) => {
               const k = shortcut(item.label);
               return (
@@ -171,9 +161,9 @@ export function Navbar() {
                     external={item.external}
                     aria-keyshortcuts={k}
                     aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                    className="group/nav inline-flex items-center gap-2 rounded-control px-2.5 py-2 text-sm text-fg-muted transition-colors duration-150 hover:text-fg aria-[current=page]:text-fg lg:px-3"
+                    className="group/nav inline-flex items-baseline gap-1.5 rounded-control px-2 py-2 font-mono text-sm tracking-[-0.01em] text-fg-secondary transition-colors duration-150 hover:text-fg aria-[current=page]:text-fg lg:px-2.5"
                   >
-                    {k && <Kbd className="group-hover/nav:border-border-hover group-hover/nav:text-fg-muted">{k}</Kbd>}
+                    {k && <Kbd className="text-fg-subtle transition-colors group-hover/nav:text-fg-muted">{k}</Kbd>}
                     <span>{item.label}</span>
                   </SmartLink>
                 </li>
@@ -190,7 +180,6 @@ export function Navbar() {
                   external={buttonItem.external}
                   variant="secondary"
                   size="sm"
-                  kbd={shortcut(buttonItem.label)}
                   aria-keyshortcuts={shortcut(buttonItem.label)}
                 >
                   {buttonItem.label}
@@ -203,7 +192,7 @@ export function Navbar() {
             <button
               ref={buttonRef}
               type="button"
-              className="inline-flex size-8 items-center justify-center rounded-control border border-border-strong text-fg transition-colors hover:bg-surface-raised md:hidden"
+              className="inline-flex size-9 items-center justify-center rounded-control border border-border-control text-fg transition-colors hover:border-fg md:hidden"
               aria-expanded={open}
               aria-controls={menuId}
               aria-label={open ? "Close menu" : "Open menu"}
@@ -230,7 +219,7 @@ export function Navbar() {
                   onClick={() => close(false)}
                   aria-keyshortcuts={shortcut(item.label)}
                   aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                  className="flex items-center justify-between py-4 text-lg font-medium text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg"
+                  className="flex items-center justify-between py-4 font-mono text-base text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg"
                 >
                   <span>{item.label}</span>
                   <Icon name={item.external ? "arrow-up-right" : "arrow-right"} className="text-fg-subtle" />

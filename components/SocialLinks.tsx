@@ -20,14 +20,14 @@ export function SocialLinks({ variant = "icons", className }: SocialLinksProps) 
           <li key={s.label}>
             <SmartLink
               href={s.href}
-              className="group flex items-center gap-4 rounded-card border border-border bg-surface p-5 transition-[border-color,background-color] duration-200 hover:border-border-hover hover:bg-surface-raised"
+              className="group relative flex items-center gap-4 rounded-card border border-border bg-surface p-5 grain transition-[border-color,background-color] duration-200 hover:border-border-hover hover:bg-surface-raised"
             >
               <span className="flex size-10 items-center justify-center rounded-control border border-border-strong text-fg">
                 <Icon name={icons[s.label] ?? "arrow-up-right"} size={18} />
               </span>
               <span className="flex min-w-0 flex-col">
-                <span className="text-sm font-medium text-fg">{s.label}</span>
-                <span className="text-xs break-words text-fg-muted">{s.handle}</span>
+                <span className="text-base font-semibold text-fg">{s.label}</span>
+                <span className="font-mono text-xs break-words text-fg-muted">{s.handle}</span>
               </span>
               <Icon
                 name="arrow-up-right"

@@ -14,7 +14,7 @@ type Common = {
   icon?: IconName;
   /** Icon before the label. */
   iconLeft?: IconName;
-  /** Keyboard hint shown after the label (secondary/ghost only). Pair with aria-keyshortcuts. */
+  /** Keyboard hint shown as `[K]` before the label. Pair with aria-keyshortcuts. */
   kbd?: string;
   className?: string;
   children: ReactNode;
@@ -25,22 +25,22 @@ export type ButtonProps =
   | (Common & { href?: undefined } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "className">);
 
 const base =
-  "group/button relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap font-medium " +
-  "transition-[background-color,border-color,color,box-shadow,transform] duration-150 ease-out " +
+  "group/button relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap font-mono font-normal tracking-[-0.01em] " +
+  "transition-[background-color,border-color,color] duration-150 ease-out " +
   "active:translate-y-px disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45";
 
 const variants: Record<ButtonVariant, string> = {
-  primary:
-    "bg-fg text-fg-inverse shadow-[inset_0_-1px_0_rgb(0_0_0/0.12)] hover:bg-white hover:shadow-[0_0_0_4px_rgb(255_255_255/0.08)]",
-  secondary:
-    "border border-border-strong bg-surface text-fg hover:border-border-hover hover:bg-surface-raised",
-  ghost: "text-fg-muted hover:bg-surface-raised hover:text-fg",
+  /** White, square, mono label (Tech@NYU "Join Discord"). */
+  primary: "border border-fg bg-fg text-fg-inverse hover:border-fg-secondary hover:bg-fg-secondary",
+  /** Drawn outline, transparent fill (Tech@NYU "Contact"). */
+  secondary: "border border-border-control bg-transparent text-fg hover:border-fg hover:bg-white/[0.04]",
+  ghost: "border border-transparent text-fg-muted hover:bg-white/[0.05] hover:text-fg",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "h-8 rounded-control px-3 text-[0.8125rem]",
+  sm: "h-9 rounded-control px-3.5 text-[0.8125rem]",
   md: "h-10 rounded-control px-4 text-sm",
-  lg: "h-12 rounded-[10px] px-5 text-base",
+  lg: "h-12 rounded-control px-5 text-[0.9375rem]",
 };
 
 /**
@@ -53,9 +53,9 @@ export function Button(props: ButtonProps) {
   const iconSize = size === "lg" ? 16 : 14;
   const content = (
     <>
+      {kbd && <Kbd className={variant === "primary" ? "text-fg-inverse/70" : undefined}>{kbd}</Kbd>}
       {iconLeft && <Icon name={iconLeft} size={iconSize} />}
       <span>{children}</span>
-      {kbd && <Kbd className="group-hover/button:text-fg-muted">{kbd}</Kbd>}
       {icon && (
         <Icon
           name={icon}
