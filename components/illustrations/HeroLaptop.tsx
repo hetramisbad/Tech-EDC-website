@@ -5,7 +5,9 @@ import clsx from "clsx";
 import { laptopBounds, projectLaptop, type Frame, type Pose } from "./laptopModel";
 
 /**
- * Home hero laptop: a live 3D MacBook-style model (laptopModel.ts), lid sized like
+ * Home hero laptop: a live 3D MacBook-style model (laptopModel.ts), drawn as clear
+ * white line art like the other illustrations (translucent faces, off-white outlines,
+ * solid black keys and screen); lid sized like
  * Tech@NYU's hero TV. Like that TV, it is projected through a camera fixed at the
  * center of the viewport, so as the page scrolls its angle changes with its position
  * on screen (seen more from below as it rises under the navbar). Blank keys in a real
@@ -110,16 +112,16 @@ export function HeroLaptop({ className }: { className?: string }) {
 
       {/* Chassis: lid, hinge, base (back-face culled, depth sorted) */}
       {frame.faces.map((f, i) => (
-        <polygon key={i} points={f.d} fill={f.fill} stroke={f.stroke} strokeWidth="1.5" />
+        <polygon key={i} points={f.d} fill={f.fill} stroke={f.stroke} strokeWidth="1.25" />
       ))}
-      <polygon points={frame.display} fill="var(--laptop-screen)" stroke="var(--laptop-edge)" strokeWidth="1" />
-      <path d={frame.scoop} fill="none" stroke="var(--laptop-edge)" strokeWidth="1.2" />
-      <polygon points={frame.trackpad} fill="var(--laptop-metal-shade)" stroke="var(--laptop-edge)" strokeWidth="1.2" />
+      <polygon points={frame.display} fill="var(--laptop-screen)" stroke="var(--laptop-edge)" strokeWidth="0.9" />
+      <path d={frame.scoop} fill="none" stroke="var(--laptop-edge)" strokeWidth="0.9" />
+      <polygon points={frame.trackpad} fill="var(--laptop-metal)" stroke="var(--laptop-edge)" strokeWidth="0.9" />
 
-      {/* Keyboard: blank keycaps (base + top face); fill-colored stroke rounds the corners */}
+      {/* Keyboard: solid black keycaps (base + top face) with a thin outline */}
       {frame.keys.map((k, i) => (
         <g key={i}>
-          <polygon points={k.base} fill="var(--laptop-key)" stroke="var(--laptop-key)" strokeWidth="1.2" />
+          <polygon points={k.base} fill="var(--laptop-key)" stroke="var(--laptop-key-edge)" strokeWidth="0.6" />
           <polygon points={k.top} fill="var(--laptop-key-top)" />
         </g>
       ))}
@@ -127,7 +129,7 @@ export function HeroLaptop({ className }: { className?: string }) {
       {/* E, D, C: black keys like the rest; the only labeled keys, lit by the backlight */}
       {frame.letters.map((k) => (
         <g key={k.label}>
-          <polygon points={k.base} fill="var(--laptop-key)" stroke="var(--laptop-key)" strokeWidth="1.2" />
+          <polygon points={k.base} fill="var(--laptop-key)" stroke="var(--laptop-key-edge)" strokeWidth="0.6" />
           <polygon points={k.top} fill="var(--laptop-key-top)" />
           <text
             transform={k.transform}
@@ -146,7 +148,7 @@ export function HeroLaptop({ className }: { className?: string }) {
       ))}
 
       {/* Touch ID key = the Tech@EDC power button */}
-      <polygon points={frame.touch.base} fill="var(--laptop-key)" stroke="var(--laptop-key)" strokeWidth="1.2" />
+      <polygon points={frame.touch.base} fill="var(--laptop-key)" stroke="var(--laptop-key-edge)" strokeWidth="0.6" />
       <polygon points={frame.touch.top} fill="var(--laptop-key-top)" />
       <g fill="none" stroke="var(--laptop-mark)" strokeWidth="1.6" strokeLinecap="round">
         <path d={frame.touch.ring} />

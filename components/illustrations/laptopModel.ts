@@ -131,7 +131,9 @@ const DISPLAY: Vec3[] = [
 ];
 
 // Hinge: a black bar along the back edge, between the deck and the lid.
-const HINGE_FACES = box(-W / 2 + 14, W / 2 - 14, -T + 2, 2.5, -D / 2 - 4, -D / 2 + 4, "var(--laptop-key)", "var(--laptop-key)").map(
+// It sits on top of / just behind the deck's back edge (never inside the base), so it
+// doesn't show through the see-through deck.
+const HINGE_FACES = box(-W / 2 + 14, W / 2 - 14, 0, 3, -D / 2 - 5, -D / 2 + 1, "var(--laptop-key)", "var(--laptop-key)").map(
   (f) => ({ ...f, stroke: "var(--laptop-key)" }),
 );
 const BASE_FACES = box(-W / 2, W / 2, -T, 0, -D / 2, D / 2, "var(--laptop-metal)", "var(--laptop-metal-shade)");

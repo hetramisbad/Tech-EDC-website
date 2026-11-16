@@ -145,15 +145,18 @@
   --iso-right: #0a0a0b;
   --iso-light: #e6e6e6; /* focal faces (key tops, paper) */
   --iso-ink: #0a0a0b; /* lines drawn on light faces */
-  /* Hero laptop: flat grey aluminum + black keys, the same flat-fill style as
-     Tech@NYU's hero TV (grey frame, dark screen, darker outlines). */
-  --laptop-metal: #a9a9aa;
-  --laptop-metal-shade: #8e8e90; /* hinge, front edge, trackpad */
-  --laptop-edge: #5c5c5e; /* outlines */
-  --laptop-key: #111112;
-  --laptop-key-top: #1c1c1d;
-  --laptop-screen: #0b0b0c;
-  --laptop-mark: #c9c9ca; /* power mark on the Touch ID key */
+  /* Hero laptop: drawn like the other illustrations (white line art), but the
+     body is clear: faint translucent white faces so the page grid shows through,
+     outlined in the same off-white as the iso drawings. Keys, hinge and screen
+     stay solid black. */
+  --laptop-metal: rgb(255 255 255 / 0.035); /* deck top, lid */
+  --laptop-metal-shade: rgb(255 255 255 / 0.07); /* sides, front edge, trackpad */
+  --laptop-edge: var(--text-secondary); /* outlines (same as the iso drawings) */
+  --laptop-key: #0a0a0b;
+  --laptop-key-top: #141415;
+  --laptop-key-edge: rgb(255 255 255 / 0.22); /* thin keycap outline */
+  --laptop-screen: #0a0a0b;
+  --laptop-mark: #e6e6e6; /* power mark on the Touch ID key */
   --laptop-backlight: #f4f4f4; /* backlit legends on the E / D / C keys */
 }
 
