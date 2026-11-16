@@ -586,8 +586,10 @@ html[data-accent="none"],
 .photo-col[data-direction="down"] .photo-col-track {
   animation-name: photo-col-down;
 }
-.photo-columns:hover .photo-col-track,
-.photo-columns:focus-within .photo-col-track {
+/* Each column pauses on its own, and only while a photo in it is hovered
+   (not the gaps or the copy between columns). The other column keeps moving. */
+.photo-col:has(.photo-col-track > li:hover) .photo-col-track,
+.photo-col:focus-within .photo-col-track {
   animation-play-state: paused;
 }
 @keyframes photo-col-up {
