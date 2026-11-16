@@ -41,11 +41,8 @@
 :root {
   color-scheme: dark;
 
-  /* Color: surfaces. Neutral near-black, no blue cast except the faint
-     tint at the top of the page gradient. */
+  /* Color: surfaces. Flat neutral near-black (no gradient, per Mark). */
   --bg: #09090a;
-  --bg-top: #0c0f11; /* page gradient start: #0c0d0e + ~3% Edmonds blue */
-  --bg-bottom: #060707; /* page gradient end */
   --bg-plain: #050506; /* opaque band for dense sections (Section surface="plain") */
   --surface: #121213;
   --surface-raised: #18181a;
@@ -92,7 +89,7 @@
   --container-narrow: 880px;
   --container-prose: 680px;
   --page-inset: 16px;
-  --nav-height: 64px;
+  --nav-height: 68px; /* Tech@NYU's bar height */
   --section-space: 72px; /* vertical padding of a Section; grows by breakpoint */
 
   /* Motion */
@@ -297,7 +294,7 @@ html[data-accent="none"],
    ------------------------------------------------------------------------- */
 @layer base {
   html {
-    background: var(--bg-bottom);
+    background: var(--bg);
     color: var(--text);
     font-family: var(--font-sans);
     font-optical-sizing: auto;
@@ -320,9 +317,8 @@ html[data-accent="none"],
 
   /* Page background, fixed to the viewport (two cheap compositor layers,
      no animation, no background-attachment: fixed):
-     ::before = linear gradient + feTurbulence grain
-     ::after  = the square grid, fading slightly toward the bottom of the
-                viewport so dense content lower on screen stays calm. */
+     ::before = flat near-black + feTurbulence grain (no gradient)
+     ::after  = the square grid, even across the viewport like Tech@NYU. */
   body::before,
   body::after {
     content: "";
@@ -333,15 +329,14 @@ html[data-accent="none"],
   }
   body::before {
     background-color: var(--bg);
-    background-image: var(--noise), linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 45%, var(--bg-bottom) 100%);
-    background-size: var(--noise-size), 100% 100%;
-    background-repeat: repeat, no-repeat;
+    background-image: var(--noise);
+    background-size: var(--noise-size);
+    background-repeat: repeat;
   }
   body::after {
     background-image: var(--grid-layers);
     background-size: var(--grid-sizes);
     background-position: var(--grid-position);
-    mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgb(0 0 0 / 0.5) 100%);
   }
   body > * {
     position: relative;

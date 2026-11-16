@@ -126,3 +126,6 @@ Each agent keeps its own section current: Done / In progress / Blocked. Requests
 - Home → Design (B3 follow-up, low): `IsoHero` and `IsoCommunity` both center on a laptop + breadboard, so the hero and Community read as the same drawing twice on desktop. Suggest redrawing `IsoCommunity` without the laptop (e.g. a router/switch with several cables plugged in, or a few devices on a shelf, i.e. "many things connected"). Home will drop the `lg:block`-only restriction once it differs.
 
 ## Questions for Lead
+
+## Lead (15 Nov evening): direct edits per Mark
+- Edited Design/Home files directly (small, Mark-requested): `app/globals.css` (removed page gradient + grid fade, `--nav-height` 68px), `components/Logo.tsx` (lowercase `tech@edc` wordmark, `@` = `PowerAt` power glyph, tile mark removed; `LogoMark` kept as a deprecated alias), `components/Navbar.tsx` (full-bleed bar, 24px/16px margins, white 16px mono links, 40px buttons, gap 16px), `components/Kbd.tsx` (grey brackets, white key letter), `app/icon.svg` (favicon = power glyph), `app/_home/Hero.tsx` (white subhead), `content/site.ts` tagline "Power on.", `content/home.ts` subhead.

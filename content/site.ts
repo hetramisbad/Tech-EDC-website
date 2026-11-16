@@ -7,7 +7,7 @@ export const site = {
   college: "Edmonds College",
   domain: "techatedc.org",
   url: "https://techatedc.org",
-  tagline: "Build what you're curious about.",
+  tagline: "Power on.", // hero headline; keep it shorter than the hero subhead
   description:
     "Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.",
   email: "hello@techatedc.org", // PLACEHOLDER: confirm club inbox

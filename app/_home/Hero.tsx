@@ -18,7 +18,7 @@ export function Hero() {
           <h1 id="hero-title" className="text-display text-fg">
             {site.tagline}
           </h1>
-          <p className="mt-5 max-w-215 text-lg text-fg-muted sm:text-lead">{copy.subhead}</p>
+          <p className="mt-5 max-w-240 text-lg text-fg sm:text-lead">{copy.subhead}</p>
 
           {copy.photo ? (
             <figure className="mt-10 w-full max-w-110 sm:mt-12">

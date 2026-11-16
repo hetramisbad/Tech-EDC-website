@@ -6,7 +6,7 @@ export type HomePhoto = { src: string; alt: string };
 export const homeCopy = {
   hero: {
     // The display headline is `site.tagline` (content/site.ts).
-    subhead: "The technology club at Edmonds College for builders, designers, and the tech-curious.",
+    subhead: "The technology club at Edmonds College, where curious people turn ideas into things that work.",
     primaryCta: "Join Discord",
     /**
      * Event photo shown in the hero frame, e.g. { src: "/events/kickoff.jpg", alt: "Members at the fall kickoff" }

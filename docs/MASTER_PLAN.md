@@ -13,6 +13,8 @@ Source of truth: https://claude.ai/artifact/6hptRnHmYiXmZuraDcdw7e (this file is
 - **Tech@NYU look:** centered hero (big headline, one-line subhead, Join Discord), mono navbar with `[P] Programs`-style bracket shortcuts, Contact as a bordered button, square or near-square corners (2–4px), 1px borders, centered section headings for Programs, isometric black-and-white line illustrations of hardware in Community, program cards and Join Us (our own original drawings), Events as photo columns flanking centered text, Join Us as form left / illustration right.
 - Drop Linear-only devices: "Fig 0.x" labels, announcement pill, hover glow.
 
+**Revision, 15 Nov evening (Mark):** no color gradient (flat near-black + noise + even grid). Navbar is full-bleed with Tech@NYU's margins (24px desktop, 16px mobile; 68px tall): lowercase `tech@edc` wordmark at left where the "@" is a power-button glyph scaled to the text (the separate tile logo is removed), white 16px mono links with grey brackets, Contact + Join Discord (40px tall, 16px gap) at right. Hero subhead is white, and the headline is shorter than the subhead ("Power on.").
+
 ## Overview
 
 Tech@EDC is the technology club at Edmonds College. Its site is a feature-for-feature rebuild of [techatnyu.org](https://techatnyu.org/) with partner content removed and a visual language borrowed from [linear.app](https://linear.app/). This plan is the single source of truth for every agent working on it. Read it fully before writing code.

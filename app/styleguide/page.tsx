@@ -294,7 +294,7 @@ export default function StyleguidePage() {
             </div>
           </Demo>
 
-          <Demo title="Logo" note="Power-button mark on a near-square tile, currentColor. Also /brand/logo.svg and app/icon.svg (favicon).">
+          <Demo title="Logo" note="Lowercase tech@edc wordmark in bold BDO Grotesk; the @ is a power-button glyph (PowerAt) sized to the text. currentColor. Favicon: app/icon.svg.">
             <div className="flex flex-wrap items-center gap-8">
               <Logo />
               <LogoMark size={40} title="Tech@EDC" />

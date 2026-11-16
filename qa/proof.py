@@ -3,7 +3,7 @@
 Usage (both servers running):
   python3 -m http.server 4173 -d out &
   python3 -m http.server 4174 -d reference/Tech-at-NYU &
-  python3 -I qa/proof.py [--only full,states,compare]
+  python3 -I qa/proof.py [--only full,states,mid,compare]
 
 Writes qa/screenshots/final-*.png and qa/screenshots/compare-*.png.
 """
@@ -161,9 +161,11 @@ def states(browser):
     ctx.close()
 
     # Reduced motion events band
-    ctx, pg = page_for(browser, 1440, 900, rm="reduce")
+    # Viewport taller than the band: element shots larger than the viewport get stitched and
+    # pick up the off-screen skip link and a second copy of the sticky navbar.
+    ctx, pg = page_for(browser, 1440, 1200, rm="reduce")
     load(pg, BASE + "/")
-    pg.locator("#events").scroll_into_view_if_needed()
+    pg.evaluate("document.querySelector('#events').scrollIntoView({block: 'center', behavior: 'instant'})")
     pg.wait_for_timeout(300)
     pg.locator("#events").screenshot(path=path("final-events-reduced-motion-1440.png"))
     ctx.close()
@@ -270,9 +272,24 @@ def compare(browser):
     print("compare", path("compare-home-live.png"))
 
 
+def mid_widths(browser):
+    """First-view and section shots at in-between widths and common laptop viewports."""
+    for w, h in ((768, 900), (860, 900), (1080, 900), (1280, 800), (1366, 768)):
+        ctx, pg = page_for(browser, w, h)
+        load(pg, BASE + "/")
+        pg.screenshot(path=path(f"final-home-hero-{w}x{h}.png"))
+        if w in (860, 1080):
+            for sel, name in (("#community", "community"), ("#programs", "programs"), ("#connect", "connect")):
+                pg.evaluate(f"document.querySelector('{sel}').scrollIntoView({{block: 'start', behavior: 'instant'}})")
+                pg.wait_for_timeout(300)
+                pg.screenshot(path=path(f"final-home-{name}-{w}.png"))
+        print("mid", w, h)
+        ctx.close()
+
+
 with sync_playwright() as p:
     browser = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--no-sandbox"])
-    for name, fn in (("full", full_pages), ("states", states), ("compare", compare)):
+    for name, fn in (("full", full_pages), ("states", states), ("mid", mid_widths), ("compare", compare)):
         if not ONLY or name in ONLY:
             fn(browser)
     browser.close()

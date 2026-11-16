@@ -146,12 +146,13 @@ export function Navbar() {
           scrolled || open ? "border-border bg-overlay backdrop-blur-xl" : "border-transparent bg-transparent",
         )}
       >
-        <div className="container-page grid h-[var(--nav-height)] grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
+        {/* Full-bleed bar with Tech@NYU's side margins: 16px on phones, 24px from md up. */}
+        <div className="grid h-[var(--nav-height)] grid-cols-[1fr_auto] items-center gap-4 px-4 md:grid-cols-[1fr_auto_1fr] md:px-6">
           <Link href="/" className="-m-1 flex justify-self-start rounded-control p-1" aria-label={`${site.name} home`}>
             <Logo />
           </Link>
 
-          <ul className="hidden items-center gap-1 md:flex lg:gap-2">
+          <ul className="hidden items-center gap-2 md:flex">
             {linkItems.map((item) => {
               const k = shortcut(item.label);
               return (
@@ -161,9 +162,9 @@ export function Navbar() {
                     external={item.external}
                     aria-keyshortcuts={k}
                     aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                    className="group/nav inline-flex items-baseline gap-1.5 rounded-control px-2 py-2 font-mono text-sm tracking-mono text-fg-secondary transition-colors duration-150 hover:text-fg aria-[current=page]:text-fg lg:px-2.5"
+                    className="group/nav inline-flex items-baseline gap-1.5 rounded-control px-1 py-2 font-mono text-base tracking-mono text-fg transition-opacity duration-150 hover:opacity-75 aria-[current=page]:underline aria-[current=page]:underline-offset-4"
                   >
-                    {k && <Kbd className="text-fg-muted transition-colors group-hover/nav:text-fg-secondary">{k}</Kbd>}
+                    {k && <Kbd>{k}</Kbd>}
                     <span>{item.label}</span>
                   </SmartLink>
                 </li>
@@ -171,7 +172,7 @@ export function Navbar() {
             })}
           </ul>
 
-          <div className="flex items-center gap-2 justify-self-end">
+          <div className="flex items-center gap-2 justify-self-end md:gap-4">
             {buttonItem && (
               // Wrapper controls visibility: Button's own `inline-flex` would beat a `hidden` class on it.
               <div className="hidden md:flex">
@@ -179,14 +180,15 @@ export function Navbar() {
                   href={buttonItem.href}
                   external={buttonItem.external}
                   variant="secondary"
-                  size="sm"
+                  size="md"
+                  className="text-base!"
                   aria-keyshortcuts={shortcut(buttonItem.label)}
                 >
                   {buttonItem.label}
                 </Button>
               </div>
             )}
-            <Button href={site.links.discord} size="sm" variant="primary">
+            <Button href={site.links.discord} size="md" variant="primary" className="max-md:h-9 max-md:text-meta! md:text-base!">
               Join Discord
             </Button>
             <button
@@ -210,7 +212,7 @@ export function Navbar() {
           className="nav-sheet absolute inset-x-0 top-full h-[calc(100dvh-var(--nav-height))] overflow-y-auto border-t border-border bg-bg md:hidden"
           inert={!open}
         >
-          <ul className="container-page flex flex-col py-4">
+          <ul className="flex flex-col px-4 py-4">
             {navItems.map((item) => (
               <li key={item.label} className="border-b border-border">
                 <SmartLink
@@ -219,7 +221,7 @@ export function Navbar() {
                   onClick={() => close(false)}
                   aria-keyshortcuts={shortcut(item.label)}
                   aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                  className="flex items-center justify-between py-4 font-mono text-base text-fg-secondary transition-colors hover:text-fg aria-[current=page]:text-fg"
+                  className="flex items-center justify-between py-4 font-mono text-base text-fg transition-opacity hover:opacity-75"
                 >
                   <span>{item.label}</span>
                   <Icon name={opensNewTab(item.href, item.external) ? "arrow-up-right" : "arrow-right"} className="text-fg-subtle" />
