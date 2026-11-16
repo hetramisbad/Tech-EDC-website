@@ -145,6 +145,15 @@
   --iso-right: #0a0a0b;
   --iso-light: #e6e6e6; /* focal faces (key tops, paper) */
   --iso-ink: #0a0a0b; /* lines drawn on light faces */
+  /* Hero laptop: flat grey aluminum + black keys, the same flat-fill style as
+     Tech@NYU's hero TV (grey frame, dark screen, darker outlines). */
+  --laptop-metal: #a9a9aa;
+  --laptop-metal-shade: #8e8e90; /* hinge, front edge, trackpad */
+  --laptop-edge: #5c5c5e; /* outlines */
+  --laptop-key: #111112;
+  --laptop-key-top: #1c1c1d;
+  --laptop-screen: #0b0b0c;
+  --laptop-mark: #c9c9ca; /* power mark on the Touch ID key */
 }
 
 @media (min-width: 600px) {

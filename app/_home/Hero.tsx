@@ -1,11 +1,11 @@
-import { Button, Container, IsoHero } from "@/components";
+import { Button, Container, HeroLaptop } from "@/components";
 import { site } from "@/content/site";
 import { homeCopy } from "@/content/home";
 
 /**
  * Centered hero (Tech@NYU layout): display headline, one-line subhead, the
  * hero visual, then a single Join Discord button. Sits on the page grid.
- * Visual: the `IsoHero` club workbench by default; a real club photo in a
+ * Visual: the `HeroLaptop` (sized like Tech@NYU's hero TV, screen gleam fades on scroll) by default; a real club photo in a
  * frame once `homeCopy.hero.photo` is set. No video and no fake UI.
  * Sized so headline + art + button fit a 1440 x 900 first view.
  */
@@ -33,8 +33,8 @@ export function Hero() {
               </div>
             </figure>
           ) : (
-            <div aria-hidden className="mt-8 flex min-h-0 w-full flex-1 items-center justify-center text-fg-secondary sm:mt-10">
-              <IsoHero className="h-full max-h-120 w-auto max-w-full" />
+            <div aria-hidden className="mt-8 flex min-h-0 w-full flex-1 items-center justify-center sm:mt-10">
+              <HeroLaptop className="h-full max-h-125 w-auto max-w-full" />
             </div>
           )}
 

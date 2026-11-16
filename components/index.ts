@@ -31,6 +31,7 @@ export {
   IsoBuildathon,
   IsoCommunity,
   IsoHero,
+  HeroLaptop,
   IsoJoin,
   IsoMentorship,
   IsoNotFound,

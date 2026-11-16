@@ -166,7 +166,7 @@ export function Navbar() {
                     external={item.external}
                     aria-keyshortcuts={k}
                     aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                    className="group/nav inline-flex items-baseline gap-1.5 rounded-control px-1 py-2 font-mono text-base tracking-mono text-fg transition-opacity duration-150 hover:opacity-75 aria-[current=page]:underline aria-[current=page]:underline-offset-4"
+                    className="group/nav inline-flex items-baseline gap-1.5 rounded-control px-1 py-2 font-mono text-base tracking-mono text-fg transition-opacity duration-150 hover:opacity-75"
                   >
                     {k && <Kbd>{k}</Kbd>}
                     <span>{item.label}</span>

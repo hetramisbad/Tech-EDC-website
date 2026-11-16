@@ -11,3 +11,4 @@ export { IsoJoin } from "./IsoJoin";
 export { IsoNotFound } from "./IsoNotFound";
 export { IsoHero } from "./IsoHero";
 export type { IllustrationProps } from "./iso";
+export { HeroLaptop } from "./HeroLaptop";
