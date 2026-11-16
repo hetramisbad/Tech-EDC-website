@@ -3,91 +3,91 @@
   "bug": "B3",
   "check": "/ @1440: hero illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 660, \"h\": 487, \"x\": 390, \"y\": 284, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 660, \"h\": 487, \"x\": 390, \"y\": 288, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @1440: community illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 440, \"h\": 411, \"x\": 820, \"y\": 1134, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 440, \"h\": 411, \"x\": 820, \"y\": 1138, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @1440: Join Discord bottom inside first viewport",
   "ok": null,
-  "evidence": "button bottom=860 viewport=900"
+  "evidence": "button bottom=864 viewport=900"
  },
  {
   "bug": "B3",
   "check": "/ @1080: hero illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 660, \"h\": 487, \"x\": 210, \"y\": 354, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 660, \"h\": 487, \"x\": 210, \"y\": 286, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @1080: community illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 440, \"h\": 411, \"x\": 586, \"y\": 1204, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 440, \"h\": 411, \"x\": 586, \"y\": 1136, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @1080: Join Discord bottom inside first viewport",
   "ok": null,
-  "evidence": "button bottom=929 viewport=900"
+  "evidence": "button bottom=862 viewport=900"
  },
  {
   "bug": "B3",
   "check": "/ @768: hero illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 480, \"h\": 354, \"x\": 144, \"y\": 369, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 480, \"h\": 354, \"x\": 144, \"y\": 313, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @768: community illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 384, \"h\": 359, \"x\": 192, \"y\": 1240, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 384, \"h\": 359, \"x\": 192, \"y\": 1184, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @768: Join Discord bottom inside first viewport",
   "ok": null,
-  "evidence": "button bottom=811 viewport=900"
+  "evidence": "button bottom=755 viewport=900"
  },
  {
   "bug": "B3",
   "check": "/ @390: hero illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 358, \"h\": 264, \"x\": 16, \"y\": 395, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 358, \"h\": 264, \"x\": 16, \"y\": 307, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @390: community illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 320, \"h\": 299, \"x\": 35, \"y\": 1138, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 320, \"h\": 299, \"x\": 35, \"y\": 1049, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @390: Join Discord bottom inside first viewport",
   "ok": null,
-  "evidence": "button bottom=739 viewport=844"
+  "evidence": "button bottom=651 viewport=844"
  },
  {
   "bug": "B3",
   "check": "/ @360: hero illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 328, \"h\": 242, \"x\": 16, \"y\": 392, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 328, \"h\": 242, \"x\": 16, \"y\": 306, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @360: community illustration renders",
   "ok": true,
-  "evidence": "{\"w\": 320, \"h\": 299, \"x\": 20, \"y\": 1137, \"display\": \"block\", \"vis\": \"visible\"}"
+  "evidence": "{\"w\": 320, \"h\": 299, \"x\": 20, \"y\": 1051, \"display\": \"block\", \"vis\": \"visible\"}"
  },
  {
   "bug": "B3",
   "check": "/ @360: Join Discord bottom inside first viewport",
   "ok": null,
-  "evidence": "button bottom=714 viewport=844"
+  "evidence": "button bottom=628 viewport=844"
  },
  {
   "bug": "B4",
@@ -157,9 +157,9 @@
  },
  {
   "bug": "B9",
-  "check": "hint is quieter than label but visible",
+  "check": "hint brackets quieter than label but visible (letter may match label)",
   "ok": true,
-  "evidence": "{\"label\": \"rgb(212, 212, 212)\", \"hint\": \"rgb(163, 163, 163)\", \"hintOpacity\": \"1\"}"
+  "evidence": "{\"label\": \"rgb(245, 245, 245)\", \"hint\": \"rgb(134, 134, 134)\", \"hintOpacity\": \"1\"}"
  },
  {
   "bug": "B10",
@@ -192,58 +192,172 @@
   "evidence": "last=newsletter subscribe-links=0"
  },
  {
+  "bug": "nav2",
+  "check": "@1440: wordmark left edge = 24px (Tech@NYU)",
+  "ok": true,
+  "evidence": "{\"markLeft\": 24, \"markLabel\": \"Tech@EDC\", \"navH\": 69, \"joinRight\": 1416, \"joinH\": 40, \"contactH\": 40, \"gap\": 16, \"linkFs\": \"16px\", \"linkColor\": \"rgb(245, 245, 245)\", \"bracket\": \"rgb(134, 134, 134)\", \"letter\": \"rgb(245, 245, 245)\", \"sw\": 1440}"
+ },
+ {
+  "bug": "nav2",
+  "check": "@1440: rightmost navbar control right edge = 1416px",
+  "ok": true,
+  "evidence": "1416"
+ },
+ {
+  "bug": "nav2",
+  "check": "@1440: bar height 68px (Tech@NYU 68 desktop / 72 mobile)",
+  "ok": false,
+  "evidence": "69"
+ },
+ {
+  "bug": "nav2",
+  "check": "@1440: no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=1440"
+ },
+ {
+  "bug": "nav2",
+  "check": "Contact + Join Discord 40px tall, 16px apart",
+  "ok": true,
+  "evidence": "h=40/40 gap=16"
+ },
+ {
+  "bug": "nav2",
+  "check": "links 16px white mono; bracket grey, key letter white",
+  "ok": true,
+  "evidence": "fs=16px link=rgb(245, 245, 245) bracket=rgb(134, 134, 134) letter=rgb(245, 245, 245)"
+ },
+ {
+  "bug": "nav2",
+  "check": "wordmark exposes 'Tech@EDC' to assistive tech",
+  "ok": true,
+  "evidence": "Tech@EDC"
+ },
+ {
+  "bug": "nav2",
+  "check": "@390: wordmark left edge = 16px (Tech@NYU)",
+  "ok": true,
+  "evidence": "{\"markLeft\": 16, \"markLabel\": \"Tech@EDC\", \"navH\": 69, \"joinRight\": 374, \"joinH\": 36, \"contactH\": null, \"gap\": null, \"linkFs\": \"16px\", \"linkColor\": \"rgb(245, 245, 245)\", \"bracket\": \"rgb(134, 134, 134)\", \"letter\": \"rgb(245, 245, 245)\", \"sw\": 390}"
+ },
+ {
+  "bug": "nav2",
+  "check": "@390: rightmost navbar control right edge = 374px",
+  "ok": true,
+  "evidence": "374"
+ },
+ {
+  "bug": "nav2",
+  "check": "@390: bar height 68px (Tech@NYU 68 desktop / 72 mobile)",
+  "ok": false,
+  "evidence": "69"
+ },
+ {
+  "bug": "nav2",
+  "check": "@390: no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=390"
+ },
+ {
+  "bug": "nav2",
+  "check": "@360: wordmark left edge = 16px (Tech@NYU)",
+  "ok": true,
+  "evidence": "{\"markLeft\": 16, \"markLabel\": \"Tech@EDC\", \"navH\": 69, \"joinRight\": 344, \"joinH\": 36, \"contactH\": null, \"gap\": null, \"linkFs\": \"16px\", \"linkColor\": \"rgb(245, 245, 245)\", \"bracket\": \"rgb(134, 134, 134)\", \"letter\": \"rgb(245, 245, 245)\", \"sw\": 360}"
+ },
+ {
+  "bug": "nav2",
+  "check": "@360: rightmost navbar control right edge = 344px",
+  "ok": true,
+  "evidence": "344"
+ },
+ {
+  "bug": "nav2",
+  "check": "@360: bar height 68px (Tech@NYU 68 desktop / 72 mobile)",
+  "ok": false,
+  "evidence": "69"
+ },
+ {
+  "bug": "nav2",
+  "check": "@360: no horizontal overflow",
+  "ok": true,
+  "evidence": "scrollWidth=360"
+ },
+ {
+  "bug": "nav2",
+  "check": "Programs link from /team/: #programs top lands below the sticky bar",
+  "ok": true,
+  "evidence": "section top=84 bar bottom=69"
+ },
+ {
+  "bug": "hero2",
+  "check": "headline 'Power on.' is visibly shorter than the subhead",
+  "ok": true,
+  "evidence": "{\"h1\": \"Power on.\", \"h1w\": 332.84375, \"subw\": 899.046875, \"subColor\": \"rgb(245, 245, 245)\", \"fg\": \"rgb(245, 245, 245)\"}"
+ },
+ {
+  "bug": "hero2",
+  "check": "subhead is white (text-fg)",
+  "ok": true,
+  "evidence": "rgb(245, 245, 245) vs rgb(245, 245, 245)"
+ },
+ {
+  "bug": "hero2",
+  "check": "favicon is the power glyph (arc + stem path)",
+  "ok": true,
+  "evidence": "407 bytes"
+ },
+ {
   "bug": "meta",
   "check": "/ title/description/canonical/OG/icon present",
   "ok": false,
-  "evidence": "missing=['canon'] {\"title\": \"Tech@EDC: Build what you're curious about.\", \"desc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"canon\": null, \"ogTitle\": \"Tech@EDC\", \"ogDesc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"ogUrl\": \"https://techatedc.org/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": null, \"lang\": \"en\"}"
+  "evidence": "missing=['canon'] {\"title\": \"Tech@EDC: Power on.\", \"desc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"canon\": null, \"ogTitle\": \"Tech@EDC\", \"ogDesc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"ogUrl\": \"https://techatedc.org/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": null, \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/programs/build-cohort/ title/description/canonical/OG/icon present",
   "ok": true,
-  "evidence": "missing=[] {\"title\": \"Build Cohort \\u00b7 Tech@EDC\", \"desc\": \"A quarter-long cohort where small teams design, build, and ship one real project with a mentor. Open to first-time builders and experienced students alike.\", \"canon\": \"https://techatedc.org/programs/build-cohort/\", \"ogTitle\": \"Build Cohort \\u00b7 Tech@EDC\", \"ogDesc\": \"A quarter-long cohort where small teams design, build, and ship one real project with a mentor. Open to first-time builders and experienced students alike.\", \"ogUrl\": \"https://techatedc.org/programs/build-cohort/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": null, \"lang\": \"en\"}"
+  "evidence": "missing=[] {\"title\": \"Build Cohort \\u00b7 Tech@EDC\", \"desc\": \"A quarter-long cohort where small teams design, build, and ship one real project with a mentor. Open to first-time builders and experienced students alike.\", \"canon\": \"https://techatedc.org/programs/build-cohort/\", \"ogTitle\": \"Build Cohort \\u00b7 Tech@EDC\", \"ogDesc\": \"A quarter-long cohort where small teams design, build, and ship one real project with a mentor. Open to first-time builders and experienced students alike.\", \"ogUrl\": \"https://techatedc.org/programs/build-cohort/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": null, \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/programs/mentorship/ title/description/canonical/OG/icon present",
   "ok": true,
-  "evidence": "missing=[] {\"title\": \"Mentorship \\u00b7 Tech@EDC\", \"desc\": \"One-on-one pairing with someone working in tech for guidance on classes, projects, and careers. A low-pressure way to get honest answers about what comes next.\", \"canon\": \"https://techatedc.org/programs/mentorship/\", \"ogTitle\": \"Mentorship \\u00b7 Tech@EDC\", \"ogDesc\": \"One-on-one pairing with someone working in tech for guidance on classes, projects, and careers. A low-pressure way to get honest answers about what comes next.\", \"ogUrl\": \"https://techatedc.org/programs/mentorship/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": null, \"lang\": \"en\"}"
+  "evidence": "missing=[] {\"title\": \"Mentorship \\u00b7 Tech@EDC\", \"desc\": \"One-on-one pairing with someone working in tech for guidance on classes, projects, and careers. A low-pressure way to get honest answers about what comes next.\", \"canon\": \"https://techatedc.org/programs/mentorship/\", \"ogTitle\": \"Mentorship \\u00b7 Tech@EDC\", \"ogDesc\": \"One-on-one pairing with someone working in tech for guidance on classes, projects, and careers. A low-pressure way to get honest answers about what comes next.\", \"ogUrl\": \"https://techatedc.org/programs/mentorship/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": null, \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/buildathon/ title/description/canonical/OG/icon present",
   "ok": true,
-  "evidence": "missing=[] {\"title\": \"Buildathon \\u00b7 Tech@EDC\", \"desc\": \"Buildathon is Tech@EDC's weekend hackathon. Form a team, pick a problem you care about, and leave with a working prototype. First-timers are welcome: we run beginner workshops and have mentors on the floor the whole weekend.\", \"canon\": \"https://techatedc.org/buildathon/\", \"ogTitle\": \"Buildathon \\u00b7 Tech@EDC\", \"ogDesc\": \"48 hours. One idea. Build it.\", \"ogUrl\": \"https://techatedc.org/buildathon/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": null, \"lang\": \"en\"}"
+  "evidence": "missing=[] {\"title\": \"Buildathon \\u00b7 Tech@EDC\", \"desc\": \"Buildathon is Tech@EDC's weekend hackathon. Form a team, pick a problem you care about, and leave with a working prototype. First-timers are welcome: we run beginner workshops and have mentors on the floor the whole weekend.\", \"canon\": \"https://techatedc.org/buildathon/\", \"ogTitle\": \"Buildathon \\u00b7 Tech@EDC\", \"ogDesc\": \"48 hours. One idea. Build it.\", \"ogUrl\": \"https://techatedc.org/buildathon/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": null, \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/team/ title/description/canonical/OG/icon present",
   "ok": true,
-  "evidence": "missing=[] {\"title\": \"Team \\u00b7 Tech@EDC\", \"desc\": \"The students who plan the programs, run the events, and keep the Discord lively. Meet the people behind Tech@EDC.\", \"canon\": \"https://techatedc.org/team/\", \"ogTitle\": \"Team \\u00b7 Tech@EDC\", \"ogDesc\": \"The students who plan the programs, run the events, and keep the Discord lively.\", \"ogUrl\": \"https://techatedc.org/team/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": null, \"lang\": \"en\"}"
+  "evidence": "missing=[] {\"title\": \"Team \\u00b7 Tech@EDC\", \"desc\": \"The students who plan the programs, run the events, and keep the Discord lively. Meet the people behind Tech@EDC.\", \"canon\": \"https://techatedc.org/team/\", \"ogTitle\": \"Team \\u00b7 Tech@EDC\", \"ogDesc\": \"The students who plan the programs, run the events, and keep the Discord lively.\", \"ogUrl\": \"https://techatedc.org/team/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": null, \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/blog/ title/description/canonical/OG/icon present",
   "ok": true,
-  "evidence": "missing=[] {\"title\": \"Blog \\u00b7 Tech@EDC\", \"desc\": \"Updates, project write-ups, and notes from the people building Tech@EDC.\", \"canon\": \"https://techatedc.org/blog/\", \"ogTitle\": \"Blog \\u00b7 Tech@EDC\", \"ogDesc\": \"Updates, project write-ups, and notes from the people building Tech@EDC.\", \"ogUrl\": \"https://techatedc.org/blog/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": null, \"lang\": \"en\"}"
+  "evidence": "missing=[] {\"title\": \"Blog \\u00b7 Tech@EDC\", \"desc\": \"Updates, project write-ups, and notes from the people building Tech@EDC.\", \"canon\": \"https://techatedc.org/blog/\", \"ogTitle\": \"Blog \\u00b7 Tech@EDC\", \"ogDesc\": \"Updates, project write-ups, and notes from the people building Tech@EDC.\", \"ogUrl\": \"https://techatedc.org/blog/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": null, \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/blog/welcome-to-tech-at-edc/ title/description/canonical/OG/icon present",
   "ok": true,
-  "evidence": "missing=[] {\"title\": \"Welcome to Tech@EDC \\u00b7 Tech@EDC\", \"desc\": \"Who we are, what we are building this year, and how to get involved.\", \"canon\": \"https://techatedc.org/blog/welcome-to-tech-at-edc/\", \"ogTitle\": \"Welcome to Tech@EDC\", \"ogDesc\": \"Who we are, what we are building this year, and how to get involved.\", \"ogUrl\": \"https://techatedc.org/blog/welcome-to-tech-at-edc/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": null, \"lang\": \"en\"}"
+  "evidence": "missing=[] {\"title\": \"Welcome to Tech@EDC \\u00b7 Tech@EDC\", \"desc\": \"Who we are, what we are building this year, and how to get involved.\", \"canon\": \"https://techatedc.org/blog/welcome-to-tech-at-edc/\", \"ogTitle\": \"Welcome to Tech@EDC\", \"ogDesc\": \"Who we are, what we are building this year, and how to get involved.\", \"ogUrl\": \"https://techatedc.org/blog/welcome-to-tech-at-edc/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": null, \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/404.html title/description/canonical/OG/icon present",
-  "ok": false,
-  "evidence": "missing=['canon'] {\"title\": \"Page not found \\u00b7 Tech@EDC\", \"desc\": \"The page you are looking for does not exist or has moved.\", \"canon\": null, \"ogTitle\": \"Tech@EDC\", \"ogDesc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"ogUrl\": \"https://techatedc.org/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": \"noindex\", \"lang\": \"en\"}"
+  "ok": true,
+  "evidence": "missing=[] {\"title\": \"Page not found \\u00b7 Tech@EDC\", \"desc\": \"The page you are looking for does not exist or has moved.\", \"canon\": null, \"ogTitle\": \"Tech@EDC\", \"ogDesc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"ogUrl\": \"https://techatedc.org/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": \"noindex\", \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
   "check": "/styleguide/ title/description/canonical/OG/icon present",
-  "ok": false,
-  "evidence": "missing=['canon'] {\"title\": \"Styleguide \\u00b7 Tech@EDC\", \"desc\": \"Tech@EDC design tokens and shared components.\", \"canon\": null, \"ogTitle\": \"Tech@EDC\", \"ogDesc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"ogUrl\": \"https://techatedc.org/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.066res01weexn.svg\", \"robots\": \"noindex, nofollow\", \"lang\": \"en\"}"
+  "ok": true,
+  "evidence": "missing=[] {\"title\": \"Styleguide \\u00b7 Tech@EDC\", \"desc\": \"Tech@EDC design tokens and shared components.\", \"canon\": null, \"ogTitle\": \"Tech@EDC\", \"ogDesc\": \"Tech@EDC is the technology club at Edmonds College: a place for builders, designers, and the tech-curious to learn by making things together.\", \"ogUrl\": \"https://techatedc.org/\", \"ogImage\": null, \"twitter\": \"summary\", \"icon\": \"http://localhost:4173/icon.svg?icon.09o7djah0joqz.svg\", \"robots\": \"noindex, nofollow\", \"lang\": \"en\"}"
  },
  {
   "bug": "meta",
@@ -357,7 +471,7 @@
   "bug": "style",
   "check": "/styleguide/ inline style attributes in <main>",
   "ok": null,
-  "evidence": "28: ['div: --columns-duration:70s', 'div: aspect-ratio:4/5', 'svg: overflow:visible']"
+  "evidence": "31: ['div: --columns-duration:70s', 'div: aspect-ratio:4/5', 'span: font-size:24px', 'span: font-size:26px', 'span: font-size:40px', 'svg: overflow:visible']"
  },
  {
   "bug": "console",

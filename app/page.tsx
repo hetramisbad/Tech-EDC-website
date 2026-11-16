@@ -140,7 +140,7 @@ function StillHaveQuestions({ className }: { className?: string }) {
         href={`mailto:${site.email}`}
         className="self-start font-mono text-sm text-fg underline decoration-border-hover underline-offset-4 transition-colors hover:text-accent hover:decoration-current"
       >
-        {site.email} <span aria-hidden>↗</span>
+        {site.email} <span aria-hidden>→</span>
       </a>
     </div>
   );

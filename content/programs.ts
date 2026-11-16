@@ -53,8 +53,9 @@ export const programs: Program[] = [
     timeline: [
       { when: "Week 0", title: "Applications and matching", body: "Apply, then get matched into a team by interest and experience." },
       { when: "Week 1", title: "Kickoff", body: "Meet your team and mentor, pick a project, and set scope." },
-      { when: "Weeks 2–8", title: "Build", body: "Weekly sessions, mentor check-ins, and steady progress." },
+      { when: "Weeks 2–4", title: "Build", body: "Weekly sessions, mentor check-ins, and steady progress." },
       { when: "Week 5", title: "Mid-quarter review", body: "Demo what works, get feedback, and adjust scope." },
+      { when: "Weeks 6–9", title: "Finish", body: "Polish the project and prepare your demo." },
       { when: "Week 10", title: "Showcase", body: "Present to the club and guests, then celebrate." },
     ],
     application: {
@@ -90,8 +91,8 @@ export const programs: Program[] = [
     ],
     timeline: [
       { when: "Week 0", title: "Apply", body: "Tell us your goals and interests." },
-      { when: "Week 2", title: "Matching", body: "Get paired with a mentor and schedule your first meeting." },
-      { when: "Weeks 2–9", title: "Meet", body: "Regular one-on-ones focused on your goals." },
+      { when: "Weeks 1–2", title: "Matching", body: "Get paired with a mentor and schedule your first meeting." },
+      { when: "Weeks 3–9", title: "Meet", body: "Regular one-on-ones focused on your goals." },
       { when: "Week 10", title: "Wrap-up", body: "Reflect on progress and decide whether to continue." },
     ],
     application: {

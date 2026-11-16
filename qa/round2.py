@@ -115,12 +115,13 @@ with sync_playwright() as p:
     # ---------------- B9: navbar hint vs label colour
     ctx, pg, errs = ctx_page(b, 1440)
     go(pg, "/")
-    info = pg.evaluate("""() => { const a = document.querySelector('header nav ul a'); const k = a.querySelector('kbd, [data-kbd], span');
+    # Spec since 15 Nov evening (Mark): label + key letter white, brackets grey. "Quieter" = the brackets.
+    info = pg.evaluate("""() => { const a = document.querySelector('header nav ul a'); const k = a.querySelector('kbd span') || a.querySelector('kbd');
         const lum = c => { const m = c.match(/[\\d.]+/g).map(Number); const f = v => { v /= 255; return v <= .03928 ? v/12.92 : ((v+.055)/1.055) ** 2.4; };
                            return (0.2126*f(m[0]) + 0.7152*f(m[1]) + 0.0722*f(m[2])) * (m.length > 3 ? m[3] : 1); };
         return {label: getComputedStyle(a).color, hint: k ? getComputedStyle(k).color : null, hintOpacity: k ? getComputedStyle(k).opacity : null,
                 labelL: lum(getComputedStyle(a).color), hintL: k ? lum(getComputedStyle(k).color) : null, html: a.innerHTML.slice(0, 300)}; }""")
-    rec("B9", "hint is quieter than label but visible", info["hint"] is not None and info["hintL"] < info["labelL"], json.dumps({k: info[k] for k in ("label", "hint", "hintOpacity")}))
+    rec("B9", "hint brackets quieter than label but visible (letter may match label)", info["hint"] is not None and info["hintL"] < info["labelL"], json.dumps({k: info[k] for k in ("label", "hint", "hintOpacity")}))
     ctx.close()
 
     # ---------------- B10: arrows. mailto/tel never show the new-tab arrow; any ↗ link opens a new tab
@@ -156,6 +157,50 @@ with sync_playwright() as p:
         "Stay in the loop" not in txt and last == "newsletter" and subs == 0, f"last={last} subscribe-links={subs}")
     ctx.close()
 
+    # ---------------- Lead's 15 Nov evening changes: navbar geometry vs Tech@NYU, hero, favicon, anchor
+    NAV_JS = """() => { const R = e => e.getBoundingClientRect();
+      const mark = document.querySelector('header [role=img]'); const nav = document.querySelector('header nav');
+      const btns = [...document.querySelectorAll('header a, header button')].filter(e => e.getClientRects().length);
+      const join = btns.reduce((m, e) => (!m || R(e).right > R(m).right) ? e : m, null);  // rightmost control
+      const discord = btns.find(e => /Join Discord/.test(e.innerText)); const contact = btns.find(e => /^Contact$/.test(e.innerText.trim()));
+      const link = document.querySelector('header nav ul a'); const kbd = link && link.querySelector('kbd');
+      const sp = kbd ? [...kbd.querySelectorAll('span')] : [];
+      return {markLeft: mark && R(mark).left, markLabel: mark && mark.getAttribute('aria-label'), navH: R(nav).height,
+              joinRight: join && R(join).right, joinH: discord && R(discord).height, contactH: contact && R(contact).height,
+              gap: contact && discord ? R(discord).left - R(contact).right : null,
+              linkFs: link && getComputedStyle(link).fontSize, linkColor: link && getComputedStyle(link).color,
+              bracket: sp[0] && getComputedStyle(sp[0]).color, letter: sp[1] && getComputedStyle(sp[1]).color,
+              sw: document.documentElement.scrollWidth}; }"""
+    for w, edge, right in ((1440, 24, 1416), (390, 16, 374), (360, 16, 344)):
+        ctx, pg, errs = ctx_page(b, w, 900 if w > 400 else 844)
+        go(pg, "/team/")
+        n = pg.evaluate(NAV_JS)
+        rec("nav2", f"@{w}: wordmark left edge = {edge}px (Tech@NYU)", abs(n["markLeft"] - edge) < 1, json.dumps(n))
+        rec("nav2", f"@{w}: rightmost navbar control right edge = {right}px", abs(n["joinRight"] - right) < 1, f"{n['joinRight']}")
+        rec("nav2", f"@{w}: bar height 68px (Tech@NYU 68 desktop / 72 mobile)", abs(n["navH"] - 68) < 0.5, f"{n['navH']}")
+        rec("nav2", f"@{w}: no horizontal overflow", n["sw"] == w, f"scrollWidth={n['sw']}")
+        if w == 1440:
+            rec("nav2", "Contact + Join Discord 40px tall, 16px apart", n["joinH"] == 40 and n["contactH"] == 40 and abs(n["gap"] - 16) < 0.5, f"h={n['contactH']}/{n['joinH']} gap={n['gap']}")
+            rec("nav2", "links 16px white mono; bracket grey, key letter white", n["linkFs"] == "16px" and n["linkColor"] == n["letter"] and n["bracket"] != n["letter"],
+                f"fs={n['linkFs']} link={n['linkColor']} bracket={n['bracket']} letter={n['letter']}")
+            rec("nav2", "wordmark exposes 'Tech@EDC' to assistive tech", n["markLabel"] == "Tech@EDC", str(n["markLabel"]))
+        ctx.close()
+    ctx, pg, errs = ctx_page(b, 1440)
+    go(pg, "/team/")
+    pg.locator("header nav").get_by_role("link", name=re.compile("Programs")).first.click()
+    pg.wait_for_timeout(1500)
+    top = pg.evaluate("(() => { const s = document.querySelector('#programs').getBoundingClientRect().top; const h = document.querySelector('header').getBoundingClientRect().bottom; return [s, h]; })()")
+    rec("nav2", "Programs link from /team/: #programs top lands below the sticky bar", top[0] >= top[1] - 1, f"section top={top[0]:.0f} bar bottom={top[1]:.0f}")
+    go(pg, "/")
+    hero = pg.evaluate("""() => { const h = document.querySelector('h1'), s = h.nextElementSibling;
+        const tw = e => { const r = document.createRange(); r.selectNodeContents(e); return r.getBoundingClientRect().width; };
+        return {h1: h.innerText, h1w: tw(h), subw: tw(s), subColor: getComputedStyle(s).color, fg: getComputedStyle(h).color}; }""")
+    rec("hero2", "headline 'Power on.' is visibly shorter than the subhead", hero["h1"].strip() == "Power on." and hero["h1w"] < hero["subw"] * 0.6, json.dumps(hero))
+    rec("hero2", "subhead is white (text-fg)", hero["subColor"] == hero["fg"], f"{hero['subColor']} vs {hero['fg']}")
+    icon = open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "out", "icon.svg")).read()
+    rec("hero2", "favicon is the power glyph (arc + stem path)", "A8.4 8.4" in icon and "M12 2.6V11.4" in icon, f"{len(icon)} bytes")
+    ctx.close()
+
     # ---------------- New: metadata per route
     ctx, pg, errs = ctx_page(b, 1440)
     titles = {}
@@ -167,7 +212,8 @@ with sync_playwright() as p:
                     ogImage: q('meta[property="og:image"]'), twitter: q('meta[name="twitter:card"]'), icon: q('link[rel~=icon]'),
                     robots: q('meta[name=robots]'), lang: document.documentElement.lang}; }""")
         titles[path] = m["title"]
-        miss = [k for k in ("title", "desc", "canon", "ogTitle", "ogDesc", "icon") if not m[k]]
+        need = ("title", "desc", "ogTitle", "ogDesc", "icon") + (() if (m["robots"] or "").startswith("noindex") else ("canon",))
+        miss = [k for k in need if not m[k]]
         rec("meta", f"{path} title/description/canonical/OG/icon present", not miss, f"missing={miss} {json.dumps(m)}")
     dup = {t for t in titles.values() if list(titles.values()).count(t) > 1}
     rec("meta", "page titles are unique", not dup, f"dups={dup}")

@@ -284,42 +284,56 @@
   ],
   [
    "components/Kbd.tsx",
-   14,
+   15,
    "arbitrary color/size value",
    "text-[0.92em]",
-   "\"inline-flex items-baseline font-mono text-[0.92em] leading-none font-normal text-fg-muted uppercase\","
+   "\"inline-flex items-baseline font-mono text-[0.92em] leading-none font-normal uppercase\","
   ],
   [
    "components/Kbd.tsx",
-   20,
+   21,
    "arbitrary spacing/size",
    "px-[0.1em]",
    "<span className=\"px-[0.1em]\">{children}</span>"
   ],
   [
    "components/Logo.tsx",
-   35,
-   "hex color",
-   "#fff",
-   "<rect width=\"24\" height=\"24\" fill=\"#fff\" />"
+   20,
+   "arbitrary spacing/size",
+   "h-[0.86em]",
+   "className={clsx(\"inline-block h-[0.86em] w-[0.86em] shrink-0 align-[-0.1em]\", className)}"
   ],
   [
    "components/Logo.tsx",
-   36,
-   "hex color",
-   "#000",
-   "<g fill=\"none\" stroke=\"#000\" strokeWidth=\"2\" strokeLinecap=\"round\">"
+   20,
+   "arbitrary spacing/size",
+   "w-[0.86em]",
+   "className={clsx(\"inline-block h-[0.86em] w-[0.86em] shrink-0 align-[-0.1em]\", className)}"
+  ],
+  [
+   "components/Logo.tsx",
+   56,
+   "arbitrary spacing/size",
+   "tracking-[-0.03em]",
+   "className={clsx(\"inline-flex items-baseline font-sans font-bold leading-none tracking-[-0.03em] text-fg\", className)}"
+  ],
+  [
+   "components/Logo.tsx",
+   60,
+   "arbitrary spacing/size",
+   "mx-[0.04em]",
+   "<PowerAt className=\"mx-[0.04em]\" />"
   ],
   [
    "components/Navbar.tsx",
-   149,
+   150,
    "arbitrary spacing/size",
    "h-[var(--nav-height)]",
-   "<div className=\"container-page grid h-[var(--nav-height)] grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]\">"
+   "<div className=\"grid h-[var(--nav-height)] grid-cols-[1fr_auto] items-center gap-4 px-4 md:grid-cols-[1fr_auto_1fr] md:px-6\">"
   ],
   [
    "components/Navbar.tsx",
-   210,
+   212,
    "arbitrary spacing/size",
    "h-[calc(100dvh-var(--nav-height))]",
    "className=\"nav-sheet absolute inset-x-0 top-full h-[calc(100dvh-var(--nav-height))] overflow-y-auto border-t border-border bg-bg md:hidden\""

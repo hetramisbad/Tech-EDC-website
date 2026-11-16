@@ -14,7 +14,7 @@ What it does before capturing (fixes blank full-page shots):
   3. force-shows anything still marked data-reveal="pending";
   4. waits for `document.fonts.ready` and all <img> to decode;
   5. for --full: pins the fixed background layers (body::before/::after)
-     to the full document height, so the gradient, noise and square grid
+     to the full document height, so the noise and square grid
      draw behind the whole page, not just the first viewport.
 """
 import argparse

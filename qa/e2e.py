@@ -692,7 +692,9 @@ V2_JS = r"""() => {
   const cards = [...document.querySelectorAll('main *')].filter(isCard);
   for (const c of cards) { const p = c.parentElement && c.parentElement.closest('main *'); let a = c.parentElement; while (a && a.tagName !== 'MAIN') { if (cards.includes(a)) { out.nested.push(String(a.className).slice(0,50) + ' > ' + String(c.className).slice(0,50)); break; } a = a.parentElement; } }
   const b = getComputedStyle(document.body, '::before'), a = getComputedStyle(document.body, '::after');
-  out.bg = {gradient: /linear-gradient/.test(b.backgroundImage), noise: /feTurbulence/.test(b.backgroundImage), gridLayers: (a.backgroundImage.match(/linear-gradient/g) || []).length, gridSizes: a.backgroundSize, fixed: b.position + '/' + a.position};
+  out.bg = {gradient: /gradient/.test(b.backgroundImage), noise: /feTurbulence/.test(b.backgroundImage), base: b.backgroundColor,
+            gridLayers: (a.backgroundImage.match(/linear-gradient/g) || []).length, gridSizes: a.backgroundSize,
+            gridMask: a.maskImage || a.webkitMaskImage || 'none', fixed: b.position + '/' + a.position};
   return out;
 }"""
 
@@ -709,8 +711,10 @@ def t_v2(browser):
         record("v2", f"{path} no cards nested in cards", not r["nested"], "; ".join(r["nested"][:3]))
         if path == "/":
             bg = r["bg"]
-            ok = bg["gradient"] and bg["noise"] and bg["gridLayers"] >= 4 and "40px" in bg["gridSizes"] and "10px" in bg["gridSizes"]
-            record("v2", "background = gradient + noise (body::before) + square grid (body::after)", ok, str(bg))
+            # Direction 15 Nov (Mark): flat near-black + feTurbulence noise, even 40/10px grid, no colour gradient, no fade mask.
+            ok = (not bg["gradient"]) and bg["noise"] and bg["gridLayers"] >= 4 and "40px" in bg["gridSizes"] and "10px" in bg["gridSizes"] \
+                and bg["gridMask"] in ("none", "") and bg["fixed"] == "fixed/fixed"
+            record("v2", "background = flat base + noise (body::before) + even 40/10px grid, no gradient/mask (body::after)", ok, str(bg))
     ctx.close()
 
 

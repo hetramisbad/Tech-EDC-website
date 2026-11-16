@@ -1365,7 +1365,7 @@
   "group": "shortcuts",
   "check": "/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1395,7 +1395,7 @@
   "group": "shortcuts",
   "check": "/programs/build-cohort/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1425,7 +1425,7 @@
   "group": "shortcuts",
   "check": "/programs/mentorship/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1455,7 +1455,7 @@
   "group": "shortcuts",
   "check": "/buildathon/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1485,7 +1485,7 @@
   "group": "shortcuts",
   "check": "/team/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1515,7 +1515,7 @@
   "group": "shortcuts",
   "check": "/blog/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1545,7 +1545,7 @@
   "group": "shortcuts",
   "check": "/blog/welcome-to-tech-at-edc/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1575,7 +1575,7 @@
   "group": "shortcuts",
   "check": "/404.html key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1605,7 +1605,7 @@
   "group": "shortcuts",
   "check": "/styleguide/ key P",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "shortcuts",
@@ -1671,61 +1671,61 @@
   "group": "anchor",
   "check": "Programs link from / @1440 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "anchor",
   "check": "Programs link from /team/ @1440 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "anchor",
   "check": "Programs link from /programs/mentorship/ @1440 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "anchor",
   "check": "Programs link from /blog/welcome-to-tech-at-edc/ @1440 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "anchor",
   "check": "direct load /#programs @1440 lands below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=80.4375 h2.top=80.4375 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=83.75 h2.top=83.75 nav=69"
  },
  {
   "group": "anchor",
   "check": "Programs link from / @390 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=84.015625 h2.top=84.015625 nav=69"
  },
  {
   "group": "anchor",
   "check": "Programs link from /team/ @390 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=84.015625 h2.top=84.015625 nav=69"
  },
  {
   "group": "anchor",
   "check": "Programs link from /programs/mentorship/ @390 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=84.015625 h2.top=84.015625 nav=69"
  },
  {
   "group": "anchor",
   "check": "Programs link from /blog/welcome-to-tech-at-edc/ @390 lands on #programs below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=84.015625 h2.top=84.015625 nav=69"
  },
  {
   "group": "anchor",
   "check": "direct load /#programs @390 lands below navbar",
   "ok": true,
-  "evidence": "url=http://localhost:4173/#programs #programs.top=79.96875 h2.top=79.96875 nav=65"
+  "evidence": "url=http://localhost:4173/#programs #programs.top=84.015625 h2.top=84.015625 nav=69"
  },
  {
   "group": "menu",
@@ -1767,7 +1767,7 @@
   "group": "menu",
   "check": "Tabbing past the last menu item closes the menu (no focus lost behind sheet)",
   "ok": true,
-  "evidence": "Events\n(opens in a new tab) [hdr] > Team [hdr] > Blog [hdr] > Contact [hdr] > Nov 15, 2026\n/\nTech@EDC Office [page] > hello@techatedc.org [page] > Subscribe [page] > Join Discord\n(opens in a new t [page]"
+  "evidence": "Events\n(opens in a new tab) [hdr] > Team [hdr] > Blog [hdr] > Contact [hdr] > Nov 15, 2026\n/\nTech@EDC Office [page] >  [page] >  [page] >  [page]"
  },
  {
   "group": "menu",
@@ -2325,7 +2325,7 @@
   "group": "content",
   "check": "home sections in Tech@NYU order",
   "ok": true,
-  "evidence": "[\"Build what you're curious about.\", 'community', 'programs', 'events', 'faq', 'connect', 'newsletter']"
+  "evidence": "['Power on.', 'community', 'programs', 'events', 'faq', 'connect', 'newsletter']"
  },
  {
   "group": "content",
@@ -2503,7 +2503,7 @@
  },
  {
   "group": "tab",
-  "check": "/blog/ focus indicator visible on every stop (11 stops)",
+  "check": "/blog/ focus indicator visible on every stop (17 stops)",
   "ok": true,
   "evidence": ""
  },
@@ -2707,9 +2707,9 @@
  },
  {
   "group": "v2",
-  "check": "background = gradient + noise (body::before) + square grid (body::after)",
+  "check": "background = flat base + noise (body::before) + even 40/10px grid, no gradient/mask (body::after)",
   "ok": true,
-  "evidence": "{'gradient': True, 'noise': True, 'gridLayers': 4, 'gridSizes': '40px 40px, 40px 40px, 10px 10px, 10px 10px', 'fixed': 'fixed/fixed'}"
+  "evidence": "{'gradient': False, 'noise': True, 'base': 'rgb(9, 9, 10)', 'gridLayers': 4, 'gridSizes': '40px 40px, 40px 40px, 10px 10px, 10px 10px', 'gridMask': 'none', 'fixed': 'fixed/fixed'}"
  },
  {
   "group": "v2",

@@ -142,8 +142,8 @@ export function Navbar() {
         aria-label="Main"
         onBlur={onBlur}
         className={clsx(
-          "relative border-b transition-[background-color,border-color] duration-200",
-          scrolled || open ? "border-border bg-overlay backdrop-blur-xl" : "border-transparent bg-transparent",
+          "relative transition-[background-color,border-color] duration-200",
+          scrolled || open ? "border-b border-border bg-overlay backdrop-blur-xl" : "bg-transparent",
         )}
       >
         {/* Full-bleed bar with Tech@NYU's side margins: 16px on phones, 24px from md up. */}
