@@ -16,6 +16,9 @@ import { laptopBounds, projectLaptop, type Frame, type Pose } from "./laptopMode
  * With reduced motion it stays at its resting angle.
  */
 
+/** Most extra lid closing while scrolling away (radians, ~24 deg). */
+const CLOSE_MAX = (24 * Math.PI) / 180;
+
 type Fit = { w: number; h: number; scale: number; offX: number; offY: number };
 
 /** Fit the model into a w x h box (as if the box were centered in the viewport). */
@@ -32,7 +35,13 @@ function fitTo(w: number, h: number, vw: number, vh: number): Fit {
 
 /** Frame for a box whose top-left is at (left, top) in the viewport. */
 function frameAt(fit: Fit, left: number, top: number, vw: number, vh: number): Frame {
-  const pose: Pose = { cx: left + fit.w / 2 + fit.offX, cy: top + fit.h / 2 + fit.offY, vw, vh, scale: fit.scale };
+  // Exaggerated closing: as the laptop rises above its resting spot (box centered in
+  // the viewport), the lid folds forward a little on top of the camera's own
+  // flattening, up to CLOSE_MAX once it has risen ~60% of a screen.
+  const rise = (vh - fit.h) / 2 - top;
+  const p = Math.min(1, Math.max(0, rise / (vh * 0.6)));
+  const close = CLOSE_MAX * p * p * (3 - 2 * p);
+  const pose: Pose = { cx: left + fit.w / 2 + fit.offX, cy: top + fit.h / 2 + fit.offY, vw, vh, scale: fit.scale, close };
   return projectLaptop(pose, left, top);
 }
 

@@ -79,16 +79,15 @@ function rot([x, y, z]: Vec3): Vec3 {
   return [x, y * cosE - z * sinE, y * sinE + z * cosE];
 }
 
-// Lid frame: hinge line at the deck's back edge; "up" leans back by LID_TILT.
-const LID_UP: Vec3 = [0, Math.cos(LID_TILT), -Math.sin(LID_TILT)];
-const LID_N: Vec3 = [0, Math.sin(LID_TILT), Math.cos(LID_TILT)]; // front-facing normal
+// Lid frame: hinge line at the deck's back edge; "up" leans back by `tilt`
+// (LID_TILT at rest; smaller = more closed, see Pose.close).
 const HINGE: Vec3 = [0, -1.5, -D / 2 + 3];
-function lidPt(x: number, up: number, out: number): Vec3 {
-  return [
-    x + HINGE[0],
-    HINGE[1] + LID_UP[1] * up + LID_N[1] * out,
-    HINGE[2] + LID_UP[2] * up + LID_N[2] * out,
-  ];
+type LidFrame = { up: Vec3; n: Vec3 };
+function lidFrame(tilt: number): LidFrame {
+  return { up: [0, Math.cos(tilt), -Math.sin(tilt)], n: [0, Math.sin(tilt), Math.cos(tilt)] };
+}
+function lidPt(L: LidFrame, x: number, up: number, out: number): Vec3 {
+  return [x + HINGE[0], HINGE[1] + L.up[1] * up + L.n[1] * out, HINGE[2] + L.up[2] * up + L.n[2] * out];
 }
 
 export type Face = { pts: Vec3[]; normal: Vec3; fill: string; stroke?: string; sw?: number; round?: boolean };
@@ -107,27 +106,29 @@ function box(x0: number, x1: number, y0: number, y1: number, z0: number, z1: num
 }
 
 /** Lid as a slab in its own tilted frame. */
-function lidFaces(): Face[] {
+function lidFaces(L: LidFrame): Face[] {
+  const LID_N = L.n;
+  const LID_UP = L.up;
   const x0 = -W / 2;
   const x1 = W / 2;
   const f = (pts: Vec3[], normal: Vec3, fill: string): Face => ({ pts, normal, fill, stroke: "var(--laptop-edge)" });
   const back = -LID_T;
   const neg = (v: Vec3): Vec3 => [-v[0], -v[1], -v[2]];
   return [
-    f([lidPt(x0, LID_H, 0), lidPt(x1, LID_H, 0), lidPt(x1, 0, 0), lidPt(x0, 0, 0)], LID_N, "var(--laptop-metal)"), // front
-    f([lidPt(x1, LID_H, back), lidPt(x0, LID_H, back), lidPt(x0, 0, back), lidPt(x1, 0, back)], neg(LID_N), "var(--laptop-metal)"), // back
-    f([lidPt(x0, LID_H, back), lidPt(x1, LID_H, back), lidPt(x1, LID_H, 0), lidPt(x0, LID_H, 0)], LID_UP, "var(--laptop-metal-shade)"), // top edge
-    f([lidPt(x0, LID_H, back), lidPt(x0, LID_H, 0), lidPt(x0, 0, 0), lidPt(x0, 0, back)], [-1, 0, 0], "var(--laptop-metal-shade)"),
-    f([lidPt(x1, LID_H, 0), lidPt(x1, LID_H, back), lidPt(x1, 0, back), lidPt(x1, 0, 0)], [1, 0, 0], "var(--laptop-metal-shade)"),
+    f([lidPt(L, x0, LID_H, 0), lidPt(L, x1, LID_H, 0), lidPt(L, x1, 0, 0), lidPt(L, x0, 0, 0)], LID_N, "var(--laptop-metal)"), // front
+    f([lidPt(L, x1, LID_H, back), lidPt(L, x0, LID_H, back), lidPt(L, x0, 0, back), lidPt(L, x1, 0, back)], neg(LID_N), "var(--laptop-metal)"), // back
+    f([lidPt(L, x0, LID_H, back), lidPt(L, x1, LID_H, back), lidPt(L, x1, LID_H, 0), lidPt(L, x0, LID_H, 0)], LID_UP, "var(--laptop-metal-shade)"), // top edge
+    f([lidPt(L, x0, LID_H, back), lidPt(L, x0, LID_H, 0), lidPt(L, x0, 0, 0), lidPt(L, x0, 0, back)], [-1, 0, 0], "var(--laptop-metal-shade)"),
+    f([lidPt(L, x1, LID_H, 0), lidPt(L, x1, LID_H, back), lidPt(L, x1, 0, back), lidPt(L, x1, 0, 0)], [1, 0, 0], "var(--laptop-metal-shade)"),
   ];
 }
 
 const DISPLAY_INSET = { side: 9, top: 9, bottom: 20 };
-const DISPLAY: Vec3[] = [
-  lidPt(-W / 2 + DISPLAY_INSET.side, LID_H - DISPLAY_INSET.top, 0.3),
-  lidPt(W / 2 - DISPLAY_INSET.side, LID_H - DISPLAY_INSET.top, 0.3),
-  lidPt(W / 2 - DISPLAY_INSET.side, DISPLAY_INSET.bottom, 0.3),
-  lidPt(-W / 2 + DISPLAY_INSET.side, DISPLAY_INSET.bottom, 0.3),
+const displayQuad = (L: LidFrame): Vec3[] => [
+  lidPt(L, -W / 2 + DISPLAY_INSET.side, LID_H - DISPLAY_INSET.top, 0.3),
+  lidPt(L, W / 2 - DISPLAY_INSET.side, LID_H - DISPLAY_INSET.top, 0.3),
+  lidPt(L, W / 2 - DISPLAY_INSET.side, DISPLAY_INSET.bottom, 0.3),
+  lidPt(L, -W / 2 + DISPLAY_INSET.side, DISPLAY_INSET.bottom, 0.3),
 ];
 
 // Hinge: a black bar along the back edge, between the deck and the lid.
@@ -198,6 +199,8 @@ export type Pose = {
   vh: number;
   /** px per mm. */
   scale: number;
+  /** Extra lid closing (radians) on top of the resting angle; 0 = resting. */
+  close?: number;
 };
 
 export type Frame = {
@@ -246,7 +249,8 @@ export function projectLaptop(pose: Pose, originX: number, originY: number): Fra
   // Lid first (farthest), then hinge, then base; each set back-face culled and depth sorted.
   const sorted = (fs: Face[]) =>
     fs.filter((f) => visible(f.pts, f.normal)).sort((a, b) => depth(a.pts) - depth(b.pts));
-  const faces = [...sorted(lidFaces()), ...sorted(HINGE_FACES), ...sorted(BASE_FACES)].map((f) => ({
+  const L = lidFrame(LID_TILT - (pose.close ?? 0));
+  const faces = [...sorted(lidFaces(L)), ...sorted(HINGE_FACES), ...sorted(BASE_FACES)].map((f) => ({
     d: poly(f.pts),
     fill: f.fill,
     stroke: f.stroke,
@@ -269,7 +273,7 @@ export function projectLaptop(pose: Pose, originX: number, originY: number): Fra
 
   return {
     faces,
-    display: poly(DISPLAY),
+    display: poly(displayQuad(L)),
     trackpad: poly(TRACKPAD),
     scoop: path(SCOOP),
     keys,
@@ -281,7 +285,7 @@ export function projectLaptop(pose: Pose, originX: number, originY: number): Fra
 /** Projected bounds of the whole laptop for a pose (for fitting it to its box). */
 export function laptopBounds(pose: Pose) {
   const { proj } = projector(pose, 0, 0);
-  const pts: Vec3[] = [...BASE_FACES.flatMap((f) => f.pts), ...lidFaces().flatMap((f) => f.pts)];
+  const pts: Vec3[] = [...BASE_FACES.flatMap((f) => f.pts), ...lidFaces(lidFrame(LID_TILT)).flatMap((f) => f.pts)];
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
   for (const p of pts) {
     const [x, y] = proj(p);
