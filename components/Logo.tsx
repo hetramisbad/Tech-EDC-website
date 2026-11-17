@@ -21,7 +21,7 @@ export function PowerAt({ className, title }: { className?: string; title?: stri
       // The viewBox hugs the ink exactly; let antialiased stroke edges paint past it
       // instead of being clipped flat (the ring's bottom was getting cut off).
       overflow="visible"
-      className={clsx("inline-block h-[var(--at-h,0.78em)] w-auto shrink-0", className)}
+      className={clsx("inline-block h-[var(--at-h,0.73em)] w-auto shrink-0", className)}
       role={title ? "img" : undefined}
       aria-label={title}
       aria-hidden={title ? undefined : true}
@@ -58,11 +58,13 @@ export function Logo({ size = 22, className }: LogoProps) {
     <span
       role="img"
       aria-label={site.name}
-      className={clsx("inline-flex items-baseline font-bold leading-none tracking-[-0.03em] text-fg", className)}
+      // top: Satoshi's letters sit ~0.7px high in the bar; nudge so the text lines up
+      // with the nav links (measured, see qa).
+      className={clsx("relative top-[0.032em] inline-flex items-baseline font-bold leading-none tracking-[-0.03em] text-fg", className)}
       style={{ fontSize: size, fontFamily: "var(--font-wordmark)" }}
     >
       <span aria-hidden="true">tech</span>
-      <PowerAt className="mr-[0.051em] ml-[0.064em]" />
+      <PowerAt className="mr-[0.052em] ml-[0.063em] translate-x-[0.017em]" />
       <span aria-hidden="true">edc</span>
     </span>
   );

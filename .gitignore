@@ -46,3 +46,9 @@ next-env.d.ts
 /qa/screenshots/
 /qa/lighthouse/
 /qa/__pycache__/
+
+# Satoshi (ITF Free Font License): self-hosting on the site is allowed, but the
+# font must not be redistributed via a public repository, so it is not committed.
+# Get it from https://www.fontshare.com/fonts/satoshi (Fonts/WEB/fonts/Satoshi-Bold.woff2)
+# and copy it into public/fonts/ before building.
+public/fonts/Satoshi-*

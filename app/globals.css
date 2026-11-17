@@ -34,14 +34,15 @@
   font-display: swap;
 }
 
-/* Wordmark font: Satoshi Bold (Indian Type Foundry, via fontshare.com; free for
-   personal and commercial use, self-hosting allowed). Until the file is added it is
-   used only where installed locally. To self-host: put Satoshi-Bold.woff2 (from the
-   Fontshare download, Fonts/WEB/fonts/) in public/fonts/ and append
-   `, url("/fonts/Satoshi-Bold.woff2") format("woff2")` to src below. */
+/* Wordmark font: Satoshi Bold (Indian Type Foundry, fontshare.com, ITF Free Font
+   License: free for commercial use, self-hosting on our own site allowed). The file
+   is NOT committed: the repo is public and the license forbids redistributing the
+   font through public repositories. Copy Satoshi-Bold.woff2 from the Fontshare
+   download (Fonts/WEB/fonts/) into public/fonts/ before building; without it the
+   wordmark falls back to BDO Grotesk (see --font-wordmark). */
 @font-face {
   font-family: "Satoshi";
-  src: local("Satoshi Bold"), local("Satoshi-Bold");
+  src: local("Satoshi Bold"), local("Satoshi-Bold"), url("/fonts/Satoshi-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
