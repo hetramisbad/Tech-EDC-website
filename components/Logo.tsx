@@ -58,9 +58,9 @@ export function Logo({ size = 22, className }: LogoProps) {
     <span
       role="img"
       aria-label={site.name}
-      // top: Satoshi's letters sit ~0.7px high in the bar; nudge so the text lines up
-      // with the nav links (measured, see qa).
-      className={clsx("relative top-[0.032em] inline-flex items-baseline font-medium leading-none tracking-[-0.03em] text-fg", className)}
+      // top: baseline-align the wordmark with the nav link text, as Tech@NYU does
+      // (their wordmark letters sit on the same baseline as "[T] Team"; measured).
+      className={clsx("relative top-[-0.132em] inline-flex items-baseline font-medium leading-none tracking-[-0.03em] text-fg", className)}
       style={{ fontSize: size, fontFamily: "var(--font-wordmark)" }}
     >
       <span aria-hidden="true">tech</span>
