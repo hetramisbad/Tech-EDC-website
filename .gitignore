@@ -49,6 +49,6 @@ next-env.d.ts
 
 # Satoshi (ITF Free Font License): self-hosting on the site is allowed, but the
 # font must not be redistributed via a public repository, so it is not committed.
-# Get it from https://www.fontshare.com/fonts/satoshi (Fonts/WEB/fonts/Satoshi-Bold.woff2)
+# Get it from https://www.fontshare.com/fonts/satoshi (Fonts/WEB/fonts/Satoshi-Medium.woff2)
 # and copy it into public/fonts/ before building.
 public/fonts/Satoshi-*

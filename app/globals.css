@@ -34,16 +34,16 @@
   font-display: swap;
 }
 
-/* Wordmark font: Satoshi Bold (Indian Type Foundry, fontshare.com, ITF Free Font
+/* Wordmark font: Satoshi Medium (Indian Type Foundry, fontshare.com, ITF Free Font
    License: free for commercial use, self-hosting on our own site allowed). The file
    is NOT committed: the repo is public and the license forbids redistributing the
-   font through public repositories. Copy Satoshi-Bold.woff2 from the Fontshare
+   font through public repositories. Copy Satoshi-Medium.woff2 from the Fontshare
    download (Fonts/WEB/fonts/) into public/fonts/ before building; without it the
    wordmark falls back to BDO Grotesk (see --font-wordmark). */
 @font-face {
   font-family: "Satoshi";
-  src: local("Satoshi Bold"), local("Satoshi-Bold"), url("/fonts/Satoshi-Bold.woff2") format("woff2");
-  font-weight: 700;
+  src: local("Satoshi Medium"), local("Satoshi-Medium"), url("/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
@@ -221,7 +221,7 @@ html[data-accent="none"],
   --font-sans:
     "BDO Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
-  /* Wordmark (top-left tech@edc): Satoshi Bold, falling back to BDO Grotesk. */
+  /* Wordmark (top-left tech@edc): Satoshi Medium, falling back to BDO Grotesk. */
   --font-wordmark: "Satoshi", var(--font-sans);
   --font-mono:
     "Geist Mono Variable", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas,

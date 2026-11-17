@@ -12,18 +12,18 @@ npm run build    # static site in out/
 
 ### Wordmark font (one-time setup)
 
-The top-left `tech@edc` wordmark uses **Satoshi Bold** (free from
+The top-left `tech@edc` wordmark uses **Satoshi Medium** (free from
 [Fontshare](https://www.fontshare.com/fonts/satoshi), ITF Free Font License). The license
 allows self-hosting it on our site but not redistributing it through a public repository,
 so the font file is **not in this repo** (it is gitignored).
 
 After cloning, download Satoshi from Fontshare, unzip it, and copy
-`Fonts/WEB/fonts/Satoshi-Bold.woff2` into `public/fonts/`. Without it the wordmark falls
+`Fonts/WEB/fonts/Satoshi-Medium.woff2` into `public/fonts/`. Without it the wordmark falls
 back to BDO Grotesk, and the browser logs one missing-file request.
 
 ## Deploy
 
-`npm run build` produces a plain static site in `out/`. Upload the contents of `out/` to any static host (e.g. GoDaddy hosting `public_html`). No server is required. Build on a machine that has `public/fonts/Satoshi-Bold.woff2` (see above) so the font is uploaded with the site.
+`npm run build` produces a plain static site in `out/`. Upload the contents of `out/` to any static host (e.g. GoDaddy hosting `public_html`). No server is required. Build on a machine that has `public/fonts/Satoshi-Medium.woff2` (see above) so the font is uploaded with the site.
 
 ## Editing content
 

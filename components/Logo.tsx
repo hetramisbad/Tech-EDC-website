@@ -28,7 +28,7 @@ export function PowerAt({ className, title }: { className?: string; title?: stri
       focusable="false"
       fill="none"
       stroke="currentColor"
-      strokeWidth="2.9"
+      strokeWidth="2.4"
       strokeLinecap="round"
     >
       {/* Ring broken at the top, then the vertical stroke through the gap. */}
@@ -48,7 +48,7 @@ export function LogoMark({ size = 24, title, className }: { size?: number; title
 }
 
 /**
- * Tech@EDC wordmark, Tech@NYU style: lowercase "tech@edc" in Satoshi Bold
+ * Tech@EDC wordmark, Tech@NYU style: lowercase "tech@edc" in Satoshi Medium
  * (--font-wordmark; falls back to bold BDO Grotesk until Satoshi is available),
  * with the "@" drawn as a power-button glyph. The whole mark is one accessible
  * name ("Tech@EDC"); the parts are hidden from assistive tech.
@@ -60,11 +60,11 @@ export function Logo({ size = 22, className }: LogoProps) {
       aria-label={site.name}
       // top: Satoshi's letters sit ~0.7px high in the bar; nudge so the text lines up
       // with the nav links (measured, see qa).
-      className={clsx("relative top-[0.032em] inline-flex items-baseline font-bold leading-none tracking-[-0.03em] text-fg", className)}
+      className={clsx("relative top-[0.032em] inline-flex items-baseline font-medium leading-none tracking-[-0.03em] text-fg", className)}
       style={{ fontSize: size, fontFamily: "var(--font-wordmark)" }}
     >
       <span aria-hidden="true">tech</span>
-      <PowerAt className="mr-[0.052em] ml-[0.063em] translate-x-[0.017em]" />
+      <PowerAt className="mr-[0.052em] ml-[0.063em] translate-x-[-0.005em]" />
       <span aria-hidden="true">edc</span>
     </span>
   );
